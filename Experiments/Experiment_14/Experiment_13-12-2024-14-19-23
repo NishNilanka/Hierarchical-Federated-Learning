@@ -1,0 +1,76 @@
+EXPERIMENT 14 Log 13-12-2024-14-19-23
+================================
+DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
+TOTAL NUMBER OF CLIENTS: 30
+TOTAL NUMBER OF EDGE SERVER: [3 - 5]
+
+HIERARCHICAL FEDERATED LEARNING CONFIGURATION:
+CLIENT LOCAL_ITERATIONS (K1): 5
+TOTAL NUMBER OF EDGE_AGGREGATIONS: 10
+TOTAL NUMBER OF GLOBAL_ROUNDS: 25
+TRAIN_PHASES: 5
+
+FL STRATEGY CONFIGURATION:
+CLIENT FRACTION: 0.7
+EVALUATE_FRACTION: 0.7
+CLIENT_RESOURCES: {'num_cpus': 1, 'num_gpus': 0.0}
+
+TRAINING PROCESS CONFIGURATION:
+DATASET: mnist
+DATA DISTRIBUTION: NON-IID
+TYPE DISTRIBUTION: pathological-balanced
+BATCH_SIZE: 20
+LEARNING_RATE: 0.01
+EXPONENTIAL_DECAY_RATE: 0.995
+================================
+
+----------------------------------------------------------------------------------
+PHASE 1 - CLUSTER CONFIGURATION
+
+Client Drone 3 in Cluster 1 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client Drone 8 in Cluster 1 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client Drone 10 in Cluster 1 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client Drone 11 in Cluster 1 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client Drone 13 in Cluster 1 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client Drone 29 in Cluster 1 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client Drone 2 in Cluster 2 - 	Train Loader: 1798 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client Drone 5 in Cluster 2 - 	Train Loader: 1558 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client Drone 6 in Cluster 2 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client Drone 17 in Cluster 2 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client Drone 26 in Cluster 2 - 	Train Loader: 1634 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client Drone 28 in Cluster 2 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client Drone 1 in Cluster 3 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client Drone 14 in Cluster 3 - 	Train Loader: 1671 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client Drone 16 in Cluster 3 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 391 sample with Label 8
+Client Drone 22 in Cluster 3 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client Drone 24 in Cluster 3 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client Drone 25 in Cluster 3 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client Drone 0 in Cluster 4 - 	Train Loader: 1580 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client Drone 4 in Cluster 4 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client Drone 7 in Cluster 4 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client Drone 9 in Cluster 4 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client Drone 12 in Cluster 4 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client Drone 15 in Cluster 4 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client Drone 18 in Cluster 5 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client Drone 19 in Cluster 5 - 	Train Loader: 1577 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client Drone 20 in Cluster 5 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client Drone 21 in Cluster 5 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client Drone 23 in Cluster 5 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client Drone 27 in Cluster 5 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+
+GLOBAL TEST ROUND: 1 Evaluation -Loss: 0.003289514708518982 	Accuracy: 0.4799 	Training time: 2.5088s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.0023424998044967653 	Accuracy: 0.6169 	Training time: 2.5088s
+Energy Computation: 0.25088000000000005 	Energy Communication: 328.36445698000006 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 3 Evaluation -Loss: 0.0016178129971027373 	Accuracy: 0.7946 	Training time: 2.5087999999999995s
+Energy Computation: 0.25088 	Energy Communication: 328.36445698000017 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 4 Evaluation -Loss: 0.001124159163236618 	Accuracy: 0.804 	Training time: 2.5088s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 5 Evaluation -Loss: 0.0008989110946655273 	Accuracy: 0.856 	Training time: 2.5087999999999995s
+Energy Computation: 0.25088000000000005 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+----------------------------------------------------------------------------------
+PHASE 2 - CLUSTER CONFIGURATION

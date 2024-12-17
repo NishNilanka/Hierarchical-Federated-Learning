@@ -1,0 +1,41 @@
+EXPERIMENT 14 Log 16-12-2024-11-51-53
+================================
+DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
+TOTAL NUMBER OF CLIENTS: 30
+TOTAL NUMBER OF EDGE SERVER: [3 - 5]
+
+HIERARCHICAL FEDERATED LEARNING CONFIGURATION:
+CLIENT LOCAL_ITERATIONS (K1): 5
+TOTAL NUMBER OF EDGE_AGGREGATIONS: 10
+TOTAL NUMBER OF GLOBAL_ROUNDS: 25
+TRAIN_PHASES: 5
+
+FL STRATEGY CONFIGURATION:
+CLIENT FRACTION: 0.7
+EVALUATE_FRACTION: 0.7
+CLIENT_RESOURCES: {'num_cpus': 1, 'num_gpus': 0.0}
+
+TRAINING PROCESS CONFIGURATION:
+DATASET: mnist
+DATA DISTRIBUTION: NON-IID
+TYPE DISTRIBUTION: pathological-balanced
+BATCH_SIZE: 20
+LEARNING_RATE: 0.01
+EXPONENTIAL_DECAY_RATE: 0.995
+================================
+
+----------------------------------------------------------------------------------
+PHASE 1 - CONFIGURING CLUSTERS
+Cluster sizes after random clustering (Phase 1):
+  Cluster 1: 6 clients
+  Cluster 2: 6 clients
+  Cluster 3: 6 clients
+  Cluster 4: 6 clients
+  Cluster 5: 6 clients
+
+
+GLOBAL TEST ROUND: 1 Evaluation -Loss: 0.0033999388217926026 	Accuracy: 0.2697 	Training time: 2.5088s
+Energy Computation: 0.25087999999999994 	Energy Communication: 328.36445698000006 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.0024282943487167357 	Accuracy: 0.5901 	Training time: 2.508800000000001s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 

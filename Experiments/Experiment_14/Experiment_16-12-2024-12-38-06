@@ -1,0 +1,58 @@
+EXPERIMENT 14 Log 16-12-2024-12-38-06
+================================
+DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
+TOTAL NUMBER OF CLIENTS: 30
+TOTAL NUMBER OF EDGE SERVER: [3 - 5]
+
+HIERARCHICAL FEDERATED LEARNING CONFIGURATION:
+CLIENT LOCAL_ITERATIONS (K1): 5
+TOTAL NUMBER OF EDGE_AGGREGATIONS: 10
+TOTAL NUMBER OF GLOBAL_ROUNDS: 25
+TRAIN_PHASES: 5
+
+FL STRATEGY CONFIGURATION:
+CLIENT FRACTION: 0.7
+EVALUATE_FRACTION: 0.7
+CLIENT_RESOURCES: {'num_cpus': 1, 'num_gpus': 0.0}
+
+TRAINING PROCESS CONFIGURATION:
+DATASET: mnist
+DATA DISTRIBUTION: NON-IID
+TYPE DISTRIBUTION: pathological-balanced
+BATCH_SIZE: 20
+LEARNING_RATE: 0.01
+EXPONENTIAL_DECAY_RATE: 0.995
+================================
+
+----------------------------------------------------------------------------------
+PHASE 1 - CONFIGURING CLUSTERS
+Cluster sizes after random clustering (Phase 1):
+  Cluster 1: 6 clients
+  Cluster 2: 6 clients
+  Cluster 3: 6 clients
+  Cluster 4: 6 clients
+  Cluster 5: 6 clients
+
+
+GLOBAL TEST ROUND: 1 Evaluation -Loss: 0.003405288660526276 	Accuracy: 0.268 	Training time: 2.5088000000000004s
+Energy Computation: 0.25088 	Energy Communication: 328.36445698000017 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.002439556622505188 	Accuracy: 0.6218 	Training time: 2.5088s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 3 Evaluation -Loss: 0.0016502685725688934 	Accuracy: 0.7379 	Training time: 2.508799999999999s
+Energy Computation: 0.25088 	Energy Communication: 328.36445698000017 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 4 Evaluation -Loss: 0.0011682888746261597 	Accuracy: 0.8299 	Training time: 2.5087999999999995s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 5 Evaluation -Loss: 0.0010286560893058778 	Accuracy: 0.8012 	Training time: 2.5088000000000004s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+----------------------------------------------------------------------------------
+PHASE 2 - CONFIGURING CLUSTERS
+Cluster sizes after K-Means clustering (Phase 2):
+  Cluster 1: 30 clients
+  Cluster 2: 0 clients
+  Cluster 3: 0 clients
+  Cluster 4: 0 clients
+  Cluster 5: 0 clients

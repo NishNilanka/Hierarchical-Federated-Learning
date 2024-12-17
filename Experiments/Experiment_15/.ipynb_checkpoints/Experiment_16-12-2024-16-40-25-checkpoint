@@ -1,0 +1,50 @@
+EXPERIMENT 15 Log 16-12-2024-16-40-25
+================================
+DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
+TOTAL NUMBER OF CLIENTS: 30
+TOTAL NUMBER OF EDGE SERVER: [3 - 5]
+
+HIERARCHICAL FEDERATED LEARNING CONFIGURATION:
+CLIENT LOCAL_ITERATIONS (K1): 5
+TOTAL NUMBER OF EDGE_AGGREGATIONS: 10
+TOTAL NUMBER OF GLOBAL_ROUNDS: 25
+TRAIN_PHASES: 5
+
+FL STRATEGY CONFIGURATION:
+CLIENT FRACTION: 0.7
+EVALUATE_FRACTION: 0.7
+CLIENT_RESOURCES: {'num_cpus': 1, 'num_gpus': 0.0}
+
+TRAINING PROCESS CONFIGURATION:
+DATASET: mnist
+DATA DISTRIBUTION: NON-IID
+TYPE DISTRIBUTION: pathological-balanced
+BATCH_SIZE: 20
+LEARNING_RATE: 0.01
+EXPONENTIAL_DECAY_RATE: 0.995
+================================
+
+----------------------------------------------------------------------------------
+PHASE 1 - CONFIGURING RANDOM CLUSTERS
+
+
+GLOBAL TEST ROUND: 1 Evaluation -Loss: 0.003522762703895569 	Accuracy: 0.2657 	Training time: 2.5088s
+Energy Computation: 0.25088000000000005 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.002514725470542908 	Accuracy: 0.5729 	Training time: 2.5088s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 3 Evaluation -Loss: 0.001670687109231949 	Accuracy: 0.7282 	Training time: 2.5088000000000004s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 4 Evaluation -Loss: 0.0011156399369239808 	Accuracy: 0.8467 	Training time: 2.5087999999999995s
+Energy Computation: 0.25087999999999994 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 5 Evaluation -Loss: 0.0009681832432746888 	Accuracy: 0.8362 	Training time: 2.5088s
+Energy Computation: 0.25088 	Energy Communication: 328.36445698000006 	Number of communications: 200 
+----------------------------------------------------------------------------------
+PHASE 2 - CONFIGURING RANDOM CLUSTERS
+
+
+GLOBAL TEST ROUND: 6 Evaluation -Loss: 0.000853438463807106 	Accuracy: 0.8403 	Training time: 2.5088s
+Energy Computation: 0.25087999999999994 	Energy Communication: 328.36445698000017 	Number of communications: 200 

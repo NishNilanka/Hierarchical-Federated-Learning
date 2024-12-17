@@ -1,0 +1,64 @@
+EXPERIMENT 14 Log 13-12-2024-18-03-34
+================================
+DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
+TOTAL NUMBER OF CLIENTS: 30
+TOTAL NUMBER OF EDGE SERVER: [3 - 5]
+
+HIERARCHICAL FEDERATED LEARNING CONFIGURATION:
+CLIENT LOCAL_ITERATIONS (K1): 5
+TOTAL NUMBER OF EDGE_AGGREGATIONS: 10
+TOTAL NUMBER OF GLOBAL_ROUNDS: 25
+TRAIN_PHASES: 5
+
+FL STRATEGY CONFIGURATION:
+CLIENT FRACTION: 0.7
+EVALUATE_FRACTION: 0.7
+CLIENT_RESOURCES: {'num_cpus': 1, 'num_gpus': 0.0}
+
+TRAINING PROCESS CONFIGURATION:
+DATASET: mnist
+DATA DISTRIBUTION: NON-IID
+TYPE DISTRIBUTION: pathological-balanced
+BATCH_SIZE: 20
+LEARNING_RATE: 0.01
+EXPONENTIAL_DECAY_RATE: 0.995
+================================
+
+----------------------------------------------------------------------------------
+PHASE 1 - CONFIGURING CLUSTERS
+
+
+GLOBAL TEST ROUND: 1 Evaluation -Loss: 0.003414527988433838 	Accuracy: 0.2543 	Training time: 2.5088s
+Energy Computation: 0.25088 	Energy Communication: 328.36445698000017 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.0025004107236862184 	Accuracy: 0.6048 	Training time: 2.5088s
+Energy Computation: 0.25088000000000005 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 3 Evaluation -Loss: 0.001639344894886017 	Accuracy: 0.7056 	Training time: 2.5088000000000004s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 4 Evaluation -Loss: 0.0011745805680751802 	Accuracy: 0.7882 	Training time: 2.5087999999999995s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 5 Evaluation -Loss: 0.0009302008688449859 	Accuracy: 0.8315 	Training time: 2.508799999999999s
+Energy Computation: 0.25087999999999994 	Energy Communication: 328.36445698000017 	Number of communications: 200 
+----------------------------------------------------------------------------------
+PHASE 2 - CONFIGURING CLUSTERS
+
+
+GLOBAL TEST ROUND: 6 Evaluation -Loss: 0.0008201780050992966 	Accuracy: 0.8638 	Training time: 2.5088s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 7 Evaluation -Loss: 0.0006764951854944229 	Accuracy: 0.8838 	Training time: 2.508799999999999s
+Energy Computation: 0.25087999999999994 	Energy Communication: 328.36445698000017 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 8 Evaluation -Loss: 0.0006081561416387558 	Accuracy: 0.9008 	Training time: 2.5088000000000004s
+Energy Computation: 0.25088 	Energy Communication: 328.36445698000017 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 9 Evaluation -Loss: 0.0005791987359523773 	Accuracy: 0.8882 	Training time: 2.5088s
+Energy Computation: 0.25088 	Energy Communication: 328.3644569800001 	Number of communications: 200 
+
+GLOBAL TEST ROUND: 10 Evaluation -Loss: 0.0005030038237571717 	Accuracy: 0.9144 	Training time: 2.5088s
+Energy Computation: 0.25088 	Energy Communication: 328.36445698000017 	Number of communications: 200 
+----------------------------------------------------------------------------------
+PHASE 3 - CONFIGURING CLUSTERS
