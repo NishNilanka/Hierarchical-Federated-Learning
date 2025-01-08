@@ -1,0 +1,367 @@
+EXPERIMENT 16 Log 07-01-2025-18-17-32
+================================
+DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
+TOTAL NUMBER OF CLIENTS: 30
+TOTAL NUMBER OF EDGE SERVER: [3 - 5]
+
+HIERARCHICAL FEDERATED LEARNING CONFIGURATION:
+CLIENT LOCAL_ITERATIONS (K1): 25
+TOTAL NUMBER OF EDGE_AGGREGATIONS: 2
+TOTAL NUMBER OF GLOBAL_ROUNDS: 25
+TRAIN_PHASES: 5
+
+FL STRATEGY CONFIGURATION:
+CLIENT FRACTION: 0.7
+EVALUATE_FRACTION: 0.7
+CLIENT_RESOURCES: {'num_cpus': 1, 'num_gpus': 0.0}
+
+TRAINING PROCESS CONFIGURATION:
+DATASET: mnist
+DATA DISTRIBUTION: NON-IID
+TYPE DISTRIBUTION: pathological-balanced
+BATCH_SIZE: 20
+LEARNING_RATE: 0.01
+EXPONENTIAL_DECAY_RATE: 0.995
+================================
+
+----------------------------------------------------------------------------------
+PHASE 1 - CONFIGURATION WITH 5 CLUSTERS
+
+
+Cluster 0 with size 6
+Client 1 - 	Train Loader: 1580 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 2 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 3 - 	Train Loader: 1798 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 4 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 5 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 6 - 	Train Loader: 1558 sample with Label 4	Validation Loader: 390 sample with Label 4
+
+Cluster 1 with size 6
+Client 1 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 2 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 3 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 4 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 5 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 6 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+
+Cluster 2 with size 7
+Client 1 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 2 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 3 - 	Train Loader: 1671 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 4 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 5 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 391 sample with Label 8
+Client 6 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client 7 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+
+Cluster 3 with size 5
+Client 1 - 	Train Loader: 1577 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 2 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 3 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client 4 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client 5 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+
+Cluster 4 with size 6
+Client 1 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 2 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 3 - 	Train Loader: 1634 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 4 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 5 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 6 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+
+GLOBAL TEST ROUND: 1 Evaluation -Loss: 0.0041873355865478515 	Accuracy: 0.0974 	Training time: 2.383359999999999s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.007413670587539673 	Accuracy: 0.0982 	Training time: 2.383359999999999s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 3 Evaluation -Loss: 0.003921400260925293 	Accuracy: 0.1032 	Training time: 2.3833599999999993s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 4 Evaluation -Loss: 0.005689567470550537 	Accuracy: 0.098 	Training time: 2.3833599999999984s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.389246826200036 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 5 Evaluation -Loss: 0.003995461463928223 	Accuracy: 0.0974 	Training time: 2.383359999999999s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+----------------------------------------------------------------------------------
+PHASE 2 - CONFIGURATION WITH 3 CLUSTERS
+
+
+Cluster 0 with size 10
+Client 1 - 	Train Loader: 1580 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 2 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 3 - 	Train Loader: 1798 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 4 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 5 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 6 - 	Train Loader: 1558 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 7 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 8 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 9 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 10 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+
+Cluster 1 with size 9
+Client 1 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 2 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 3 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 4 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 5 - 	Train Loader: 1671 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 6 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 7 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 391 sample with Label 8
+Client 8 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client 9 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+
+Cluster 2 with size 11
+Client 1 - 	Train Loader: 1577 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 2 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 3 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client 4 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client 5 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 6 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 7 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 8 - 	Train Loader: 1634 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 9 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 10 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 11 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+
+GLOBAL TEST ROUND: 6 Evaluation -Loss: 0.0077478757381439205 	Accuracy: 0.1011 	Training time: 2.5087999999999995s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600003 	Number of communications: 40 
+
+GLOBAL TEST ROUND: 7 Evaluation -Loss: 0.004437728476524353 	Accuracy: 0.1032 	Training time: 2.508799999999999s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600004 	Number of communications: 40 
+
+GLOBAL TEST ROUND: 8 Evaluation -Loss: 0.005041982340812683 	Accuracy: 0.0982 	Training time: 2.5087999999999986s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600004 	Number of communications: 40 
+
+GLOBAL TEST ROUND: 9 Evaluation -Loss: 0.004227094459533691 	Accuracy: 0.1028 	Training time: 2.5087999999999986s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600004 	Number of communications: 40 
+
+GLOBAL TEST ROUND: 10 Evaluation -Loss: 0.004305427384376526 	Accuracy: 0.1202 	Training time: 2.5087999999999986s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600003 	Number of communications: 40 
+----------------------------------------------------------------------------------
+PHASE 3 - CONFIGURATION WITH 4 CLUSTERS
+
+
+Cluster 0 with size 7
+Client 1 - 	Train Loader: 1580 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 2 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 3 - 	Train Loader: 1798 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 4 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 5 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 6 - 	Train Loader: 1558 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 7 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+
+Cluster 1 with size 9
+Client 1 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 2 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 3 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 4 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 5 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 6 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 7 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 8 - 	Train Loader: 1671 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 9 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+
+Cluster 2 with size 9
+Client 1 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 391 sample with Label 8
+Client 2 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client 3 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client 4 - 	Train Loader: 1577 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 5 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 6 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client 7 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client 8 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 9 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+
+Cluster 3 with size 5
+Client 1 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 2 - 	Train Loader: 1634 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 3 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 4 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 5 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+
+GLOBAL TEST ROUND: 11 Evaluation -Loss: 0.004428909397125244 	Accuracy: 0.098 	Training time: 2.3833599999999997s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 12 Evaluation -Loss: 0.004755583333969116 	Accuracy: 0.1032 	Training time: 2.3833599999999993s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 13 Evaluation -Loss: 0.0037876315116882322 	Accuracy: 0.2321 	Training time: 2.3833599999999993s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 14 Evaluation -Loss: 0.004906158232688904 	Accuracy: 0.0969 	Training time: 2.3833599999999993s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.389246826200036 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 15 Evaluation -Loss: 0.00325194548368454 	Accuracy: 0.3444 	Training time: 2.3833599999999984s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+----------------------------------------------------------------------------------
+PHASE 4 - CONFIGURATION WITH 3 CLUSTERS
+
+
+Cluster 0 with size 12
+Client 1 - 	Train Loader: 1580 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 2 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 3 - 	Train Loader: 1798 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 4 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 5 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 6 - 	Train Loader: 1558 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 7 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 8 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 9 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 10 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 11 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 12 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+
+Cluster 1 with size 9
+Client 1 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 2 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 3 - 	Train Loader: 1671 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 4 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 5 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 391 sample with Label 8
+Client 6 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client 7 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client 8 - 	Train Loader: 1577 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 9 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+
+Cluster 2 with size 9
+Client 1 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client 2 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client 3 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 4 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 5 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 6 - 	Train Loader: 1634 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 7 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 8 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 9 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+
+GLOBAL TEST ROUND: 16 Evaluation -Loss: 0.0035215647101402283 	Accuracy: 0.388 	Training time: 2.508799999999999s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600003 	Number of communications: 40 
+
+GLOBAL TEST ROUND: 17 Evaluation -Loss: 0.0026716313123703005 	Accuracy: 0.4665 	Training time: 2.508799999999999s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600004 	Number of communications: 40 
+
+GLOBAL TEST ROUND: 18 Evaluation -Loss: 0.001956604480743408 	Accuracy: 0.6161 	Training time: 2.5087999999999986s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600003 	Number of communications: 40 
+
+GLOBAL TEST ROUND: 19 Evaluation -Loss: 0.001675047492980957 	Accuracy: 0.6393 	Training time: 2.5087999999999986s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600003 	Number of communications: 40 
+
+GLOBAL TEST ROUND: 20 Evaluation -Loss: 0.002549997234344482 	Accuracy: 0.5252 	Training time: 2.508799999999999s
+Energy Computation: 0.25088000000000005 	Energy Communication: 65.67289139600003 	Number of communications: 40 
+----------------------------------------------------------------------------------
+PHASE 5 - CONFIGURATION WITH 5 CLUSTERS
+
+
+Cluster 0 with size 5
+Client 1 - 	Train Loader: 1580 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 2 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 3 - 	Train Loader: 1798 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 4 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 5 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+
+Cluster 1 with size 5
+Client 1 - 	Train Loader: 1558 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 2 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 3 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 4 - 	Train Loader: 1635 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 5 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+
+Cluster 2 with size 6
+Client 1 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 2 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 3 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 4 - 	Train Loader: 1578 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 5 - 	Train Loader: 1671 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 6 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+
+Cluster 3 with size 6
+Client 1 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 391 sample with Label 8
+Client 2 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+Client 3 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client 4 - 	Train Loader: 1577 sample with Label 6	Validation Loader: 395 sample with Label 6
+Client 5 - 	Train Loader: 1670 sample with Label 7	Validation Loader: 418 sample with Label 7
+Client 6 - 	Train Loader: 1560 sample with Label 8	Validation Loader: 390 sample with Label 8
+
+Cluster 4 with size 8
+Client 1 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+Client 2 - 	Train Loader: 1579 sample with Label 0	Validation Loader: 395 sample with Label 0
+Client 3 - 	Train Loader: 1797 sample with Label 1	Validation Loader: 450 sample with Label 1
+Client 4 - 	Train Loader: 1588 sample with Label 2	Validation Loader: 398 sample with Label 2
+Client 5 - 	Train Loader: 1634 sample with Label 3	Validation Loader: 409 sample with Label 3
+Client 6 - 	Train Loader: 1557 sample with Label 4	Validation Loader: 390 sample with Label 4
+Client 7 - 	Train Loader: 1445 sample with Label 5	Validation Loader: 362 sample with Label 5
+Client 8 - 	Train Loader: 1586 sample with Label 9	Validation Loader: 397 sample with Label 9
+
+GLOBAL TEST ROUND: 21 Evaluation -Loss: 0.0016841595709323883 	Accuracy: 0.699 	Training time: 2.3833599999999993s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 22 Evaluation -Loss: 0.0013991017043590546 	Accuracy: 0.7004 	Training time: 2.3833599999999993s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 23 Evaluation -Loss: 0.0018727495610713959 	Accuracy: 0.6225 	Training time: 2.3833599999999993s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 24 Evaluation -Loss: 0.00136013423204422 	Accuracy: 0.7491 	Training time: 2.383359999999999s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+GLOBAL TEST ROUND: 25 Evaluation -Loss: 0.0013491728007793426 	Accuracy: 0.7456 	Training time: 2.383359999999999s
+Energy Computation: 0.23833600000000002 	Energy Communication: 62.38924682620002 	Number of communications: 38 
+
+SUMMARY EXPERIMENTS-
+Loss: 0.0041873355865478515 	Accuracy: 0.0974 	Training time: 2.383359999999999s	Energy Computation: 0.23833600000000002 	                             Energy Communication: 62.38924682620002 	                             Total Energy: 62.62758282620002 	                             Number of communications: 38
+ Loss: 0.007413670587539673 	Accuracy: 0.0982 	Training time: 4.766719999999998s	Energy Computation: 0.47667200000000004 	                             Energy Communication: 124.77849365240004 	                             Total Energy: 125.25516565240004 	                             Number of communications: 76
+ Loss: 0.003921400260925293 	Accuracy: 0.1032 	Training time: 7.150079999999997s	Energy Computation: 0.7150080000000001 	                             Energy Communication: 187.16774047860008 	                             Total Energy: 187.8827484786001 	                             Number of communications: 114
+ Loss: 0.005689567470550537 	Accuracy: 0.098 	Training time: 9.533439999999995s	Energy Computation: 0.9533440000000001 	                             Energy Communication: 249.55698730480012 	                             Total Energy: 250.5103313048001 	                             Number of communications: 152
+ Loss: 0.003995461463928223 	Accuracy: 0.0974 	Training time: 11.916799999999995s	Energy Computation: 1.19168 	                             Energy Communication: 311.94623413100015 	                             Total Energy: 313.1379141310002 	                             Number of communications: 190
+ Loss: 0.0077478757381439205 	Accuracy: 0.1011 	Training time: 14.425599999999994s	Energy Computation: 1.44256 	                             Energy Communication: 377.61912552700016 	                             Total Energy: 379.0616855270002 	                             Number of communications: 230
+ Loss: 0.004437728476524353 	Accuracy: 0.1032 	Training time: 16.934399999999993s	Energy Computation: 1.69344 	                             Energy Communication: 443.29201692300023 	                             Total Energy: 444.98545692300024 	                             Number of communications: 270
+ Loss: 0.005041982340812683 	Accuracy: 0.0982 	Training time: 19.44319999999999s	Energy Computation: 1.94432 	                             Energy Communication: 508.9649083190003 	                             Total Energy: 510.9092283190003 	                             Number of communications: 310
+ Loss: 0.004227094459533691 	Accuracy: 0.1028 	Training time: 21.951999999999988s	Energy Computation: 2.1952000000000003 	                             Energy Communication: 574.6377997150004 	                             Total Energy: 576.8329997150004 	                             Number of communications: 350
+ Loss: 0.004305427384376526 	Accuracy: 0.1202 	Training time: 24.460799999999985s	Energy Computation: 2.4460800000000003 	                             Energy Communication: 640.3106911110004 	                             Total Energy: 642.7567711110005 	                             Number of communications: 390
+ Loss: 0.004428909397125244 	Accuracy: 0.098 	Training time: 26.844159999999984s	Energy Computation: 2.684416 	                             Energy Communication: 702.6999379372005 	                             Total Energy: 705.3843539372006 	                             Number of communications: 428
+ Loss: 0.004755583333969116 	Accuracy: 0.1032 	Training time: 29.227519999999984s	Energy Computation: 2.922752 	                             Energy Communication: 765.0891847634006 	                             Total Energy: 768.0119367634005 	                             Number of communications: 466
+ Loss: 0.0037876315116882322 	Accuracy: 0.2321 	Training time: 31.610879999999984s	Energy Computation: 3.161088 	                             Energy Communication: 827.4784315896006 	                             Total Energy: 830.6395195896006 	                             Number of communications: 504
+ Loss: 0.004906158232688904 	Accuracy: 0.0969 	Training time: 33.994239999999984s	Energy Computation: 3.399424 	                             Energy Communication: 889.8676784158007 	                             Total Energy: 893.2671024158007 	                             Number of communications: 542
+ Loss: 0.00325194548368454 	Accuracy: 0.3444 	Training time: 36.37759999999998s	Energy Computation: 3.6377599999999997 	                             Energy Communication: 952.2569252420008 	                             Total Energy: 955.8946852420007 	                             Number of communications: 580
+ Loss: 0.0035215647101402283 	Accuracy: 0.388 	Training time: 38.88639999999998s	Energy Computation: 3.8886399999999997 	                             Energy Communication: 1017.9298166380008 	                             Total Energy: 1021.8184566380008 	                             Number of communications: 620
+ Loss: 0.0026716313123703005 	Accuracy: 0.4665 	Training time: 41.39519999999998s	Energy Computation: 4.13952 	                             Energy Communication: 1083.602708034001 	                             Total Energy: 1087.7422280340008 	                             Number of communications: 660
+ Loss: 0.001956604480743408 	Accuracy: 0.6161 	Training time: 43.90399999999998s	Energy Computation: 4.3904000000000005 	                             Energy Communication: 1149.275599430001 	                             Total Energy: 1153.665999430001 	                             Number of communications: 700
+ Loss: 0.001675047492980957 	Accuracy: 0.6393 	Training time: 46.41279999999998s	Energy Computation: 4.641280000000001 	                             Energy Communication: 1214.948490826001 	                             Total Energy: 1219.589770826001 	                             Number of communications: 740
+ Loss: 0.002549997234344482 	Accuracy: 0.5252 	Training time: 48.921599999999984s	Energy Computation: 4.892160000000001 	                             Energy Communication: 1280.621382222001 	                             Total Energy: 1285.5135422220012 	                             Number of communications: 780
+ Loss: 0.0016841595709323883 	Accuracy: 0.699 	Training time: 51.30495999999998s	Energy Computation: 5.130496000000002 	                             Energy Communication: 1343.010629048201 	                             Total Energy: 1348.141125048201 	                             Number of communications: 818
+ Loss: 0.0013991017043590546 	Accuracy: 0.7004 	Training time: 53.688319999999976s	Energy Computation: 5.368832000000002 	                             Energy Communication: 1405.399875874401 	                             Total Energy: 1410.7687078744011 	                             Number of communications: 856
+ Loss: 0.0018727495610713959 	Accuracy: 0.6225 	Training time: 56.07167999999997s	Energy Computation: 5.607168000000002 	                             Energy Communication: 1467.789122700601 	                             Total Energy: 1473.396290700601 	                             Number of communications: 894
+ Loss: 0.00136013423204422 	Accuracy: 0.7491 	Training time: 58.45503999999997s	Energy Computation: 5.845504000000003 	                             Energy Communication: 1530.178369526801 	                             Total Energy: 1536.0238735268008 	                             Number of communications: 932
+ Loss: 0.0013491728007793426 	Accuracy: 0.7456 	Training time: 60.838399999999965s	Energy Computation: 6.083840000000003 	                             Energy Communication: 1592.5676163530009 	                             Total Energy: 1598.6514563530009 	                             Number of communications: 970
+ 
+
+SUMMARY DRONE STATISTICS-
+
+Drone 0 -	 Battery Level: 99.8793599189% -	 Communications with base stations: 261 
+Drone 1 -	 Battery Level: 99.8747287443% -	 Communications with base stations: 271 
+Drone 2 -	 Battery Level: 99.8668765905% -	 Communications with base stations: 288 
+Drone 3 -	 Battery Level: 99.8779832276% -	 Communications with base stations: 264 
+Drone 4 -	 Battery Level: 99.8696479596% -	 Communications with base stations: 282 
+Drone 5 -	 Battery Level: 99.8724316724% -	 Communications with base stations: 276 
+Drone 6 -	 Battery Level: 99.8751973988% -	 Communications with base stations: 270 
+Drone 7 -	 Battery Level: 99.8631788454% -	 Communications with base stations: 296 
+Drone 8 -	 Battery Level: 99.8701173195% -	 Communications with base stations: 281 
+Drone 9 -	 Battery Level: 99.8742791343% -	 Communications with base stations: 272 
+Drone 10 -	 Battery Level: 99.8682670362% -	 Communications with base stations: 285 
+Drone 11 -	 Battery Level: 99.869184948% -	 Communications with base stations: 283 
+Drone 12 -	 Battery Level: 99.873353111% -	 Communications with base stations: 274 
+Drone 13 -	 Battery Level: 99.8765903132% -	 Communications with base stations: 267 
+Drone 14 -	 Battery Level: 99.8714971849% -	 Communications with base stations: 278 
+Drone 15 -	 Battery Level: 99.8710454589% -	 Communications with base stations: 279 
+Drone 16 -	 Battery Level: 99.8798194038% -	 Communications with base stations: 260 
+Drone 17 -	 Battery Level: 99.8728900993% -	 Communications with base stations: 275 
+Drone 18 -	 Battery Level: 99.8710334679% -	 Communications with base stations: 279 
+Drone 19 -	 Battery Level: 99.8733506422% -	 Communications with base stations: 274 
+Drone 20 -	 Battery Level: 99.8742812504% -	 Communications with base stations: 272 
+Drone 21 -	 Battery Level: 99.8751942247% -	 Communications with base stations: 270 
+Drone 22 -	 Battery Level: 99.8724221502% -	 Communications with base stations: 276 
+Drone 23 -	 Battery Level: 99.8659523306% -	 Communications with base stations: 290 
+Drone 24 -	 Battery Level: 99.876131181% -	 Communications with base stations: 268 
+Drone 25 -	 Battery Level: 99.8738090691% -	 Communications with base stations: 273 
+Drone 26 -	 Battery Level: 99.8775188052% -	 Communications with base stations: 265 
+Drone 27 -	 Battery Level: 99.8668780012% -	 Communications with base stations: 288 
+Drone 28 -	 Battery Level: 99.8770522668% -	 Communications with base stations: 266 
+Drone 29 -	 Battery Level: 99.8788969073% -	 Communications with base stations: 262 

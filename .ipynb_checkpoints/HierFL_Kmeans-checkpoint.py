@@ -27,7 +27,7 @@ from utils import show_distribution, log_experiment_file
 
 
 def HierFL(args, trainloaders, valloaders, testloader):
-
+    
     def fit_config(server_round: int):
         """Return training configuration dict for each round."""
         print("fit_config function called on configure_fit")
@@ -35,7 +35,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
             "server_round": server_round,  # The current round of federated learning
             "local_iterations": train_args['LOCAL_ITERATIONS'],
             "learning_rate": args['LEARNING_RATE'],
-            "exponential_dacey_rate": args['EXPONENTIAL_DECAY_RATE'],
+            "exponential_decay_rate": args['EXPONENTIAL_DECAY_RATE'],
         }
         return config
 
@@ -85,96 +85,35 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
         for global_round in range(args['GLOBAL_ROUNDS']):
             
-            # Change cluster configurations after each TRAIN_PHASES rounds
+            # Change cluster configurations after each 5 global rounds
             if global_round % args['TRAIN_PHASES'] == 0:
-                print(f"PHASE {phase+1} - CONFIGURING CLUSTERS\n")
+                print(f"PHASE {phase+1} - CONFIGURING K-MEANS CLUSTERS\n")
                 with open(train_args['file_path'], "a") as file:
                     file.write(f"\n----------------------------------------------------------------------------------\n")
-                    file.write(f"PHASE {phase+1} - CONFIGURING CLUSTERS\n")
-
+                    file.write(f"PHASE {phase+1} - CONFIGURING K-MEANS CLUSTERS\n")
+                
+                # Perform K-means clustering on clients (use client features like energy, sample size, etc.)
                 NUM_CLUSTERS = 5
                 NUM_CLIENTS = len(clients)
-                cluster_size = NUM_CLIENTS // NUM_CLUSTERS
+                
+                # Client feature matrix (e.g., battery level, number of samples, etc.)
+                client_features = np.array([[client.getEnergyLevel(), len(trainloaders[i])] for i, client in enumerate(clients)])
+                
+                # Perform K-means clustering
+                kmeans = KMeans(n_clusters=NUM_CLUSTERS, random_state=42)
+                kmeans.fit(client_features)
+                labels = kmeans.labels_
 
-                if phase < 1:
-                    # PHASE 1: Random Clustering
-                    random.shuffle(clients)
-                    clustered_clients = [clients[i:i + cluster_size] for i in range(0, NUM_CLIENTS, cluster_size)]
+                # Group clients based on their cluster assignment
+                clustered_clients = {i: [] for i in range(NUM_CLUSTERS)}
+                for i, label in enumerate(labels):
+                    clustered_clients[label].append(clients[i])
 
-                    # Distribute remaining clients if NUM_CLIENTS % NUM_CLUSTERS != 0
-                    if len(clustered_clients) > NUM_CLUSTERS:
-                        for idx, leftover_client in enumerate(clustered_clients[NUM_CLUSTERS]):
-                            clustered_clients[idx % NUM_CLUSTERS].append(leftover_client)
-                        clustered_clients = clustered_clients[:NUM_CLUSTERS]
-
-                     # Print the cluster sizes for logging
-                    print(f"Cluster sizes after random clustering (Phase {phase+1}):")
-                    for cluster_id, cluster in enumerate(clustered_clients, start=1):
-                        print(f"  Cluster {cluster_id}: {len(cluster)} clients")
-
-                    with open(train_args['file_path'], "a") as file:
-                        file.write(f"Cluster sizes after random clustering (Phase {phase+1}):\n")
-                        for cluster_id, cluster in enumerate(clustered_clients, start=1):
-                            file.write(f"  Cluster {cluster_id}: {len(cluster)} clients\n")
-
-
-                else:
-    # PHASE 2+: K-Means Clustering Based on Energy Consumption
-    energy_consumptions = np.array([
-        [c.getTotalConsumedComputationalEnergy() + c.getTotalConsumedCommunicationEnergy()]
-        for c in clients
-    ])
-    
-    kmeans = KMeans(n_clusters=NUM_CLUSTERS, random_state=42).fit(energy_consumptions)
-    labels = kmeans.labels_
-    
-    # Group clients based on cluster labels
-    clustered_clients = [[] for _ in range(NUM_CLUSTERS)]
-    for label, client in zip(labels, clients):
-        clustered_clients[label].append(client)
-    
-    # Ensure balanced cluster sizes
-    target_size = len(clients) // NUM_CLUSTERS
-    excess_clients = []  # Clients from overpopulated clusters
-    balanced_clusters = [[] for _ in range(NUM_CLUSTERS)]
-
-    # Separate clients into balanced clusters and excess
-    for cluster_id, client_list in enumerate(clustered_clients):
-        if len(client_list) > target_size:
-            # Add extra clients to the excess pool
-            excess_clients.extend(client_list[target_size:])
-            balanced_clusters[cluster_id].extend(client_list[:target_size])
-        else:
-            balanced_clusters[cluster_id].extend(client_list)
-    
-    # Redistribute excess clients to underpopulated clusters
-    for cluster_id in range(NUM_CLUSTERS):
-        while len(balanced_clusters[cluster_id]) < target_size and excess_clients:
-            balanced_clusters[cluster_id].append(excess_clients.pop())
-    
-    # Handle remainder if clients are not evenly divisible
-    remainder = len(clients) % NUM_CLUSTERS
-    for i in range(remainder):
-        if excess_clients:
-            balanced_clusters[i].append(excess_clients.pop())
-    
-    # Print the cluster sizes for logging
-    print(f"Cluster sizes after K-Means clustering (Phase {phase+1}):")
-    for cluster_id, cluster in enumerate(balanced_clusters, start=1):
-        print(f"  Cluster {cluster_id}: {len(cluster)} clients")
-    
-    with open(train_args['file_path'], "a") as file:
-        file.write(f"Cluster sizes after K-Means clustering (Phase {phase+1}):\n")
-        for cluster_id, cluster in enumerate(balanced_clusters, start=1):
-            file.write(f"  Cluster {cluster_id}: {len(cluster)} clients\n")
-
-
-
-                # Create cluster_dataloaders for the configured clusters
+                # Create cluster_dataloaders for k-means clusters
                 cluster_dataloaders = {}
-                for cluster_id, cluster_group in enumerate(clustered_clients, start=1):
-                    selected_trainloaders = [trainloaders[drone.droneId] for drone in cluster_group]
-                    selected_valloaders = [valloaders[drone.droneId] for drone in cluster_group]
+                for cluster_id, cluster_group in clustered_clients.items():
+                    selected_trainloaders = [trainloaders[client.droneId] for client in cluster_group]
+                    selected_valloaders = [valloaders[client.droneId] for client in cluster_group]
 
                     cluster_dataloaders[cluster_id] = {
                         'train': selected_trainloaders,
@@ -191,10 +130,10 @@ def HierFL(args, trainloaders, valloaders, testloader):
             trainTimeRound = 0.0
             numCommunicationsRound = 0
 
-            for edge in range(len(cluster_dataloaders)):
-                trainloaders_cluster = cluster_dataloaders[edge+1]['train']
-                valloaders_cluster = cluster_dataloaders[edge+1]['validation']
-                clients_cluster = cluster_dataloaders[edge+1]['clients']
+            for cluster_id, cluster_data in cluster_dataloaders.items():
+                trainloaders_cluster = cluster_data['train']
+                valloaders_cluster = cluster_data['validation']
+                clients_cluster = cluster_data['clients']
                 num_clients_cluster = len(trainloaders_cluster)
 
                 strategy_cluster = FedAvgCustom(
@@ -275,4 +214,3 @@ def HierFL(args, trainloaders, valloaders, testloader):
             file.write(f"\n\nSUMMARY DRONE STATISTICS-\n")
             for drone in clients:
                 file.write(f"\nDrone {drone.droneId} -\t Battery Level: {drone.actual_batteryLevel_percentage}% -\t Communications with base stations: {drone.num_communications} ")
-

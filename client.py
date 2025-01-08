@@ -34,7 +34,7 @@ class FlowerClient(fl.client.NumPyClient):
         print(f"[Client {self.cid}] Starting fit...")
         hyperparameters = {
             'lr': config['learning_rate'],
-            'exp_decay_rate': config['exponential_dacey_rate'],
+            'exp_decay_rate': config['exponential_decay_rate'],
             'local_iterations': config['local_iterations']
         }
 

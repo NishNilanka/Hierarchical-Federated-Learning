@@ -40,7 +40,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
             "server_round": server_round,  # The current round of federated learning 
             "local_iterations": train_args['LOCAL_ITERATIONS'],
             "learning_rate": args['LEARNING_RATE'],
-            "exponential_dacey_rate": args['EXPONENTIAL_DECAY_RATE']
+            "exponential_decay_rate": args['EXPONENTIAL_DECAY_RATE']
         }
 
         return config
@@ -84,7 +84,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
         1: [10, 9, 11],         # 3 CLUSTERS
         2: [7, 9, 9, 5],        # 4 CLUSTERS
         3: [12, 9, 9],          # 3 CLUSTERS
-        4:[5, 5, 6, 6, 8]       # 5 CLUSTERS
+        4: [5, 5, 6, 6, 8]       # 5 CLUSTERS
     }
 
     train_args_conf = [

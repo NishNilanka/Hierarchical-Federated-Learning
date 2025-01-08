@@ -2,6 +2,7 @@ import flwr as fl
 from typing import Dict, List, Optional, Tuple
 import torch
 import random
+import numpy as np
 import copy
 from sklearn.cluster import KMeans
 from flwr.common import (
@@ -26,7 +27,7 @@ from utils import show_distribution, log_experiment_file
 
 
 def HierFL(args, trainloaders, valloaders, testloader):
-
+    
     def fit_config(server_round: int):
         """Return training configuration dict for each round."""
         print("fit_config function called on configure_fit")
@@ -83,21 +84,21 @@ def HierFL(args, trainloaders, valloaders, testloader):
         numCommunications = 0
 
         for global_round in range(args['GLOBAL_ROUNDS']):
-
+            
             # Change cluster configurations after each 5 global rounds
             if global_round % args['TRAIN_PHASES'] == 0:
                 print(f"PHASE {phase+1} - CONFIGURING K-MEANS CLUSTERS\n")
                 with open(train_args['file_path'], "a") as file:
                     file.write(f"\n----------------------------------------------------------------------------------\n")
                     file.write(f"PHASE {phase+1} - CONFIGURING K-MEANS CLUSTERS\n")
-
+                
                 # Perform K-means clustering on clients (use client features like energy, sample size, etc.)
                 NUM_CLUSTERS = 5
                 NUM_CLIENTS = len(clients)
-
+                
                 # Client feature matrix (e.g., battery level, number of samples, etc.)
                 client_features = np.array([[client.getEnergyLevel(), len(trainloaders[i])] for i, client in enumerate(clients)])
-
+                
                 # Perform K-means clustering
                 kmeans = KMeans(n_clusters=NUM_CLUSTERS, random_state=42)
                 kmeans.fit(client_features)
@@ -129,10 +130,10 @@ def HierFL(args, trainloaders, valloaders, testloader):
             trainTimeRound = 0.0
             numCommunicationsRound = 0
 
-            for edge in range(len(cluster_dataloaders)):
-                trainloaders_cluster = cluster_dataloaders[edge+1]['train']
-                valloaders_cluster = cluster_dataloaders[edge+1]['validation']
-                clients_cluster = cluster_dataloaders[edge+1]['clients']
+            for cluster_id, cluster_data in cluster_dataloaders.items():
+                trainloaders_cluster = cluster_data['train']
+                valloaders_cluster = cluster_data['validation']
+                clients_cluster = cluster_data['clients']
                 num_clients_cluster = len(trainloaders_cluster)
 
                 strategy_cluster = FedAvgCustom(
@@ -213,4 +214,3 @@ def HierFL(args, trainloaders, valloaders, testloader):
             file.write(f"\n\nSUMMARY DRONE STATISTICS-\n")
             for drone in clients:
                 file.write(f"\nDrone {drone.droneId} -\t Battery Level: {drone.actual_batteryLevel_percentage}% -\t Communications with base stations: {drone.num_communications} ")
-
