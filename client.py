@@ -7,12 +7,12 @@ from model import Net, train, test, get_parameters, set_parameters, compute_upda
 
 class FlowerClient(fl.client.NumPyClient):
     #def __init__(self, net, trainloader, valloader, cid, clusterid: int):
-    def __init__(self, net, trainloader, valloader, droneManager, cid):
+    def __init__(self, net, trainloader, valloader, deviceManager, cid):
         self.net = net
         self.trainloader = trainloader
         self.valloader = valloader
         self.cid = cid
-        self.droneManager = droneManager
+        self.deviceManager = deviceManager
         #self.clusterid = clusterid
 
         #self.writer = SummaryWriter("runs/exp1/Cluster "+str(self.clusterid)+"/client_"+cid) # nel client al posto di exp1 si potrebbe mettere il cid
@@ -42,7 +42,7 @@ class FlowerClient(fl.client.NumPyClient):
         # Save the initial state of the model (before local training)
         initial_state = {key: value.clone() for key, value in self.net.state_dict().items()}
         set_parameters(self.net, parameters)
-        localUpdateEnergyComputation, localUpdateTrainTime = train(self.net, self.trainloader, self.droneManager, hyperparameters, verbose=True)
+        localUpdateEnergyComputation, localUpdateTrainTime = train(self.net, self.trainloader, self.deviceManager, hyperparameters, verbose=True)
 
         # Log the start of training
         print(f"[Client {self.cid}] Training started with hyperparameters: {hyperparameters}")
@@ -56,23 +56,23 @@ class FlowerClient(fl.client.NumPyClient):
         print(f"[Client {self.cid}] Local update size: {update_size_bits / 8 / 1e6:.2f} MB ({update_size_bits} bits)")
 
         # Compute communication energy consumption
-        communicationEnergyComputation = self.droneManager.computeEnergyCommunication(update_size_bits)
+        communicationEnergyComputation = self.deviceManager.computeEnergyCommunication(update_size_bits)
         print(f"[Client {self.cid}] Communication energy consumed: {communicationEnergyComputation} J")
 
         # Update the number of communications
-        self.droneManager.setNumCommunications(1)
-        droneCommunications = self.droneManager.getNumCommunications()
+        self.deviceManager.setNumCommunications(1)
+        deviceCommunications = self.deviceManager.getNumCommunications()
 
         # Log the end of training
         print(f"[Client {self.cid}] Training completed. Energy consumption: {localUpdateEnergyComputation} J, Training time: {localUpdateTrainTime} s")
 
         # Return updated parameters and metadata
         return get_parameters(self.net), len(self.trainloader), {
-            "droneId": self.droneManager.droneId,
+            "deviceId": self.deviceManager.deviceId,
             "consumedEnergyComputation": localUpdateEnergyComputation,
             "trainTimeComputation": localUpdateTrainTime,
             "consumedEnergyCommunication": communicationEnergyComputation,
-            "num_communications": droneCommunications,
+            "num_communications": deviceCommunications,
         }
     
     def evaluate(self, parameters, config):

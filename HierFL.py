@@ -24,7 +24,7 @@ from flwr.server.strategy.aggregate import aggregate
 from strategy import FedAvgCustom
 from model import Net, test, get_parameters, set_parameters
 from client import FlowerClient
-from drone_manager import DroneManager
+from device_manager import DeviceManager
 from metrics import weighted_average, evaluate
 from utils import generate_random_sizes, show_distribution, generate_random_clusters_conf, log_experiment_file
 
@@ -54,8 +54,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
         # will train and evaluate on their own unique data
         trainloader = trainloaders_cluster[int(cid)]
         valloader = valloaders_cluster[int(cid)]
-        droneManager = copy.deepcopy(clients_cluster[int(cid)])
-        return FlowerClient(net, trainloader, valloader, droneManager, cid).to_client()
+        deviceManager = copy.deepcopy(clients_cluster[int(cid)])
+        return FlowerClient(net, trainloader, valloader, deviceManager, cid).to_client()
     
 
     
@@ -132,7 +132,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
     clients = []
     for id in range(args['NUM_CLIENTS']):
-        clients.append(DroneManager(id))
+        clients.append(DeviceManager(id))
 
 
     
@@ -180,10 +180,10 @@ def HierFL(args, trainloaders, valloaders, testloader):
                     subset_clients_sup = subset_clients_sup + size
                     print(f"inf: {subset_clients_inf}")
                     print(f"sup: {subset_clients_sup}")
-                    num_drones_selected = len(clients[subset_clients_inf:subset_clients_sup])
-                    print(f"Number of drones selected: {num_drones_selected}")
+                    num_devices_selected = len(clients[subset_clients_inf:subset_clients_sup])
+                    print(f"Number of devices selected: {num_devices_selected}")
                     assert len(selected_trainloaders) == len(selected_valloaders), "ERROR, train and validation dataloaders have different sizes"
-                    assert num_drones_selected == len(selected_trainloaders), "ERROR, clients and train dataloaders have different sizes"
+                    assert num_devices_selected == len(selected_trainloaders), "ERROR, clients and train dataloaders have different sizes"
 
                     # VERIFY THE DATA DISTRIBUTION OF EACH CLIENT SELECTED
                     for client_id in range(len(selected_trainloaders)):
@@ -193,11 +193,11 @@ def HierFL(args, trainloaders, valloaders, testloader):
                         show_distribution(selected_valloaders[client_id], args, train_args, 'Validation Loader')
 
                     # VERIFY THE CLIENTS SELECTED
-                    for drone in clients[subset_clients_inf:subset_clients_sup]:
-                        print(f"Drone {drone.droneId} joins in Cluster {j+1}")
+                    for device in clients[subset_clients_inf:subset_clients_sup]:
+                        print(f"Device {device.deviceId} joins in Cluster {j + 1}")
                         #del t_clients[subset_clients_inf:subset_clients_sup]
                     
-                    print(f"Remaining clients: {(t_clients - num_drones_selected)}")
+                    print(f"Remaining clients: {(t_clients - num_devices_selected)}")
                     
                     # dataloaders
                     # cluster_dataloaders has elements equals to the number of clusters in the current configuration 
@@ -212,7 +212,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 #print(cluster_configurations)
 
 
-            # * STARTS DRONES HIERARCHICAL FEDERATED LEARNING
+            # * STARTS DEVICES HIERARCHICAL FEDERATED LEARNING
             #########################################################################################################
 
             #start_time = time.time()
@@ -253,32 +253,32 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
                 final_weights_cluster = strategy_cluster.final_weights
                 total_samples = strategy_cluster.total_samples 
-                drones_info = strategy_cluster.drones_info
+                devices_info = strategy_cluster.devices_info
                 global_results.append((parameters_to_ndarrays(final_weights_cluster), total_samples))
 
                 print(f"SIMULATION CLUSTER {edge+1} FINISHED")
 
                 
-                #print(drones_info)
-                for droneid in drones_info:
-                    #print(type(drone['consumedEnergyComputation']))
-                    droneId = drones_info[droneid]['droneId']
-                    print(f"droneId: {droneId}")
-                    consumedEnergyComputation = drones_info[droneid]['consumedEnergyComputation']
+                #print(devices_info)
+                for deviceid in devices_info:
+                    #print(type(device['consumedEnergyComputation']))
+                    deviceId = devices_info[deviceid]['deviceId']
+                    print(f"deviceId: {deviceId}")
+                    consumedEnergyComputation = devices_info[deviceid]['consumedEnergyComputation']
                     CompEnergyConsumedRound += consumedEnergyComputation
                     print(f"consumedEnergyComputation: {consumedEnergyComputation}")
-                    consumedEnergyCommunication = drones_info[droneid]['consumedEnergyCommunication']
+                    consumedEnergyCommunication = devices_info[deviceid]['consumedEnergyCommunication']
                     CommEnergyConsumedRound += consumedEnergyCommunication
                     print(f"consumedEnergyCommunication: {consumedEnergyCommunication}")
-                    clients[droneId].decreaseEnergyLevel(consumedEnergyComputation)
-                    clients[droneId].decreaseEnergyLevel(consumedEnergyCommunication)
+                    clients[deviceId].decreaseEnergyLevel(consumedEnergyComputation)
+                    clients[deviceId].decreaseEnergyLevel(consumedEnergyCommunication)
 
-                    actual_num_communications = clients[droneId].getNumCommunications()
-                    updated_num_communications = actual_num_communications + drones_info[droneid]['num_communications']
+                    actual_num_communications = clients[deviceId].getNumCommunications()
+                    updated_num_communications = actual_num_communications + devices_info[deviceid]['num_communications']
                     print(updated_num_communications)
-                    clients[droneId].setNumCommunications(updated_num_communications)
-                    numCommunicationsRound += drones_info[droneid]['num_communications']
-                    trainTimeComputation = drones_info[droneid]['trainTimeComputation']
+                    clients[deviceId].setNumCommunications(updated_num_communications)
+                    numCommunicationsRound += devices_info[deviceid]['num_communications']
+                    trainTimeComputation = devices_info[deviceid]['trainTimeComputation']
                     trainTimeRound += trainTimeComputation
 
 
@@ -326,11 +326,11 @@ def HierFL(args, trainloaders, valloaders, testloader):
                             Number of communications: {cumulative_statistics[round]['Communications']}\n ")
                 
 
-        # VERIFY TECHNICAL STATISTICS OF DRONES
+        # VERIFY TECHNICAL STATISTICS OF DEVICES
         with open(train_args['file_path'], "a") as file:
-            file.write(f"\n\nSUMMARY DRONE STATISTICS-\n")
-            for drone in clients:
-                file.write(f"\nDrone {drone.droneId} -\t Battery Level: {drone.actual_batteryLevel_percentage}% -\t Communications with base stations: {drone.num_communications} ")
+            file.write(f"\n\nSUMMARY DEVICE STATISTICS-\n")
+            for device in clients:
+                file.write(f"\nDevice {device.deviceId} -\t Battery Level: {device.actual_batteryLevel_percentage}% -\t Communications with base stations: {device.num_communications} ")
 
 
 

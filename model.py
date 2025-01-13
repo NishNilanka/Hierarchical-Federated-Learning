@@ -101,7 +101,7 @@ def get_parameters(net) -> List[np.ndarray]:
 
 
 #def train(net, trainloader, writer, server_round, edge_round, global_round, clusterid, epochs: int, verbose=False):
-def train(net, trainloader, droneManager, hyperparameters, verbose=False):
+def train(net, trainloader, deviceManager, hyperparameters, verbose=False):
     """Train the network on the training set."""
 
     criterion = torch.nn.CrossEntropyLoss()
@@ -144,8 +144,8 @@ def train(net, trainloader, droneManager, hyperparameters, verbose=False):
     #         num_samples_batch = labels.size(0)
     #         total += labels.size(0)
     #         correct += (torch.max(outputs.data, 1)[1] == labels).sum().item()
-    #         batchEnergyConsumed = droneManager.computeEnergyComputation(num_samples_batch) 
-    #         batchTrainTime = droneManager.computeTrainTimeComputation(num_samples_batch)
+    #         batchEnergyConsumed = deviceManager.computeEnergyComputation(num_samples_batch)
+    #         batchTrainTime = deviceManager.computeTrainTimeComputation(num_samples_batch)
             
     #         local_update_energy_consumed += batchEnergyConsumed
     #         local_update_train_time += batchTrainTime
@@ -185,8 +185,8 @@ def train(net, trainloader, droneManager, hyperparameters, verbose=False):
             # FINE ESECUZIONE BATCH
             
             # computation of energy consumption and training time for batch
-            batchEnergyConsumed = droneManager.computeEnergyComputation(num_samples_batch) 
-            batchTrainTime = droneManager.computeTrainTimeComputation(num_samples_batch)
+            batchEnergyConsumed = deviceManager.computeEnergyComputation(num_samples_batch)
+            batchTrainTime = deviceManager.computeTrainTimeComputation(num_samples_batch)
             local_update_energy_consumed += batchEnergyConsumed
             local_update_train_time += batchTrainTime
 

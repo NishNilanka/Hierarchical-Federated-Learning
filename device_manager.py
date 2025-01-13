@@ -1,6 +1,6 @@
-class DroneManager():
+class DeviceManager():
     def __init__(self, id):
-        self.droneId = id
+        self.deviceId = id
         self.battery_capacity_wh = 98.8       # Watt-hours
         self.battery_capacity_joules = 355680.0  # Convert Wh to Joules (98.8 * 3600)
         self.actual_battery_capacity_J = 355680.0
@@ -82,12 +82,12 @@ class DroneManager():
 
     def getTotalConsumedComputationalEnergy(self):
         """
-        Return the total computational energy consumed by this drone (Joules).
+        Return the total computational energy consumed by this device (Joules).
         """
         return self.total_comp_energy
 
     def getTotalConsumedCommunicationEnergy(self):
         """
-        Return the total communication energy consumed by this drone (Joules).
+        Return the total communication energy consumed by this device (Joules).
         """
         return self.total_comm_energy

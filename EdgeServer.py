@@ -2,22 +2,22 @@ class EdgeServer:
     def __init__(self, server_id, num_clients):
         self.server_id = server_id
         self.num_clients = num_clients  # Number of clients assigned to this edge server
-        self.drones = []  # List to hold the drones (clients) assigned to this edge server
+        self.devices = []  # List to hold the devices (clients) assigned to this edge server
 
-    def assign_drones(self, drones):
+    def assign_devices(self, devices):
         """
-        Assign drones (clients) to the edge server.
+        Assign devices (clients) to the edge server.
         """
-        self.drones = drones
+        self.devices = devices
 
-    def get_drones(self):
+    def get_devices(self):
         """
-        Return the list of drones assigned to this edge server.
+        Return the list of devices assigned to this edge server.
         """
-        return self.drones
+        return self.devices
 
     def get_server_id(self):
         return self.server_id
 
     def get_num_clients(self):
-        return len(self.drones)
+        return len(self.devices)

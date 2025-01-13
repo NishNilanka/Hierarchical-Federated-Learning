@@ -21,7 +21,7 @@ from flwr.server.strategy.aggregate import aggregate
 from strategy import FedAvgCustom
 from model import Net, test, get_parameters, set_parameters
 from client import FlowerClient
-from drone_manager import DroneManager
+from device_manager import DeviceManager
 from metrics import weighted_average, evaluate
 from utils import show_distribution, log_experiment_file
 
@@ -43,8 +43,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
         net = Net().to(args['DEVICE'])
         trainloader = trainloaders_cluster[int(cid)]
         valloader = valloaders_cluster[int(cid)]
-        droneManager = copy.deepcopy(clients_cluster[int(cid)])
-        return FlowerClient(net, trainloader, valloader, droneManager, cid).to_client()
+        deviceManager = copy.deepcopy(clients_cluster[int(cid)])
+        return FlowerClient(net, trainloader, valloader, deviceManager, cid).to_client()
 
     model = Net()
     num_params = sum(p.numel() for p in model.parameters())
@@ -67,10 +67,10 @@ def HierFL(args, trainloaders, valloaders, testloader):
         }
     ]
 
-    # Initialize the clients (DroneManager objects)
+    # Initialize the clients (DeviceManager objects)
     clients = []
     for id in range(args['NUM_CLIENTS']):
-        clients.append(DroneManager(id))
+        clients.append(DeviceManager(id))
 
     for train_args in train_args_conf:
         log_experiment_file(args, train_args)
@@ -112,8 +112,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 # Create cluster_dataloaders for k-means clusters
                 cluster_dataloaders = {}
                 for cluster_id, cluster_group in clustered_clients.items():
-                    selected_trainloaders = [trainloaders[client.droneId] for client in cluster_group]
-                    selected_valloaders = [valloaders[client.droneId] for client in cluster_group]
+                    selected_trainloaders = [trainloaders[client.deviceId] for client in cluster_group]
+                    selected_valloaders = [valloaders[client.deviceId] for client in cluster_group]
 
                     cluster_dataloaders[cluster_id] = {
                         'train': selected_trainloaders,
@@ -154,20 +154,20 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
                 final_weights_cluster = strategy_cluster.final_weights
                 total_samples = strategy_cluster.total_samples
-                drones_info = strategy_cluster.drones_info
+                devices_info = strategy_cluster.devices_info
                 global_results.append((parameters_to_ndarrays(final_weights_cluster), total_samples))
 
                 # Update energy and communication statistics
-                for droneid in drones_info:
-                    droneId = drones_info[droneid]['droneId']
-                    consumedEnergyComputation = drones_info[droneid]['consumedEnergyComputation']
+                for deviceid in devices_info:
+                    deviceId = devices_info[deviceid]['deviceId']
+                    consumedEnergyComputation = devices_info[deviceid]['consumedEnergyComputation']
                     CompEnergyConsumedRound += consumedEnergyComputation
-                    consumedEnergyCommunication = drones_info[droneid]['consumedEnergyCommunication']
+                    consumedEnergyCommunication = devices_info[deviceid]['consumedEnergyCommunication']
                     CommEnergyConsumedRound += consumedEnergyCommunication
-                    clients[droneId].decreaseEnergyLevel(consumedEnergyComputation)
-                    clients[droneId].decreaseEnergyLevel(consumedEnergyCommunication)
-                    numCommunicationsRound += drones_info[droneid]['num_communications']
-                    trainTimeRound += drones_info[droneid]['trainTimeComputation']
+                    clients[deviceId].decreaseEnergyLevel(consumedEnergyComputation)
+                    clients[deviceId].decreaseEnergyLevel(consumedEnergyCommunication)
+                    numCommunicationsRound += devices_info[deviceid]['num_communications']
+                    trainTimeRound += devices_info[deviceid]['trainTimeComputation']
 
             # Aggregate global results
             global_parameters_aggregated = ndarrays_to_parameters(aggregate(global_results))
@@ -209,8 +209,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
                             Total Energy: {cumulative_statistics[round_num]['Total Energy']} \t \
                             Number of communications: {cumulative_statistics[round_num]['Communications']}\n ")
 
-        # Drone statistics
+        # Device statistics
         with open(train_args['file_path'], "a") as file:
-            file.write(f"\n\nSUMMARY DRONE STATISTICS-\n")
-            for drone in clients:
-                file.write(f"\nDrone {drone.droneId} -\t Battery Level: {drone.actual_batteryLevel_percentage}% -\t Communications with base stations: {drone.num_communications} ")
+            file.write(f"\n\nSUMMARY Device STATISTICS-\n")
+            for device in clients:
+                file.write(f"\nDevice {device.deviceId} -\t Battery Level: {device.actual_batteryLevel_percentage}% -\t Communications with base stations: {device.num_communications} ")

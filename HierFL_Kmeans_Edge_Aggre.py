@@ -21,14 +21,14 @@ from flwr.server.strategy.aggregate import aggregate
 from strategy import FedAvgCustom
 from model import Net, test, get_parameters, set_parameters
 from client import FlowerClient
-from drone_manager import DroneManager
+from device_manager import DeviceManager
 from metrics import weighted_average, evaluate
 from utils import show_distribution, log_experiment_file
 from EdgeServer import EdgeServer
 
 def HierFL(args, trainloaders, valloaders, testloader):
     """
-    Hierarchical Federated Learning with Edge Servers and K-means clustering of clients (drones).
+    Hierarchical Federated Learning with Edge Servers and K-means clustering of clients (devices).
     """
 
     def fit_config(server_round: int):
@@ -46,8 +46,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
         net = Net().to(args['DEVICE'])
         trainloader = trainloaders_cluster[int(cid)]
         valloader = valloaders_cluster[int(cid)]
-        droneManager = copy.deepcopy(clients_cluster[int(cid)])
-        return FlowerClient(net, trainloader, valloader, droneManager, cid).to_client()
+        deviceManager = copy.deepcopy(clients_cluster[int(cid)])
+        return FlowerClient(net, trainloader, valloader, deviceManager, cid).to_client()
 
     # Initialize the model
     model = Net()
@@ -73,10 +73,10 @@ def HierFL(args, trainloaders, valloaders, testloader):
         }
     ]
 
-    # Initialize the clients (DroneManager objects)
+    # Initialize the clients (DeviceManager objects)
     clients = []
     for id in range(args['NUM_CLIENTS']):
-        clients.append(DroneManager(id))
+        clients.append(DeviceManager(id))
 
     # Create edge servers (5 edge servers for 5 clusters)
     num_edge_servers = 5
@@ -119,18 +119,18 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 for i, label in enumerate(labels):
                     clustered_clients[label].append(clients[i])
 
-                # Now assign drones (clients) to edge servers
+                # Now assign devices (clients) to edge servers
                 selected_edge_servers = {i: [] for i in range(num_edge_servers)}
 
                 # Assign each cluster to an edge server (you can balance this based on the number of clients per cluster)
                 edge_server_idx = 0
-                for cluster_id, cluster_drones in clustered_clients.items():
+                for cluster_id, cluster_devices in clustered_clients.items():
                     # Assign clients to edge servers
                     edge_server = edge_servers[edge_server_idx]
-                    edge_server.assign_drones(cluster_drones)
-                    selected_edge_servers[edge_server_idx] = cluster_drones
+                    edge_server.assign_devices(cluster_devices)
+                    selected_edge_servers[edge_server_idx] = cluster_devices
 
-                    print(f"Edge Server {edge_server.get_server_id()} assigned to Cluster {cluster_id} with {len(cluster_drones)} clients.")
+                    print(f"Edge Server {edge_server.get_server_id()} assigned to Cluster {cluster_id} with {len(cluster_devices)} clients.")
                     edge_server_idx = (edge_server_idx + 1) % num_edge_servers  # Rotate edge server assignment
 
                 phase += 1
@@ -145,9 +145,9 @@ def HierFL(args, trainloaders, valloaders, testloader):
             # Process each edge server
             for edge_server in edge_servers:
                 print(f"Running edge aggregation for Edge Server {edge_server.get_server_id()} with {edge_server.get_num_clients()} clients.")
-                trainloaders_cluster = [trainloaders[client.droneId] for client in edge_server.get_drones()]
-                valloaders_cluster = [valloaders[client.droneId] for client in edge_server.get_drones()]
-                clients_cluster = edge_server.get_drones()
+                trainloaders_cluster = [trainloaders[client.deviceId] for client in edge_server.get_devices()]
+                valloaders_cluster = [valloaders[client.deviceId] for client in edge_server.get_devices()]
+                clients_cluster = edge_server.get_devices()
 
                 strategy_cluster = FedAvgCustom(
                     fraction_fit=args['CLIENT_FRACTION'],  # Fraction of clients selected for training
@@ -167,20 +167,20 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
                 final_weights_cluster = strategy_cluster.final_weights
                 total_samples = strategy_cluster.total_samples
-                drones_info = strategy_cluster.drones_info
+                devices_info = strategy_cluster.devices_info
                 global_results.append((parameters_to_ndarrays(final_weights_cluster), total_samples))
 
                 # Update energy and communication statistics
-                for droneid in drones_info:
-                    droneId = drones_info[droneid]['droneId']
-                    consumedEnergyComputation = drones_info[droneid]['consumedEnergyComputation']
+                for deviceid in devices_info:
+                    devoceId = devices_info[deviceid]['deviceId']
+                    consumedEnergyComputation = devices_info[deviceid]['consumedEnergyComputation']
                     CompEnergyConsumedRound += consumedEnergyComputation
-                    consumedEnergyCommunication = drones_info[droneid]['consumedEnergyCommunication']
+                    consumedEnergyCommunication = devices_info[deviceid]['consumedEnergyCommunication']
                     CommEnergyConsumedRound += consumedEnergyCommunication
-                    clients[droneId].decreaseEnergyLevel(consumedEnergyComputation)
-                    clients[droneId].decreaseEnergyLevel(consumedEnergyCommunication)
-                    numCommunicationsRound += drones_info[droneid]['num_communications']
-                    trainTimeRound += drones_info[droneid]['trainTimeComputation']
+                    clients[devoceId].decreaseEnergyLevel(consumedEnergyComputation)
+                    clients[devoceId].decreaseEnergyLevel(consumedEnergyCommunication)
+                    numCommunicationsRound += devices_info[deviceid]['num_communications']
+                    trainTimeRound += devices_info[deviceid]['trainTimeComputation']
 
             # Aggregate global results
             global_parameters_aggregated = ndarrays_to_parameters(aggregate(global_results))
@@ -224,8 +224,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
                             Total Energy: {cumulative_statistics[round_num]['Total Energy']} \t \
                             Number of communications: {cumulative_statistics[round_num]['Communications']}\n ")
 
-        # Drone statistics
+        # Device statistics
         with open(train_args['file_path'], "a") as file:
-            file.write(f"\n\nSUMMARY DRONE STATISTICS-\n")
-            for drone in clients:
-                file.write(f"\nDrone {drone.droneId} -\t Battery Level: {drone.actual_batteryLevel_percentage}% -\t Communications with base stations: {drone.num_communications} ")
+            file.write(f"\n\nSUMMARY Device STATISTICS-\n")
+            for device in clients:
+                file.write(f"\nDevice {device.deviceId} -\t Battery Level: {device.actual_batteryLevel_percentage}% -\t Communications with base stations: {device.num_communications} ")

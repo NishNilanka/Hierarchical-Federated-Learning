@@ -27,7 +27,7 @@ class FedAvgCustom(FedAvg):
         super().__init__(**kwargs)
         self.final_weights = None  # To store the final model weights
         self.total_samples = 0
-        self.drones_info = {}
+        self.devices_info = {}
 
     def aggregate_fit(
         self,
@@ -51,27 +51,27 @@ class FedAvgCustom(FedAvg):
         self.total_samples = total_samples
         print(f"Total samples: {self.total_samples}")
 
-        drones_metrics = [
+        devices_metrics = [
              fit_res.metrics
             for _, fit_res in results
         ]
-        print(drones_metrics)
+        print(devices_metrics)
 
-        for drone in drones_metrics:
-            droneId = drone['droneId']
-            #print(f"droneId: {droneId}")
-            if droneId not in self.drones_info:
-                self.drones_info[droneId] = drone
+        for devices in devices_metrics:
+            deviceId = devices['deviceId']
+            #print(f"deviceId: {deviceId}")
+            if deviceId not in self.devices_info:
+                self.devices_info[deviceId] = devices
             else:
-                self.drones_info[droneId]['consumedEnergyComputation'] += drone['consumedEnergyComputation']
-                self.drones_info[droneId]['trainTimeComputation'] += drone['trainTimeComputation']
-                self.drones_info[droneId]['consumedEnergyCommunication'] += drone['consumedEnergyCommunication']
-                self.drones_info[droneId]['num_communications'] += drone['num_communications']
+                self.devices_info[deviceId]['consumedEnergyComputation'] += devices['consumedEnergyComputation']
+                self.devices_info[deviceId]['trainTimeComputation'] += devices['trainTimeComputation']
+                self.devices_info[deviceId]['consumedEnergyCommunication'] += devices['consumedEnergyCommunication']
+                self.devices_info[deviceId]['num_communications'] += devices['num_communications']
 
         
 
-        for drone_info_id in self.drones_info:
-            print(f"DroneId: {drone_info_id} - consumedEnergyComputation: {self.drones_info[drone_info_id]['consumedEnergyComputation']}")
+        for device_info_id in self.devices_info:
+            print(f"DeviceId: {device_info_id} - consumedEnergyComputation: {self.devices_info[device_info_id]['consumedEnergyComputation']}")
         #return aggregated_weights, aggregated_metrics
         metrics_aggregated = {}
 
