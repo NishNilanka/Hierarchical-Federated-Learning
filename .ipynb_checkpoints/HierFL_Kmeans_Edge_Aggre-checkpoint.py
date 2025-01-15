@@ -25,6 +25,8 @@ from device_manager import DeviceManager
 from metrics import weighted_average, evaluate
 from utils import show_distribution, log_experiment_file
 from EdgeServer import EdgeServer
+from sklearn.preprocessing import StandardScaler
+
 
 def HierFL(args, trainloaders, valloaders, testloader):
     """
@@ -107,7 +109,14 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 NUM_CLIENTS = len(clients)
                 
                 # Define client features (e.g., battery level and number of samples)
-                client_features = np.array([[client.getEnergyLevel(), len(trainloaders[i])] for i, client in enumerate(clients)])
+                #client_features = np.array([[client.getEnergyLevel(), len(trainloaders[i])] for i, client in enumerate(clients)])
+                client_features = np.array([
+                    [client.energy_comp_sample]
+                    for client in clients
+                ])
+
+                scaler = StandardScaler()
+                client_features = scaler.fit_transform(client_features)
 
                 # Perform K-means clustering
                 kmeans = KMeans(n_clusters=NUM_CLUSTERS, random_state=42)
@@ -122,6 +131,13 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 # Now assign devices (clients) to edge servers
                 selected_edge_servers = {i: [] for i in range(num_edge_servers)}
 
+                # Log clustering statistics
+                for cluster_id, devices in clustered_clients.items():
+                    avg_energy = np.mean([device.energy_comp_sample for device in devices])
+                    avg_time = np.mean([device.train_time_sample for device in devices])
+                    print(f"Cluster {cluster_id}: Avg Energy Comp Sample: {avg_energy:.6f}, Avg Train Time Sample: {avg_time:.6f}")
+
+
                 # Assign each cluster to an edge server (you can balance this based on the number of clients per cluster)
                 edge_server_idx = 0
                 for cluster_id, cluster_devices in clustered_clients.items():
@@ -131,6 +147,11 @@ def HierFL(args, trainloaders, valloaders, testloader):
                     selected_edge_servers[edge_server_idx] = cluster_devices
 
                     print(f"Edge Server {edge_server.get_server_id()} assigned to Cluster {cluster_id} with {len(cluster_devices)} clients.")
+                    # Log the cluster and edge server information
+                    with open(train_args['file_path'], "a") as file:
+                        file.write(f"\nCluster {cluster_id} assigned to Edge Server {edge_server.get_server_id()} with {len(cluster_devices)} clients:\n")
+                        for device in cluster_devices:
+                            file.write(f"    Device {device.deviceId} - Energy Comp Sample: {device.energy_comp_sample}, Train Time Sample: {device.train_time_sample}, Battery Level: {device.getEnergyLevel()}%\n")
                     edge_server_idx = (edge_server_idx + 1) % num_edge_servers  # Rotate edge server assignment
 
                 phase += 1

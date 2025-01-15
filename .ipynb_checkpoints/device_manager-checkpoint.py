@@ -1,3 +1,5 @@
+import random
+
 class DeviceManager():
     def __init__(self, id):
         self.deviceId = id
