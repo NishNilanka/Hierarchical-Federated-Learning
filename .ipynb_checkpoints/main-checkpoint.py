@@ -46,7 +46,7 @@ def main():
     'DATASET': "mnist",
     'DATA_DISTRIBUTION': "NON-IID",
     'TYPE_DISTRIBUTION': "pathological-balanced",
-    'NUM_CLIENTS': 30, # 30
+    'NUM_CLIENTS': 50, # 30
     'LOCAL_ITERATIONS': 5, #
     'EDGE_AGGREGATIONS': 10, # k2 10
     'GLOBAL_ROUNDS': 25,
@@ -57,9 +57,9 @@ def main():
     'EDGE_CLIENTS': 10,
     'CLIENT_FRACTION': 0.7,
     'EVALUATE_FRACTION': 0.7,
-    'MIN_FIT_CLIENT': 6,
-    'MIN_EVALUATE_CLIENT': 6,
-    'MIN_AVAILABLE_CLIENT': 8,
+    'MIN_FIT_CLIENT': 50 * 0.7,
+    'MIN_EVALUATE_CLIENT': 50 * 0.7,
+    'MIN_AVAILABLE_CLIENT': 50,
     'BATCH_SIZE': 20,
     'LEARNING_RATE': 0.01,
     'EXPONENTIAL_DECAY_RATE': 0.995
