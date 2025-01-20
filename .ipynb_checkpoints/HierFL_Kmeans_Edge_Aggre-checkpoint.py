@@ -137,6 +137,17 @@ def HierFL(args, trainloaders, valloaders, testloader):
                     avg_time = np.mean([device.train_time_sample for device in devices])
                     print(f"Cluster {cluster_id}: Avg Energy Comp Sample: {avg_energy:.6f}, Avg Train Time Sample: {avg_time:.6f}")
 
+                    mean_energy_comp = np.mean([device.total_comp_energy for device in devices])
+                    mean_energy_comm = np.mean([device.total_comm_energy for device in devices])
+                
+                    print(f"Cluster {cluster_id}: Mean Energy Comp: {mean_energy_comp:.6f} J, Mean Energy Comm: {mean_energy_comm:.6f} J")
+                
+                    # Log this information to the experiment file
+                    with open(train_args['file_path'], "a") as file:
+                        file.write(f"\nCluster {cluster_id} - Mean Energy Consumption:\n")
+                        file.write(f"  Computation: {mean_energy_comp:.6f} J\n")
+                        file.write(f"  Communication: {mean_energy_comm:.6f} J\n")
+
 
                 # Assign each cluster to an edge server (you can balance this based on the number of clients per cluster)
                 edge_server_idx = 0

@@ -5,6 +5,7 @@ import random
 import numpy as np
 import copy
 from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 from flwr.common import (
     EvaluateIns,
     EvaluateRes,
@@ -25,19 +26,17 @@ from device_manager import DeviceManager
 from metrics import weighted_average, evaluate
 from utils import show_distribution, log_experiment_file
 from EdgeServer import EdgeServer
-from sklearn.preprocessing import StandardScaler
-
 
 def HierFL(args, trainloaders, valloaders, testloader):
     """
     Hierarchical Federated Learning with Edge Servers and K-means clustering of clients (devices).
     """
 
-    def fit_config(server_round: int):
+    def fit_config(server_round: int, cluster_id: int):
         """Return training configuration for each round."""
         config = {
             "server_round": server_round,
-            "local_iterations": train_args['LOCAL_ITERATIONS'],
+            "local_iterations": cluster_local_iterations[cluster_id],
             "learning_rate": args['LEARNING_RATE'],
             "exponential_decay_rate": args['EXPONENTIAL_DECAY_RATE'],
         }
@@ -76,9 +75,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
     ]
 
     # Initialize the clients (DeviceManager objects)
-    clients = []
-    for id in range(args['NUM_CLIENTS']):
-        clients.append(DeviceManager(id))
+    clients = [DeviceManager(id) for id in range(args['NUM_CLIENTS'])]
 
     # Create edge servers (5 edge servers for 5 clusters)
     num_edge_servers = 5
@@ -105,14 +102,12 @@ def HierFL(args, trainloaders, valloaders, testloader):
                     file.write(f"PHASE {phase+1} - CONFIGURING K-MEANS CLUSTERS\n")
                 
                 # Perform K-means clustering on clients based on their features
-                NUM_CLUSTERS = 5  # Number of clusters
+                NUM_CLUSTERS = min(len(edge_servers), args['NUM_CLIENTS'] // 2)
                 NUM_CLIENTS = len(clients)
                 
                 # Define client features (e.g., battery level and number of samples)
-                #client_features = np.array([[client.getEnergyLevel(), len(trainloaders[i])] for i, client in enumerate(clients)])
                 client_features = np.array([
-                    [client.energy_comp_sample]
-                    for client in clients
+                    [client.energy_comp_sample] for client in clients
                 ])
 
                 scaler = StandardScaler()
@@ -128,8 +123,24 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 for i, label in enumerate(labels):
                     clustered_clients[label].append(clients[i])
 
-                # Now assign devices (clients) to edge servers
-                selected_edge_servers = {i: [] for i in range(num_edge_servers)}
+                # Calculate mean energy consumption and determine LOCAL_ITERATIONS
+                cluster_mean_energy = {}
+                for cluster_id, devices in clustered_clients.items():
+                    mean_energy = np.mean([device.energy_comp_sample for device in devices])
+                    cluster_mean_energy[cluster_id] = mean_energy
+                    print(f"Cluster {cluster_id}: Mean Energy Consumption = {mean_energy:.6e}")
+
+                local_iteration_values = [3, 4, 5, 6, 7]
+                #sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1])
+                sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1], reverse=True)
+                cluster_local_iterations = {
+                    cluster_id: local_iteration_values[i]
+                    for i, (cluster_id, _) in enumerate(sorted_clusters)
+                }
+
+                # Assign LOCAL_ITERATIONS to each cluster
+                for cluster_id, local_iterations in cluster_local_iterations.items():
+                    print(f"Cluster {cluster_id}: LOCAL_ITERATIONS = {local_iterations}")
 
                 # Log clustering statistics
                 for cluster_id, devices in clustered_clients.items():
@@ -137,17 +148,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
                     avg_time = np.mean([device.train_time_sample for device in devices])
                     print(f"Cluster {cluster_id}: Avg Energy Comp Sample: {avg_energy:.6f}, Avg Train Time Sample: {avg_time:.6f}")
 
-                    mean_energy_comp = np.mean([device.total_comp_energy for device in devices])
-                    mean_energy_comm = np.mean([device.total_comm_energy for device in devices])
-                
-                    print(f"Cluster {cluster_id}: Mean Energy Comp: {mean_energy_comp:.6f} J, Mean Energy Comm: {mean_energy_comm:.6f} J")
-                
-                    # Log this information to the experiment file
                     with open(train_args['file_path'], "a") as file:
-                        file.write(f"\nCluster {cluster_id} - Mean Energy Consumption:\n")
-                        file.write(f"  Computation: {mean_energy_comp:.6f} J\n")
-                        file.write(f"  Communication: {mean_energy_comm:.6f} J\n")
-
+                        file.write(f"Cluster {cluster_id}: Avg Energy: {avg_energy:.6f}, Avg Time: {avg_time:.6f}, LOCAL_ITERATIONS: {cluster_local_iterations[cluster_id]}\n")
 
                 # Assign each cluster to an edge server (you can balance this based on the number of clients per cluster)
                 edge_server_idx = 0
@@ -155,7 +157,6 @@ def HierFL(args, trainloaders, valloaders, testloader):
                     # Assign clients to edge servers
                     edge_server = edge_servers[edge_server_idx]
                     edge_server.assign_devices(cluster_devices)
-                    selected_edge_servers[edge_server_idx] = cluster_devices
 
                     print(f"Edge Server {edge_server.get_server_id()} assigned to Cluster {cluster_id} with {len(cluster_devices)} clients.")
                     # Log the cluster and edge server information
@@ -175,7 +176,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
             numCommunicationsRound = 0
 
             # Process each edge server
-            for edge_server in edge_servers:
+            for cluster_id, edge_server in enumerate(edge_servers):
                 print(f"Running edge aggregation for Edge Server {edge_server.get_server_id()} with {edge_server.get_num_clients()} clients.")
                 trainloaders_cluster = [trainloaders[client.deviceId] for client in edge_server.get_devices()]
                 valloaders_cluster = [valloaders[client.deviceId] for client in edge_server.get_devices()]
@@ -185,13 +186,13 @@ def HierFL(args, trainloaders, valloaders, testloader):
                     fraction_fit=args['CLIENT_FRACTION'],  # Fraction of clients selected for training
                     fraction_evaluate=args['EVALUATE_FRACTION'],
                     initial_parameters=fl.common.ndarrays_to_parameters(params),
-                    on_fit_config_fn=fit_config,
+                    on_fit_config_fn=lambda server_round: fit_config(server_round, cluster_id),
                 )
 
-                # Run simulation for each cluster
+                # Run simulation for this cluster
                 fl.simulation.start_simulation(
                     client_fn=client_fn_cluster,
-                    num_clients=len(trainloaders_cluster),
+                    num_clients=len(edge_server.get_devices()),
                     config=fl.server.ServerConfig(num_rounds=train_args['EDGE_AGGREGATIONS']),
                     strategy=strategy_cluster,
                     client_resources=args['client_resources'],

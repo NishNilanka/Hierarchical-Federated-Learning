@@ -1,5 +1,8 @@
 import random
 
+SEED = 42
+random.seed(SEED)
+
 class DeviceManager():
     def __init__(self, id):
         self.deviceId = id
