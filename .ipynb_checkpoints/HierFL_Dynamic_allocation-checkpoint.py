@@ -106,9 +106,13 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 NUM_CLIENTS = len(clients)
                 
                 # Define client features (e.g., battery level and number of samples)
+                #client_features = np.array([
+                #    [client.energy_comp_sample] for client in clients
+                #])
                 client_features = np.array([
-                    [client.energy_comp_sample] for client in clients
+                    [client.energy_comp_sample, client.train_time_sample] for client in clients
                 ])
+
 
                 scaler = StandardScaler()
                 client_features = scaler.fit_transform(client_features)
@@ -132,7 +136,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
                 local_iteration_values = [3, 4, 5, 6, 7]
                 #sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1])
-                sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1], reverse=True)
+                sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1])
                 cluster_local_iterations = {
                     cluster_id: local_iteration_values[i]
                     for i, (cluster_id, _) in enumerate(sorted_clusters)
@@ -174,6 +178,9 @@ def HierFL(args, trainloaders, valloaders, testloader):
             CommEnergyConsumedRound = 0.0
             trainTimeRound = 0.0
             numCommunicationsRound = 0
+
+            print(f"Number of trainloaders: {len(trainloaders)}")
+            print(f"Number of valloaders: {len(valloaders)}")
 
             # Process each edge server
             for cluster_id, edge_server in enumerate(edge_servers):

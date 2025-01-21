@@ -86,8 +86,6 @@ def load_datasets(args) -> Tuple[DataLoader, DataLoader, DataLoader]:
             
     
     elif args['DATA_DISTRIBUTION'] == "NON-IID":
-        print("-----------NON-IID-------------\n")
-
         if  args['TYPE_DISTRIBUTION'] == 'dirichlet':
 
             partitioner = DirichletPartitioner(
@@ -134,81 +132,53 @@ def load_datasets(args) -> Tuple[DataLoader, DataLoader, DataLoader]:
 
             return trainloaders, valloaders, testloader
         
-        elif args['TYPE_DISTRIBUTION'] == 'pathological-ordered': 
-            
+        elif args['TYPE_DISTRIBUTION'] == 'pathological-ordered':
             partitions = []
-            
-            for label in range(10):
-                for partition_id in range(args['NUM_CLIENTS']):
+            for partition_id in range(args['NUM_CLIENTS']):
+                try:
                     partition = fds.load_partition(partition_id, "train")
-                    #print(f"Label: {partition[0]['label']}")
-                    if partition[0]["label"] == label:
-                        partitions.append(partition)
-
-            trainloaders = []
-            valloaders = []
-
-            for partition in partitions:
-                partition = partition.with_transform(apply_transforms)
-                partition = partition.train_test_split(train_size=0.8, shuffle= False, seed=args['SEED'])
-                trainloaders.append(DataLoader(partition["train"], batch_size=args['BATCH_SIZE'], shuffle=True))
-                valloaders.append(DataLoader(partition["test"], batch_size=args['BATCH_SIZE']))
-            testset = fds.load_split("test").with_transform(apply_transforms)
-            testloader = DataLoader(testset, batch_size=args['BATCH_SIZE'] * args['NUM_CLIENTS'], shuffle=False)
-
-            return trainloaders, valloaders, testloader
+                    partitions.append(partition)
+                except IndexError:
+                    print(f"Partition {partition_id} does not exist. Adjusting NUM_CLIENTS.")
+                    args['NUM_CLIENTS'] = len(partitions)
+                    break
         
-        elif args['TYPE_DISTRIBUTION'] == 'pathological-balanced': 
-
-            partitions = []
-            
-            partitions.append(fds.load_partition(0, "train"))
-            partitions.append(fds.load_partition(10, "train"))
-            partitions.append(fds.load_partition(1, "train"))
-            partitions.append(fds.load_partition(2, "train"))
-            partitions.append(fds.load_partition(3, "train"))
-            partitions.append(fds.load_partition(4, "train"))
-
-            partitions.append(fds.load_partition(11, "train"))
-            partitions.append(fds.load_partition(12, "train"))
-            partitions.append(fds.load_partition(13, "train"))
-            partitions.append(fds.load_partition(14, "train"))
-            partitions.append(fds.load_partition(5, "train"))
-            partitions.append(fds.load_partition(15, "train"))
-
-            partitions.append(fds.load_partition(6, "train"))
-            partitions.append(fds.load_partition(16, "train"))
-            partitions.append(fds.load_partition(7, "train"))
-            partitions.append(fds.load_partition(17, "train"))
-            partitions.append(fds.load_partition(8, "train"))
-            partitions.append(fds.load_partition(18, "train"))
-            partitions.append(fds.load_partition(9, "train"))
-
-            partitions.append(fds.load_partition(26, "train"))
-            partitions.append(fds.load_partition(27, "train"))
-            partitions.append(fds.load_partition(28, "train"))
-            partitions.append(fds.load_partition(19, "train"))
-            partitions.append(fds.load_partition(20, "train"))
-
-            partitions.append(fds.load_partition(21, "train"))
-            partitions.append(fds.load_partition(22, "train"))
-            partitions.append(fds.load_partition(23, "train"))
-            partitions.append(fds.load_partition(24, "train"))
-            partitions.append(fds.load_partition(25, "train"))
-            partitions.append(fds.load_partition(29, "train"))
-
             trainloaders = []
             valloaders = []
-
             for partition in partitions:
                 partition = partition.with_transform(apply_transforms)
-                partition = partition.train_test_split(train_size=0.8, shuffle= False, seed=args['SEED'])
+                partition = partition.train_test_split(train_size=0.8, shuffle=False, seed=args['SEED'])
                 trainloaders.append(DataLoader(partition["train"], batch_size=args['BATCH_SIZE'], shuffle=True))
                 valloaders.append(DataLoader(partition["test"], batch_size=args['BATCH_SIZE']))
             testset = fds.load_split("test").with_transform(apply_transforms)
             testloader = DataLoader(testset, batch_size=args['BATCH_SIZE'] * args['NUM_CLIENTS'], shuffle=False)
-
+        
             return trainloaders, valloaders, testloader
+
+        
+        elif args['TYPE_DISTRIBUTION'] == 'pathological-balanced':
+            partitions = []
+            for partition_id in range(args['NUM_CLIENTS']):
+                try:
+                    partition = fds.load_partition(partition_id, "train")
+                    partitions.append(partition)
+                except IndexError:
+                    print(f"Partition {partition_id} does not exist. Adjusting NUM_CLIENTS.")
+                    args['NUM_CLIENTS'] = len(partitions)
+                    break
+        
+            trainloaders = []
+            valloaders = []
+            for partition in partitions:
+                partition = partition.with_transform(apply_transforms)
+                partition = partition.train_test_split(train_size=0.8, shuffle=False, seed=args['SEED'])
+                trainloaders.append(DataLoader(partition["train"], batch_size=args['BATCH_SIZE'], shuffle=True))
+                valloaders.append(DataLoader(partition["test"], batch_size=args['BATCH_SIZE']))
+            testset = fds.load_split("test").with_transform(apply_transforms)
+            testloader = DataLoader(testset, batch_size=args['BATCH_SIZE'] * args['NUM_CLIENTS'], shuffle=False)
+        
+            return trainloaders, valloaders, testloader
+
         else:
             print("ERROR! Type NON-IID distribution is not available")
 

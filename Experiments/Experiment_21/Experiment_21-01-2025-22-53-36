@@ -1,4 +1,4 @@
-EXPERIMENT 20 Log 20-01-2025-13-51-21
+EXPERIMENT 21 Log 21-01-2025-22-53-36
 ================================
 DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
 TOTAL NUMBER OF CLIENTS: 50
@@ -26,13 +26,7 @@ EXPONENTIAL_DECAY_RATE: 0.995
 
 ----------------------------------------------------------------------------------
 PHASE 1 - CONFIGURING K-MEANS CLUSTERS
-Cluster 0: Avg Energy: 0.000018, Avg Time: 0.000150, LOCAL_ITERATIONS: 4
-Cluster 1: Avg Energy: 0.000011, Avg Time: 0.000138, LOCAL_ITERATIONS: 7
-Cluster 2: Avg Energy: 0.000016, Avg Time: 0.000148, LOCAL_ITERATIONS: 5
-Cluster 3: Avg Energy: 0.000013, Avg Time: 0.000132, LOCAL_ITERATIONS: 6
-Cluster 4: Avg Energy: 0.000020, Avg Time: 0.000156, LOCAL_ITERATIONS: 3
-
-Cluster 0 assigned to Edge Server 0 with 11 clients:
+Cluster 0: Avg Energy: 0.000018, Avg Time: 0.000150
     Device 2 - Energy Comp Sample: 1.7364712141640124e-05, Train Time Sample: 0.00016766994874229112, Battery Level: 100.0%
     Device 3 - Energy Comp Sample: 1.8921795677048456e-05, Train Time Sample: 0.00010869388326294163, Battery Level: 100.0%
     Device 9 - Energy Comp Sample: 1.8094304566778268e-05, Train Time Sample: 0.00010064987596780611, Battery Level: 100.0%
@@ -44,8 +38,7 @@ Cluster 0 assigned to Edge Server 0 with 11 clients:
     Device 32 - Energy Comp Sample: 1.8428519201898096e-05, Train Time Sample: 0.00017759999115462448, Battery Level: 100.0%
     Device 36 - Energy Comp Sample: 1.876367626472669e-05, Train Time Sample: 0.0001314677880798478, Battery Level: 100.0%
     Device 46 - Energy Comp Sample: 1.792079364362964e-05, Train Time Sample: 0.0001422159966799684, Battery Level: 100.0%
-
-Cluster 1 assigned to Edge Server 1 with 14 clients:
+Cluster 1: Avg Energy: 0.000011, Avg Time: 0.000138
     Device 5 - Energy Comp Sample: 1.2186379748036034e-05, Train Time Sample: 0.00015053552881033624, Battery Level: 100.0%
     Device 6 - Energy Comp Sample: 1.0265359696838637e-05, Train Time Sample: 0.00011988376506866485, Battery Level: 100.0%
     Device 8 - Energy Comp Sample: 1.2204406220406968e-05, Train Time Sample: 0.0001589265683875909, Battery Level: 100.0%
@@ -60,8 +53,7 @@ Cluster 1 assigned to Edge Server 1 with 14 clients:
     Device 44 - Energy Comp Sample: 1.090909412173794e-05, Train Time Sample: 0.00010471163754247347, Battery Level: 100.0%
     Device 45 - Energy Comp Sample: 1.1096491303506592e-05, Train Time Sample: 0.000162744604170309, Battery Level: 100.0%
     Device 47 - Energy Comp Sample: 1.0635277061519573e-05, Train Time Sample: 0.0001381619286506537, Battery Level: 100.0%
-
-Cluster 2 assigned to Edge Server 2 with 10 clients:
+Cluster 2: Avg Energy: 0.000016, Avg Time: 0.000148
     Device 0 - Energy Comp Sample: 1.639426798457884e-05, Train Time Sample: 0.0001025010755222667, Battery Level: 100.0%
     Device 7 - Energy Comp Sample: 1.6498844377795233e-05, Train Time Sample: 0.00015449414806032168, Battery Level: 100.0%
     Device 16 - Energy Comp Sample: 1.5362280914547008e-05, Train Time Sample: 0.00019731157639793707, Battery Level: 100.0%
@@ -72,8 +64,7 @@ Cluster 2 assigned to Edge Server 2 with 10 clients:
     Device 37 - Energy Comp Sample: 1.6554386652948802e-05, Train Time Sample: 0.00013956319010606643, Battery Level: 100.0%
     Device 40 - Energy Comp Sample: 1.561368134163151e-05, Train Time Sample: 0.00012627416085229354, Battery Level: 100.0%
     Device 41 - Energy Comp Sample: 1.5845859902235407e-05, Train Time Sample: 0.0001897822883602477, Battery Level: 100.0%
-
-Cluster 3 assigned to Edge Server 3 with 9 clients:
+Cluster 3: Avg Energy: 0.000013, Avg Time: 0.000132
     Device 1 - Energy Comp Sample: 1.2750293183691193e-05, Train Time Sample: 0.0001223210738148823, Battery Level: 100.0%
     Device 4 - Energy Comp Sample: 1.4219218196852705e-05, Train Time Sample: 0.00010297972194380704, Battery Level: 100.0%
     Device 11 - Energy Comp Sample: 1.340250516517992e-05, Train Time Sample: 0.00011554794998117816, Battery Level: 100.0%
@@ -83,11 +74,65 @@ Cluster 3 assigned to Edge Server 3 with 9 clients:
     Device 34 - Energy Comp Sample: 1.315453048059082e-05, Train Time Sample: 0.00012677408759757027, Battery Level: 100.0%
     Device 39 - Energy Comp Sample: 1.2648801664980526e-05, Train Time Sample: 0.00012466275076939836, Battery Level: 100.0%
     Device 42 - Energy Comp Sample: 1.3994005051403974e-05, Train Time Sample: 0.00012193207591572835, Battery Level: 100.0%
-
-Cluster 4 assigned to Edge Server 4 with 6 clients:
+Cluster 4: Avg Energy: 0.000020, Avg Time: 0.000156
     Device 12 - Energy Comp Sample: 1.9572130722067816e-05, Train Time Sample: 0.00013365945451126267, Battery Level: 100.0%
     Device 30 - Energy Comp Sample: 1.9895233506365955e-05, Train Time Sample: 0.0001639999759854093, Battery Level: 100.0%
     Device 38 - Energy Comp Sample: 1.9145475897405437e-05, Train Time Sample: 0.00014588518525873988, Battery Level: 100.0%
     Device 43 - Energy Comp Sample: 1.9975376064951103e-05, Train Time Sample: 0.00015095262936764647, Battery Level: 100.0%
     Device 48 - Energy Comp Sample: 1.996121380240097e-05, Train Time Sample: 0.0001529114345099137, Battery Level: 100.0%
     Device 49 - Energy Comp Sample: 1.9710783776136182e-05, Train Time Sample: 0.0001860779702234498, Battery Level: 100.0%
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+    Device 2 - Battery Level: 100.0%
+    Device 3 - Battery Level: 100.0%
+    Device 9 - Battery Level: 100.0%
+    Device 10 - Battery Level: 100.0%
+    Device 14 - Battery Level: 100.0%
+    Device 15 - Battery Level: 100.0%
+    Device 18 - Battery Level: 100.0%
+    Device 19 - Battery Level: 100.0%
+    Device 32 - Battery Level: 100.0%
+    Device 36 - Battery Level: 100.0%
+    Device 46 - Battery Level: 100.0%
+Edge Server 1 assigned to Cluster 1 with 14 clients.
+    Device 5 - Battery Level: 100.0%
+    Device 6 - Battery Level: 100.0%
+    Device 8 - Battery Level: 100.0%
+    Device 13 - Battery Level: 100.0%
+    Device 21 - Battery Level: 100.0%
+    Device 22 - Battery Level: 100.0%
+    Device 23 - Battery Level: 100.0%
+    Device 28 - Battery Level: 100.0%
+    Device 29 - Battery Level: 100.0%
+    Device 33 - Battery Level: 100.0%
+    Device 35 - Battery Level: 100.0%
+    Device 44 - Battery Level: 100.0%
+    Device 45 - Battery Level: 100.0%
+    Device 47 - Battery Level: 100.0%
+Edge Server 2 assigned to Cluster 2 with 10 clients.
+    Device 0 - Battery Level: 100.0%
+    Device 7 - Battery Level: 100.0%
+    Device 16 - Battery Level: 100.0%
+    Device 20 - Battery Level: 100.0%
+    Device 24 - Battery Level: 100.0%
+    Device 27 - Battery Level: 100.0%
+    Device 31 - Battery Level: 100.0%
+    Device 37 - Battery Level: 100.0%
+    Device 40 - Battery Level: 100.0%
+    Device 41 - Battery Level: 100.0%
+Edge Server 3 assigned to Cluster 3 with 9 clients.
+    Device 1 - Battery Level: 100.0%
+    Device 4 - Battery Level: 100.0%
+    Device 11 - Battery Level: 100.0%
+    Device 17 - Battery Level: 100.0%
+    Device 25 - Battery Level: 100.0%
+    Device 26 - Battery Level: 100.0%
+    Device 34 - Battery Level: 100.0%
+    Device 39 - Battery Level: 100.0%
+    Device 42 - Battery Level: 100.0%
+Edge Server 4 assigned to Cluster 4 with 6 clients.
+    Device 12 - Battery Level: 100.0%
+    Device 30 - Battery Level: 100.0%
+    Device 38 - Battery Level: 100.0%
+    Device 43 - Battery Level: 100.0%
+    Device 48 - Battery Level: 100.0%
+    Device 49 - Battery Level: 100.0%
