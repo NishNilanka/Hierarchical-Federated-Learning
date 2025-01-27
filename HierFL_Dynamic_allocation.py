@@ -210,6 +210,17 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 devices_info = strategy_cluster.devices_info
                 global_results.append((parameters_to_ndarrays(final_weights_cluster), total_samples))
 
+                # Compute edge-to-cloud communication energy
+                model_size_bits = sum([param.numel() for param in model.parameters()]) * 32  # Assuming 32-bit floating point
+                edge_comm_energy = edge_server.compute_cloud_communication_energy(size_model_bits=model_size_bits)
+                CommEnergyConsumedRound += edge_comm_energy  # Add to round communication energy
+            
+                # Log edge-to-cloud communication energy
+                with open(train_args['file_path'], "a") as file:
+                    file.write(f"\nEdge Server {edge_server.get_server_id()} sent data to cloud consuming {edge_comm_energy:.2f} J.")
+            
+                print(f"Edge Server {edge_server.get_server_id()} consumed {edge_comm_energy:.2f} J for cloud communication.")
+
                 # Update energy and communication statistics
                 for deviceid in devices_info:
                     devoceId = devices_info[deviceid]['deviceId']

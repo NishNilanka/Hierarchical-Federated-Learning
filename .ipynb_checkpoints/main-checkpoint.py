@@ -29,8 +29,8 @@ from model import Net, train, test, get_parameters, set_parameters
 #from HierFL import HierFL
 #from HierFL_random_clustering import HierFL
 #from HierFL_Kmeans import HierFL
-#from HierFL_Dynamic_allocation import HierFL
-from HierFL_Kmeans_Edge_Aggre import HierFL
+from HierFL_Dynamic_allocation import HierFL
+#from HierFL_Kmeans_Edge_Aggre import HierFL
 from client import FlowerClient
 from strategy import FedAvgCustom
 from load_datasets import load_datasets
@@ -41,7 +41,7 @@ from utils import generate_random_sizes
 
 def main():
     args = {
-    'EXPERIMENT': 21,
+    'EXPERIMENT': 22,
     'SEED': 1,
     'DATASET': "mnist",
     'DATA_DISTRIBUTION': "NON-IID",
