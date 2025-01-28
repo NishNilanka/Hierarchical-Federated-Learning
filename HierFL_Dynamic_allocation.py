@@ -134,12 +134,24 @@ def HierFL(args, trainloaders, valloaders, testloader):
                     cluster_mean_energy[cluster_id] = mean_energy
                     print(f"Cluster {cluster_id}: Mean Energy Consumption = {mean_energy:.6e}")
 
-                local_iteration_values = [3, 4, 5, 6, 7]
+                
+                # Parameters for normal distribution
+                mean_k1 = 5  # Mean value for k1
+                std_dev_k1 = 1  # Standard deviation for k1
+                #local_iteration_values = [3, 4, 5, 6, 7]
+                # Generate k1 values from normal distribution and clip them to a valid range
+                local_iteration_values = [int(np.clip(np.random.normal(mean_k1, std_dev_k1), 3, 10)) for _ in range(len(cluster_mean_energy))]
+
                 #sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1])
                 sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1])
+                #cluster_local_iterations = {
+                #    cluster_id: local_iteration_values[i]
+                #    for i, (cluster_id, _) in enumerate(sorted_clusters)
+                #}
+
                 cluster_local_iterations = {
-                    cluster_id: local_iteration_values[i]
-                    for i, (cluster_id, _) in enumerate(sorted_clusters)
+                    cluster_id: int(np.clip(np.random.normal(mean_k1, std_dev_k1), 3, 10))
+                    for cluster_id in sorted_clusters.keys()
                 }
 
                 # Assign LOCAL_ITERATIONS to each cluster
