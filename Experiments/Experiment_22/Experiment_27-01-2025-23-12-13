@@ -1,0 +1,647 @@
+EXPERIMENT 22 Log 27-01-2025-23-12-13
+================================
+DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
+TOTAL NUMBER OF CLIENTS: 50
+TOTAL NUMBER OF EDGE SERVER: [3 - 5]
+
+HIERARCHICAL FEDERATED LEARNING CONFIGURATION:
+CLIENT LOCAL_ITERATIONS (K1): 5
+TOTAL NUMBER OF EDGE_AGGREGATIONS: 10
+TOTAL NUMBER OF GLOBAL_ROUNDS: 25
+TRAIN_PHASES: 5
+
+FL STRATEGY CONFIGURATION:
+CLIENT FRACTION: 1
+EVALUATE_FRACTION: 1
+CLIENT_RESOURCES: {'num_cpus': 1, 'num_gpus': 0.0}
+
+TRAINING PROCESS CONFIGURATION:
+DATASET: mnist
+DATA DISTRIBUTION: NON-IID
+TYPE DISTRIBUTION: pathological-balanced
+BATCH_SIZE: 20
+LEARNING_RATE: 0.01
+EXPONENTIAL_DECAY_RATE: 0.995
+================================
+
+----------------------------------------------------------------------------------
+PHASE 1 - CONFIGURING K-MEANS CLUSTERS
+Cluster 0: Avg Energy: 0.000018, Avg Time: 0.000166, LOCAL_ITERATIONS: 7
+Cluster 1: Avg Energy: 0.000013, Avg Time: 0.000173, LOCAL_ITERATIONS: 4
+Cluster 2: Avg Energy: 0.000012, Avg Time: 0.000122, LOCAL_ITERATIONS: 3
+Cluster 3: Avg Energy: 0.000018, Avg Time: 0.000137, LOCAL_ITERATIONS: 6
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000104, LOCAL_ITERATIONS: 5
+
+Cluster 0 assigned to Edge Server 0 with 15 clients:
+    Device 2 - Energy Comp Sample: 1.7364712141640124e-05, Train Time Sample: 0.00016766994874229112, Battery Level: 100.0%
+    Device 7 - Energy Comp Sample: 1.6498844377795233e-05, Train Time Sample: 0.00015449414806032168, Battery Level: 100.0%
+    Device 10 - Energy Comp Sample: 1.805819251832808e-05, Train Time Sample: 0.0001698139394988227, Battery Level: 100.0%
+    Device 14 - Energy Comp Sample: 1.8474943663474598e-05, Train Time Sample: 0.00016037260313668913, Battery Level: 100.0%
+    Device 15 - Energy Comp Sample: 1.8071282732743803e-05, Train Time Sample: 0.0001729731786693818, Battery Level: 100.0%
+    Device 18 - Energy Comp Sample: 1.829404664252995e-05, Train Time Sample: 0.00016185197523642462, Battery Level: 100.0%
+    Device 19 - Energy Comp Sample: 1.8617069003107774e-05, Train Time Sample: 0.00015773521452567621, Battery Level: 100.0%
+    Device 27 - Energy Comp Sample: 1.6480353852465936e-05, Train Time Sample: 0.00016091310056669882, Battery Level: 100.0%
+    Device 30 - Energy Comp Sample: 1.9895233506365955e-05, Train Time Sample: 0.0001639999759854093, Battery Level: 100.0%
+    Device 31 - Energy Comp Sample: 1.5569497437746464e-05, Train Time Sample: 0.00016846142509898746, Battery Level: 100.0%
+    Device 32 - Energy Comp Sample: 1.8428519201898096e-05, Train Time Sample: 0.00017759999115462448, Battery Level: 100.0%
+    Device 41 - Energy Comp Sample: 1.5845859902235407e-05, Train Time Sample: 0.0001897822883602477, Battery Level: 100.0%
+    Device 43 - Energy Comp Sample: 1.9975376064951103e-05, Train Time Sample: 0.00015095262936764647, Battery Level: 100.0%
+    Device 48 - Energy Comp Sample: 1.996121380240097e-05, Train Time Sample: 0.0001529114345099137, Battery Level: 100.0%
+    Device 49 - Energy Comp Sample: 1.9710783776136182e-05, Train Time Sample: 0.0001860779702234498, Battery Level: 100.0%
+
+Cluster 1 assigned to Edge Server 1 with 8 clients:
+    Device 5 - Energy Comp Sample: 1.2186379748036034e-05, Train Time Sample: 0.00015053552881033624, Battery Level: 100.0%
+    Device 8 - Energy Comp Sample: 1.2204406220406968e-05, Train Time Sample: 0.0001589265683875909, Battery Level: 100.0%
+    Device 16 - Energy Comp Sample: 1.5362280914547008e-05, Train Time Sample: 0.00019731157639793707, Battery Level: 100.0%
+    Device 17 - Energy Comp Sample: 1.3785343772083536e-05, Train Time Sample: 0.0001552040631273227, Battery Level: 100.0%
+    Device 26 - Energy Comp Sample: 1.2669778220491135e-05, Train Time Sample: 0.0001936654587712494, Battery Level: 100.0%
+    Device 28 - Energy Comp Sample: 1.171138648198097e-05, Train Time Sample: 0.00017291267979503493, Battery Level: 100.0%
+    Device 35 - Energy Comp Sample: 1.2109828435863265e-05, Train Time Sample: 0.00019429097143350545, Battery Level: 100.0%
+    Device 45 - Energy Comp Sample: 1.1096491303506592e-05, Train Time Sample: 0.000162744604170309, Battery Level: 100.0%
+
+Cluster 2 assigned to Edge Server 2 with 15 clients:
+    Device 1 - Energy Comp Sample: 1.2750293183691193e-05, Train Time Sample: 0.0001223210738148823, Battery Level: 100.0%
+    Device 6 - Energy Comp Sample: 1.0265359696838637e-05, Train Time Sample: 0.00011988376506866485, Battery Level: 100.0%
+    Device 11 - Energy Comp Sample: 1.340250516517992e-05, Train Time Sample: 0.00011554794998117816, Battery Level: 100.0%
+    Device 13 - Energy Comp Sample: 1.092745843380148e-05, Train Time Sample: 0.00010967163768334641, Battery Level: 100.0%
+    Device 21 - Energy Comp Sample: 1.2278982756515469e-05, Train Time Sample: 0.00012893879636021073, Battery Level: 100.0%
+    Device 22 - Energy Comp Sample: 1.0797919769236275e-05, Train Time Sample: 0.00012327908863610302, Battery Level: 100.0%
+    Device 23 - Energy Comp Sample: 1.1010014294097293e-05, Train Time Sample: 0.00012779736031100922, Battery Level: 100.0%
+    Device 25 - Energy Comp Sample: 1.3701809671168827e-05, Train Time Sample: 0.00012095070307714877, Battery Level: 100.0%
+    Device 29 - Energy Comp Sample: 1.1634024937619285e-05, Train Time Sample: 0.00013794554417576477, Battery Level: 100.0%
+    Device 33 - Energy Comp Sample: 1.2290480719641044e-05, Train Time Sample: 0.00010321002439040378, Battery Level: 100.0%
+    Device 34 - Energy Comp Sample: 1.315453048059082e-05, Train Time Sample: 0.00012677408759757027, Battery Level: 100.0%
+    Device 39 - Energy Comp Sample: 1.2648801664980526e-05, Train Time Sample: 0.00012466275076939836, Battery Level: 100.0%
+    Device 42 - Energy Comp Sample: 1.3994005051403974e-05, Train Time Sample: 0.00012193207591572835, Battery Level: 100.0%
+    Device 44 - Energy Comp Sample: 1.090909412173794e-05, Train Time Sample: 0.00010471163754247347, Battery Level: 100.0%
+    Device 47 - Energy Comp Sample: 1.0635277061519573e-05, Train Time Sample: 0.0001381619286506537, Battery Level: 100.0%
+
+Cluster 3 assigned to Edge Server 3 with 7 clients:
+    Device 12 - Energy Comp Sample: 1.9572130722067816e-05, Train Time Sample: 0.00013365945451126267, Battery Level: 100.0%
+    Device 24 - Energy Comp Sample: 1.6356844442644e-05, Train Time Sample: 0.00013648321789700842, Battery Level: 100.0%
+    Device 36 - Energy Comp Sample: 1.876367626472669e-05, Train Time Sample: 0.0001314677880798478, Battery Level: 100.0%
+    Device 37 - Energy Comp Sample: 1.6554386652948802e-05, Train Time Sample: 0.00013956319010606643, Battery Level: 100.0%
+    Device 38 - Energy Comp Sample: 1.9145475897405437e-05, Train Time Sample: 0.00014588518525873988, Battery Level: 100.0%
+    Device 40 - Energy Comp Sample: 1.561368134163151e-05, Train Time Sample: 0.00012627416085229354, Battery Level: 100.0%
+    Device 46 - Energy Comp Sample: 1.792079364362964e-05, Train Time Sample: 0.0001422159966799684, Battery Level: 100.0%
+
+Cluster 4 assigned to Edge Server 4 with 5 clients:
+    Device 0 - Energy Comp Sample: 1.639426798457884e-05, Train Time Sample: 0.0001025010755222667, Battery Level: 100.0%
+    Device 3 - Energy Comp Sample: 1.8921795677048456e-05, Train Time Sample: 0.00010869388326294163, Battery Level: 100.0%
+    Device 4 - Energy Comp Sample: 1.4219218196852705e-05, Train Time Sample: 0.00010297972194380704, Battery Level: 100.0%
+    Device 9 - Energy Comp Sample: 1.8094304566778268e-05, Train Time Sample: 0.00010064987596780611, Battery Level: 100.0%
+    Device 20 - Energy Comp Sample: 1.7045718362149236e-05, Train Time Sample: 0.00010458243836556623, Battery Level: 100.0%
+
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 1 Evaluation -Loss: 0.0018515842914581299 	Accuracy: 0.4124 	Training time: 7.363865776s
+Energy Computation: 0.8022730530000003 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.0012815128684043884 	Accuracy: 0.5815 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000004 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 3 Evaluation -Loss: 0.0008450751304626465 	Accuracy: 0.7537 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000003 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 4 Evaluation -Loss: 0.0007868907511234284 	Accuracy: 0.7717 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000001 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 5 Evaluation -Loss: 0.000489780592918396 	Accuracy: 0.8662 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000002 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+----------------------------------------------------------------------------------
+PHASE 2 - CONFIGURING K-MEANS CLUSTERS
+Cluster 0: Avg Energy: 0.000018, Avg Time: 0.000166, LOCAL_ITERATIONS: 7
+Cluster 1: Avg Energy: 0.000013, Avg Time: 0.000173, LOCAL_ITERATIONS: 4
+Cluster 2: Avg Energy: 0.000012, Avg Time: 0.000122, LOCAL_ITERATIONS: 3
+Cluster 3: Avg Energy: 0.000018, Avg Time: 0.000137, LOCAL_ITERATIONS: 6
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000104, LOCAL_ITERATIONS: 5
+
+Cluster 0 assigned to Edge Server 0 with 15 clients:
+    Device 2 - Energy Comp Sample: 1.7364712141640124e-05, Train Time Sample: 0.00016766994874229112, Battery Level: 99.9768857773%
+    Device 7 - Energy Comp Sample: 1.6498844377795233e-05, Train Time Sample: 0.00015449414806032168, Battery Level: 99.9768874814%
+    Device 10 - Energy Comp Sample: 1.805819251832808e-05, Train Time Sample: 0.0001698139394988227, Battery Level: 99.9768844125%
+    Device 14 - Energy Comp Sample: 1.8474943663474598e-05, Train Time Sample: 0.00016037260313668913, Battery Level: 99.9768835923%
+    Device 15 - Energy Comp Sample: 1.8071282732743803e-05, Train Time Sample: 0.0001729731786693818, Battery Level: 99.9768843867%
+    Device 18 - Energy Comp Sample: 1.829404664252995e-05, Train Time Sample: 0.00016185197523642462, Battery Level: 99.9768839483%
+    Device 19 - Energy Comp Sample: 1.8617069003107774e-05, Train Time Sample: 0.00015773521452567621, Battery Level: 99.9768833126%
+    Device 27 - Energy Comp Sample: 1.6480353852465936e-05, Train Time Sample: 0.00016091310056669882, Battery Level: 99.9768875178%
+    Device 30 - Energy Comp Sample: 1.9895233506365955e-05, Train Time Sample: 0.0001639999759854093, Battery Level: 99.9768807971%
+    Device 31 - Energy Comp Sample: 1.5569497437746464e-05, Train Time Sample: 0.00016846142509898746, Battery Level: 99.9768893104%
+    Device 32 - Energy Comp Sample: 1.8428519201898096e-05, Train Time Sample: 0.00017759999115462448, Battery Level: 99.9768836837%
+    Device 41 - Energy Comp Sample: 1.5845859902235407e-05, Train Time Sample: 0.0001897822883602477, Battery Level: 99.9768887665%
+    Device 43 - Energy Comp Sample: 1.9975376064951103e-05, Train Time Sample: 0.00015095262936764647, Battery Level: 99.9768806394%
+    Device 48 - Energy Comp Sample: 1.996121380240097e-05, Train Time Sample: 0.0001529114345099137, Battery Level: 99.9768806672%
+    Device 49 - Energy Comp Sample: 1.9710783776136182e-05, Train Time Sample: 0.0001860779702234498, Battery Level: 99.9768811601%
+
+Cluster 1 assigned to Edge Server 1 with 8 clients:
+    Device 5 - Energy Comp Sample: 1.2186379748036034e-05, Train Time Sample: 0.00015053552881033624, Battery Level: 99.9769062473%
+    Device 8 - Energy Comp Sample: 1.2204406220406968e-05, Train Time Sample: 0.0001589265683875909, Battery Level: 99.976906227%
+    Device 16 - Energy Comp Sample: 1.5362280914547008e-05, Train Time Sample: 0.00019731157639793707, Battery Level: 99.9769026756%
+    Device 17 - Energy Comp Sample: 1.3785343772083536e-05, Train Time Sample: 0.0001552040631273227, Battery Level: 99.976904449%
+    Device 26 - Energy Comp Sample: 1.2669778220491135e-05, Train Time Sample: 0.0001936654587712494, Battery Level: 99.9769057036%
+    Device 28 - Energy Comp Sample: 1.171138648198097e-05, Train Time Sample: 0.00017291267979503493, Battery Level: 99.9769067814%
+    Device 35 - Energy Comp Sample: 1.2109828435863265e-05, Train Time Sample: 0.00019429097143350545, Battery Level: 99.9769063333%
+    Device 45 - Energy Comp Sample: 1.1096491303506592e-05, Train Time Sample: 0.000162744604170309, Battery Level: 99.976907473%
+
+Cluster 2 assigned to Edge Server 2 with 15 clients:
+    Device 1 - Energy Comp Sample: 1.2750293183691193e-05, Train Time Sample: 0.0001223210738148823, Battery Level: 99.9769091978%
+    Device 6 - Energy Comp Sample: 1.0265359696838637e-05, Train Time Sample: 0.00011988376506866485, Battery Level: 99.9769112938%
+    Device 11 - Energy Comp Sample: 1.340250516517992e-05, Train Time Sample: 0.00011554794998117816, Battery Level: 99.9769086477%
+    Device 13 - Energy Comp Sample: 1.092745843380148e-05, Train Time Sample: 0.00010967163768334641, Battery Level: 99.9769107353%
+    Device 21 - Energy Comp Sample: 1.2278982756515469e-05, Train Time Sample: 0.00012893879636021073, Battery Level: 99.9769095954%
+    Device 22 - Energy Comp Sample: 1.0797919769236275e-05, Train Time Sample: 0.00012327908863610302, Battery Level: 99.9769108446%
+    Device 23 - Energy Comp Sample: 1.1010014294097293e-05, Train Time Sample: 0.00012779736031100922, Battery Level: 99.9769106657%
+    Device 25 - Energy Comp Sample: 1.3701809671168827e-05, Train Time Sample: 0.00012095070307714877, Battery Level: 99.9769083953%
+    Device 29 - Energy Comp Sample: 1.1634024937619285e-05, Train Time Sample: 0.00013794554417576477, Battery Level: 99.9769101394%
+    Device 33 - Energy Comp Sample: 1.2290480719641044e-05, Train Time Sample: 0.00010321002439040378, Battery Level: 99.9769095857%
+    Device 34 - Energy Comp Sample: 1.315453048059082e-05, Train Time Sample: 0.00012677408759757027, Battery Level: 99.9769088569%
+    Device 39 - Energy Comp Sample: 1.2648801664980526e-05, Train Time Sample: 0.00012466275076939836, Battery Level: 99.9769092834%
+    Device 42 - Energy Comp Sample: 1.3994005051403974e-05, Train Time Sample: 0.00012193207591572835, Battery Level: 99.9769081488%
+    Device 44 - Energy Comp Sample: 1.090909412173794e-05, Train Time Sample: 0.00010471163754247347, Battery Level: 99.9769107508%
+    Device 47 - Energy Comp Sample: 1.0635277061519573e-05, Train Time Sample: 0.0001381619286506537, Battery Level: 99.9769109818%
+
+Cluster 3 assigned to Edge Server 3 with 7 clients:
+    Device 12 - Energy Comp Sample: 1.9572130722067816e-05, Train Time Sample: 0.00013365945451126267, Battery Level: 99.9768869357%
+    Device 24 - Energy Comp Sample: 1.6356844442644e-05, Train Time Sample: 0.00013648321789700842, Battery Level: 99.9768923596%
+    Device 36 - Energy Comp Sample: 1.876367626472669e-05, Train Time Sample: 0.0001314677880798478, Battery Level: 99.9768882995%
+    Device 37 - Energy Comp Sample: 1.6554386652948802e-05, Train Time Sample: 0.00013956319010606643, Battery Level: 99.9768920264%
+    Device 38 - Energy Comp Sample: 1.9145475897405437e-05, Train Time Sample: 0.00014588518525873988, Battery Level: 99.9768876555%
+    Device 40 - Energy Comp Sample: 1.561368134163151e-05, Train Time Sample: 0.00012627416085229354, Battery Level: 99.9768936133%
+    Device 46 - Energy Comp Sample: 1.792079364362964e-05, Train Time Sample: 0.0001422159966799684, Battery Level: 99.9768897214%
+
+Cluster 4 assigned to Edge Server 4 with 5 clients:
+    Device 0 - Energy Comp Sample: 1.639426798457884e-05, Train Time Sample: 0.0001025010755222667, Battery Level: 99.9768969058%
+    Device 3 - Energy Comp Sample: 1.8921795677048456e-05, Train Time Sample: 0.00010869388326294163, Battery Level: 99.9768933527%
+    Device 4 - Energy Comp Sample: 1.4219218196852705e-05, Train Time Sample: 0.00010297972194380704, Battery Level: 99.9768999634%
+    Device 9 - Energy Comp Sample: 1.8094304566778268e-05, Train Time Sample: 0.00010064987596780611, Battery Level: 99.9768945159%
+    Device 20 - Energy Comp Sample: 1.7045718362149236e-05, Train Time Sample: 0.00010458243836556623, Battery Level: 99.97689599%
+
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 6 Evaluation -Loss: 0.0004599926084280014 	Accuracy: 0.8648 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000004 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 7 Evaluation -Loss: 0.0003840291917324066 	Accuracy: 0.8859 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000001 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 8 Evaluation -Loss: 0.00034068558812141417 	Accuracy: 0.9005 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000002 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 9 Evaluation -Loss: 0.00030899790823459624 	Accuracy: 0.9093 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000003 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 10 Evaluation -Loss: 0.00032090641260147093 	Accuracy: 0.9019 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000002 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+----------------------------------------------------------------------------------
+PHASE 3 - CONFIGURING K-MEANS CLUSTERS
+Cluster 0: Avg Energy: 0.000018, Avg Time: 0.000166, LOCAL_ITERATIONS: 7
+Cluster 1: Avg Energy: 0.000013, Avg Time: 0.000173, LOCAL_ITERATIONS: 4
+Cluster 2: Avg Energy: 0.000012, Avg Time: 0.000122, LOCAL_ITERATIONS: 3
+Cluster 3: Avg Energy: 0.000018, Avg Time: 0.000137, LOCAL_ITERATIONS: 6
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000104, LOCAL_ITERATIONS: 5
+
+Cluster 0 assigned to Edge Server 0 with 15 clients:
+    Device 2 - Energy Comp Sample: 1.7364712141640124e-05, Train Time Sample: 0.00016766994874229112, Battery Level: 99.9537715546%
+    Device 7 - Energy Comp Sample: 1.6498844377795233e-05, Train Time Sample: 0.00015449414806032168, Battery Level: 99.9537749628%
+    Device 10 - Energy Comp Sample: 1.805819251832808e-05, Train Time Sample: 0.0001698139394988227, Battery Level: 99.953768825%
+    Device 14 - Energy Comp Sample: 1.8474943663474598e-05, Train Time Sample: 0.00016037260313668913, Battery Level: 99.9537671846%
+    Device 15 - Energy Comp Sample: 1.8071282732743803e-05, Train Time Sample: 0.0001729731786693818, Battery Level: 99.9537687735%
+    Device 18 - Energy Comp Sample: 1.829404664252995e-05, Train Time Sample: 0.00016185197523642462, Battery Level: 99.9537678967%
+    Device 19 - Energy Comp Sample: 1.8617069003107774e-05, Train Time Sample: 0.00015773521452567621, Battery Level: 99.9537666252%
+    Device 27 - Energy Comp Sample: 1.6480353852465936e-05, Train Time Sample: 0.00016091310056669882, Battery Level: 99.9537750356%
+    Device 30 - Energy Comp Sample: 1.9895233506365955e-05, Train Time Sample: 0.0001639999759854093, Battery Level: 99.9537615942%
+    Device 31 - Energy Comp Sample: 1.5569497437746464e-05, Train Time Sample: 0.00016846142509898746, Battery Level: 99.9537786208%
+    Device 32 - Energy Comp Sample: 1.8428519201898096e-05, Train Time Sample: 0.00017759999115462448, Battery Level: 99.9537673674%
+    Device 41 - Energy Comp Sample: 1.5845859902235407e-05, Train Time Sample: 0.0001897822883602477, Battery Level: 99.953777533%
+    Device 43 - Energy Comp Sample: 1.9975376064951103e-05, Train Time Sample: 0.00015095262936764647, Battery Level: 99.9537612788%
+    Device 48 - Energy Comp Sample: 1.996121380240097e-05, Train Time Sample: 0.0001529114345099137, Battery Level: 99.9537613345%
+    Device 49 - Energy Comp Sample: 1.9710783776136182e-05, Train Time Sample: 0.0001860779702234498, Battery Level: 99.9537623202%
+
+Cluster 1 assigned to Edge Server 1 with 8 clients:
+    Device 5 - Energy Comp Sample: 1.2186379748036034e-05, Train Time Sample: 0.00015053552881033624, Battery Level: 99.9538124945%
+    Device 8 - Energy Comp Sample: 1.2204406220406968e-05, Train Time Sample: 0.0001589265683875909, Battery Level: 99.953812454%
+    Device 16 - Energy Comp Sample: 1.5362280914547008e-05, Train Time Sample: 0.00019731157639793707, Battery Level: 99.9538053512%
+    Device 17 - Energy Comp Sample: 1.3785343772083536e-05, Train Time Sample: 0.0001552040631273227, Battery Level: 99.9538088981%
+    Device 26 - Energy Comp Sample: 1.2669778220491135e-05, Train Time Sample: 0.0001936654587712494, Battery Level: 99.9538114072%
+    Device 28 - Energy Comp Sample: 1.171138648198097e-05, Train Time Sample: 0.00017291267979503493, Battery Level: 99.9538135629%
+    Device 35 - Energy Comp Sample: 1.2109828435863265e-05, Train Time Sample: 0.00019429097143350545, Battery Level: 99.9538126667%
+    Device 45 - Energy Comp Sample: 1.1096491303506592e-05, Train Time Sample: 0.000162744604170309, Battery Level: 99.9538149459%
+
+Cluster 2 assigned to Edge Server 2 with 15 clients:
+    Device 1 - Energy Comp Sample: 1.2750293183691193e-05, Train Time Sample: 0.0001223210738148823, Battery Level: 99.9538183957%
+    Device 6 - Energy Comp Sample: 1.0265359696838637e-05, Train Time Sample: 0.00011988376506866485, Battery Level: 99.9538225875%
+    Device 11 - Energy Comp Sample: 1.340250516517992e-05, Train Time Sample: 0.00011554794998117816, Battery Level: 99.9538172955%
+    Device 13 - Energy Comp Sample: 1.092745843380148e-05, Train Time Sample: 0.00010967163768334641, Battery Level: 99.9538214706%
+    Device 21 - Energy Comp Sample: 1.2278982756515469e-05, Train Time Sample: 0.00012893879636021073, Battery Level: 99.9538191907%
+    Device 22 - Energy Comp Sample: 1.0797919769236275e-05, Train Time Sample: 0.00012327908863610302, Battery Level: 99.9538216892%
+    Device 23 - Energy Comp Sample: 1.1010014294097293e-05, Train Time Sample: 0.00012779736031100922, Battery Level: 99.9538213314%
+    Device 25 - Energy Comp Sample: 1.3701809671168827e-05, Train Time Sample: 0.00012095070307714877, Battery Level: 99.9538167906%
+    Device 29 - Energy Comp Sample: 1.1634024937619285e-05, Train Time Sample: 0.00013794554417576477, Battery Level: 99.9538202787%
+    Device 33 - Energy Comp Sample: 1.2290480719641044e-05, Train Time Sample: 0.00010321002439040378, Battery Level: 99.9538191713%
+    Device 34 - Energy Comp Sample: 1.315453048059082e-05, Train Time Sample: 0.00012677408759757027, Battery Level: 99.9538177138%
+    Device 39 - Energy Comp Sample: 1.2648801664980526e-05, Train Time Sample: 0.00012466275076939836, Battery Level: 99.9538185669%
+    Device 42 - Energy Comp Sample: 1.3994005051403974e-05, Train Time Sample: 0.00012193207591572835, Battery Level: 99.9538162976%
+    Device 44 - Energy Comp Sample: 1.090909412173794e-05, Train Time Sample: 0.00010471163754247347, Battery Level: 99.9538215016%
+    Device 47 - Energy Comp Sample: 1.0635277061519573e-05, Train Time Sample: 0.0001381619286506537, Battery Level: 99.9538219635%
+
+Cluster 3 assigned to Edge Server 3 with 7 clients:
+    Device 12 - Energy Comp Sample: 1.9572130722067816e-05, Train Time Sample: 0.00013365945451126267, Battery Level: 99.9537738714%
+    Device 24 - Energy Comp Sample: 1.6356844442644e-05, Train Time Sample: 0.00013648321789700842, Battery Level: 99.9537847192%
+    Device 36 - Energy Comp Sample: 1.876367626472669e-05, Train Time Sample: 0.0001314677880798478, Battery Level: 99.953776599%
+    Device 37 - Energy Comp Sample: 1.6554386652948802e-05, Train Time Sample: 0.00013956319010606643, Battery Level: 99.9537840528%
+    Device 38 - Energy Comp Sample: 1.9145475897405437e-05, Train Time Sample: 0.00014588518525873988, Battery Level: 99.9537753109%
+    Device 40 - Energy Comp Sample: 1.561368134163151e-05, Train Time Sample: 0.00012627416085229354, Battery Level: 99.9537872265%
+    Device 46 - Energy Comp Sample: 1.792079364362964e-05, Train Time Sample: 0.0001422159966799684, Battery Level: 99.9537794427%
+
+Cluster 4 assigned to Edge Server 4 with 5 clients:
+    Device 0 - Energy Comp Sample: 1.639426798457884e-05, Train Time Sample: 0.0001025010755222667, Battery Level: 99.9537938115%
+    Device 3 - Energy Comp Sample: 1.8921795677048456e-05, Train Time Sample: 0.00010869388326294163, Battery Level: 99.9537867053%
+    Device 4 - Energy Comp Sample: 1.4219218196852705e-05, Train Time Sample: 0.00010297972194380704, Battery Level: 99.9537999267%
+    Device 9 - Energy Comp Sample: 1.8094304566778268e-05, Train Time Sample: 0.00010064987596780611, Battery Level: 99.9537890318%
+    Device 20 - Energy Comp Sample: 1.7045718362149236e-05, Train Time Sample: 0.00010458243836556623, Battery Level: 99.95379198%
+
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 11 Evaluation -Loss: 0.0002510876595973969 	Accuracy: 0.9293 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000003 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 12 Evaluation -Loss: 0.00023990227729082106 	Accuracy: 0.9328 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000003 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 13 Evaluation -Loss: 0.00024285278469324113 	Accuracy: 0.9277 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000001 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 14 Evaluation -Loss: 0.00027315989434719085 	Accuracy: 0.9172 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000001 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 15 Evaluation -Loss: 0.00019818118661642074 	Accuracy: 0.944 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000002 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+----------------------------------------------------------------------------------
+PHASE 4 - CONFIGURING K-MEANS CLUSTERS
+Cluster 0: Avg Energy: 0.000018, Avg Time: 0.000166, LOCAL_ITERATIONS: 7
+Cluster 1: Avg Energy: 0.000013, Avg Time: 0.000173, LOCAL_ITERATIONS: 4
+Cluster 2: Avg Energy: 0.000012, Avg Time: 0.000122, LOCAL_ITERATIONS: 3
+Cluster 3: Avg Energy: 0.000018, Avg Time: 0.000137, LOCAL_ITERATIONS: 6
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000104, LOCAL_ITERATIONS: 5
+
+Cluster 0 assigned to Edge Server 0 with 15 clients:
+    Device 2 - Energy Comp Sample: 1.7364712141640124e-05, Train Time Sample: 0.00016766994874229112, Battery Level: 99.930657332%
+    Device 7 - Energy Comp Sample: 1.6498844377795233e-05, Train Time Sample: 0.00015449414806032168, Battery Level: 99.9306624442%
+    Device 10 - Energy Comp Sample: 1.805819251832808e-05, Train Time Sample: 0.0001698139394988227, Battery Level: 99.9306532375%
+    Device 14 - Energy Comp Sample: 1.8474943663474598e-05, Train Time Sample: 0.00016037260313668913, Battery Level: 99.9306507769%
+    Device 15 - Energy Comp Sample: 1.8071282732743803e-05, Train Time Sample: 0.0001729731786693818, Battery Level: 99.9306531602%
+    Device 18 - Energy Comp Sample: 1.829404664252995e-05, Train Time Sample: 0.00016185197523642462, Battery Level: 99.930651845%
+    Device 19 - Energy Comp Sample: 1.8617069003107774e-05, Train Time Sample: 0.00015773521452567621, Battery Level: 99.9306499378%
+    Device 27 - Energy Comp Sample: 1.6480353852465936e-05, Train Time Sample: 0.00016091310056669882, Battery Level: 99.9306625534%
+    Device 30 - Energy Comp Sample: 1.9895233506365955e-05, Train Time Sample: 0.0001639999759854093, Battery Level: 99.9306423913%
+    Device 31 - Energy Comp Sample: 1.5569497437746464e-05, Train Time Sample: 0.00016846142509898746, Battery Level: 99.9306679312%
+    Device 32 - Energy Comp Sample: 1.8428519201898096e-05, Train Time Sample: 0.00017759999115462448, Battery Level: 99.930651051%
+    Device 41 - Energy Comp Sample: 1.5845859902235407e-05, Train Time Sample: 0.0001897822883602477, Battery Level: 99.9306662995%
+    Device 43 - Energy Comp Sample: 1.9975376064951103e-05, Train Time Sample: 0.00015095262936764647, Battery Level: 99.9306419181%
+    Device 48 - Energy Comp Sample: 1.996121380240097e-05, Train Time Sample: 0.0001529114345099137, Battery Level: 99.9306420017%
+    Device 49 - Energy Comp Sample: 1.9710783776136182e-05, Train Time Sample: 0.0001860779702234498, Battery Level: 99.9306434803%
+
+Cluster 1 assigned to Edge Server 1 with 8 clients:
+    Device 5 - Energy Comp Sample: 1.2186379748036034e-05, Train Time Sample: 0.00015053552881033624, Battery Level: 99.9307187418%
+    Device 8 - Energy Comp Sample: 1.2204406220406968e-05, Train Time Sample: 0.0001589265683875909, Battery Level: 99.930718681%
+    Device 16 - Energy Comp Sample: 1.5362280914547008e-05, Train Time Sample: 0.00019731157639793707, Battery Level: 99.9307080269%
+    Device 17 - Energy Comp Sample: 1.3785343772083536e-05, Train Time Sample: 0.0001552040631273227, Battery Level: 99.9307133471%
+    Device 26 - Energy Comp Sample: 1.2669778220491135e-05, Train Time Sample: 0.0001936654587712494, Battery Level: 99.9307171109%
+    Device 28 - Energy Comp Sample: 1.171138648198097e-05, Train Time Sample: 0.00017291267979503493, Battery Level: 99.9307203443%
+    Device 35 - Energy Comp Sample: 1.2109828435863265e-05, Train Time Sample: 0.00019429097143350545, Battery Level: 99.930719%
+    Device 45 - Energy Comp Sample: 1.1096491303506592e-05, Train Time Sample: 0.000162744604170309, Battery Level: 99.9307224189%
+
+Cluster 2 assigned to Edge Server 2 with 15 clients:
+    Device 1 - Energy Comp Sample: 1.2750293183691193e-05, Train Time Sample: 0.0001223210738148823, Battery Level: 99.9307275935%
+    Device 6 - Energy Comp Sample: 1.0265359696838637e-05, Train Time Sample: 0.00011988376506866485, Battery Level: 99.9307338813%
+    Device 11 - Energy Comp Sample: 1.340250516517992e-05, Train Time Sample: 0.00011554794998117816, Battery Level: 99.9307259432%
+    Device 13 - Energy Comp Sample: 1.092745843380148e-05, Train Time Sample: 0.00010967163768334641, Battery Level: 99.930732206%
+    Device 21 - Energy Comp Sample: 1.2278982756515469e-05, Train Time Sample: 0.00012893879636021073, Battery Level: 99.9307287861%
+    Device 22 - Energy Comp Sample: 1.0797919769236275e-05, Train Time Sample: 0.00012327908863610302, Battery Level: 99.9307325337%
+    Device 23 - Energy Comp Sample: 1.1010014294097293e-05, Train Time Sample: 0.00012779736031100922, Battery Level: 99.9307319971%
+    Device 25 - Energy Comp Sample: 1.3701809671168827e-05, Train Time Sample: 0.00012095070307714877, Battery Level: 99.9307251858%
+    Device 29 - Energy Comp Sample: 1.1634024937619285e-05, Train Time Sample: 0.00013794554417576477, Battery Level: 99.9307304181%
+    Device 33 - Energy Comp Sample: 1.2290480719641044e-05, Train Time Sample: 0.00010321002439040378, Battery Level: 99.930728757%
+    Device 34 - Energy Comp Sample: 1.315453048059082e-05, Train Time Sample: 0.00012677408759757027, Battery Level: 99.9307265707%
+    Device 39 - Energy Comp Sample: 1.2648801664980526e-05, Train Time Sample: 0.00012466275076939836, Battery Level: 99.9307278503%
+    Device 42 - Energy Comp Sample: 1.3994005051403974e-05, Train Time Sample: 0.00012193207591572835, Battery Level: 99.9307244465%
+    Device 44 - Energy Comp Sample: 1.090909412173794e-05, Train Time Sample: 0.00010471163754247347, Battery Level: 99.9307322524%
+    Device 47 - Energy Comp Sample: 1.0635277061519573e-05, Train Time Sample: 0.0001381619286506537, Battery Level: 99.9307329453%
+
+Cluster 3 assigned to Edge Server 3 with 7 clients:
+    Device 12 - Energy Comp Sample: 1.9572130722067816e-05, Train Time Sample: 0.00013365945451126267, Battery Level: 99.9306608072%
+    Device 24 - Energy Comp Sample: 1.6356844442644e-05, Train Time Sample: 0.00013648321789700842, Battery Level: 99.9306770789%
+    Device 36 - Energy Comp Sample: 1.876367626472669e-05, Train Time Sample: 0.0001314677880798478, Battery Level: 99.9306648985%
+    Device 37 - Energy Comp Sample: 1.6554386652948802e-05, Train Time Sample: 0.00013956319010606643, Battery Level: 99.9306760792%
+    Device 38 - Energy Comp Sample: 1.9145475897405437e-05, Train Time Sample: 0.00014588518525873988, Battery Level: 99.9306629664%
+    Device 40 - Energy Comp Sample: 1.561368134163151e-05, Train Time Sample: 0.00012627416085229354, Battery Level: 99.9306808398%
+    Device 46 - Energy Comp Sample: 1.792079364362964e-05, Train Time Sample: 0.0001422159966799684, Battery Level: 99.9306691641%
+
+Cluster 4 assigned to Edge Server 4 with 5 clients:
+    Device 0 - Energy Comp Sample: 1.639426798457884e-05, Train Time Sample: 0.0001025010755222667, Battery Level: 99.9306907173%
+    Device 3 - Energy Comp Sample: 1.8921795677048456e-05, Train Time Sample: 0.00010869388326294163, Battery Level: 99.930680058%
+    Device 4 - Energy Comp Sample: 1.4219218196852705e-05, Train Time Sample: 0.00010297972194380704, Battery Level: 99.9306998901%
+    Device 9 - Energy Comp Sample: 1.8094304566778268e-05, Train Time Sample: 0.00010064987596780611, Battery Level: 99.9306835478%
+    Device 20 - Energy Comp Sample: 1.7045718362149236e-05, Train Time Sample: 0.00010458243836556623, Battery Level: 99.9306879699%
+
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 16 Evaluation -Loss: 0.00020958406776189805 	Accuracy: 0.9437 	Training time: 7.363865776000002s
+Energy Computation: 0.802273053 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 17 Evaluation -Loss: 0.00017899726778268813 	Accuracy: 0.9476 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000002 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 18 Evaluation -Loss: 0.00022422605156898498 	Accuracy: 0.9328 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000003 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 19 Evaluation -Loss: 0.00017259232699871064 	Accuracy: 0.9484 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000001 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 20 Evaluation -Loss: 0.0001656300961971283 	Accuracy: 0.9493 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000002 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+----------------------------------------------------------------------------------
+PHASE 5 - CONFIGURING K-MEANS CLUSTERS
+Cluster 0: Avg Energy: 0.000018, Avg Time: 0.000166, LOCAL_ITERATIONS: 7
+Cluster 1: Avg Energy: 0.000013, Avg Time: 0.000173, LOCAL_ITERATIONS: 4
+Cluster 2: Avg Energy: 0.000012, Avg Time: 0.000122, LOCAL_ITERATIONS: 3
+Cluster 3: Avg Energy: 0.000018, Avg Time: 0.000137, LOCAL_ITERATIONS: 6
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000104, LOCAL_ITERATIONS: 5
+
+Cluster 0 assigned to Edge Server 0 with 15 clients:
+    Device 2 - Energy Comp Sample: 1.7364712141640124e-05, Train Time Sample: 0.00016766994874229112, Battery Level: 99.9075431093%
+    Device 7 - Energy Comp Sample: 1.6498844377795233e-05, Train Time Sample: 0.00015449414806032168, Battery Level: 99.9075499256%
+    Device 10 - Energy Comp Sample: 1.805819251832808e-05, Train Time Sample: 0.0001698139394988227, Battery Level: 99.90753765%
+    Device 14 - Energy Comp Sample: 1.8474943663474598e-05, Train Time Sample: 0.00016037260313668913, Battery Level: 99.9075343693%
+    Device 15 - Energy Comp Sample: 1.8071282732743803e-05, Train Time Sample: 0.0001729731786693818, Battery Level: 99.907537547%
+    Device 18 - Energy Comp Sample: 1.829404664252995e-05, Train Time Sample: 0.00016185197523642462, Battery Level: 99.9075357933%
+    Device 19 - Energy Comp Sample: 1.8617069003107774e-05, Train Time Sample: 0.00015773521452567621, Battery Level: 99.9075332504%
+    Device 27 - Energy Comp Sample: 1.6480353852465936e-05, Train Time Sample: 0.00016091310056669882, Battery Level: 99.9075500712%
+    Device 30 - Energy Comp Sample: 1.9895233506365955e-05, Train Time Sample: 0.0001639999759854093, Battery Level: 99.9075231884%
+    Device 31 - Energy Comp Sample: 1.5569497437746464e-05, Train Time Sample: 0.00016846142509898746, Battery Level: 99.9075572417%
+    Device 32 - Energy Comp Sample: 1.8428519201898096e-05, Train Time Sample: 0.00017759999115462448, Battery Level: 99.9075347347%
+    Device 41 - Energy Comp Sample: 1.5845859902235407e-05, Train Time Sample: 0.0001897822883602477, Battery Level: 99.9075550661%
+    Device 43 - Energy Comp Sample: 1.9975376064951103e-05, Train Time Sample: 0.00015095262936764647, Battery Level: 99.9075225575%
+    Device 48 - Energy Comp Sample: 1.996121380240097e-05, Train Time Sample: 0.0001529114345099137, Battery Level: 99.907522669%
+    Device 49 - Energy Comp Sample: 1.9710783776136182e-05, Train Time Sample: 0.0001860779702234498, Battery Level: 99.9075246404%
+
+Cluster 1 assigned to Edge Server 1 with 8 clients:
+    Device 5 - Energy Comp Sample: 1.2186379748036034e-05, Train Time Sample: 0.00015053552881033624, Battery Level: 99.907624989%
+    Device 8 - Energy Comp Sample: 1.2204406220406968e-05, Train Time Sample: 0.0001589265683875909, Battery Level: 99.9076249079%
+    Device 16 - Energy Comp Sample: 1.5362280914547008e-05, Train Time Sample: 0.00019731157639793707, Battery Level: 99.9076107025%
+    Device 17 - Energy Comp Sample: 1.3785343772083536e-05, Train Time Sample: 0.0001552040631273227, Battery Level: 99.9076177962%
+    Device 26 - Energy Comp Sample: 1.2669778220491135e-05, Train Time Sample: 0.0001936654587712494, Battery Level: 99.9076228145%
+    Device 28 - Energy Comp Sample: 1.171138648198097e-05, Train Time Sample: 0.00017291267979503493, Battery Level: 99.9076271257%
+    Device 35 - Energy Comp Sample: 1.2109828435863265e-05, Train Time Sample: 0.00019429097143350545, Battery Level: 99.9076253334%
+    Device 45 - Energy Comp Sample: 1.1096491303506592e-05, Train Time Sample: 0.000162744604170309, Battery Level: 99.9076298918%
+
+Cluster 2 assigned to Edge Server 2 with 15 clients:
+    Device 1 - Energy Comp Sample: 1.2750293183691193e-05, Train Time Sample: 0.0001223210738148823, Battery Level: 99.9076367914%
+    Device 6 - Energy Comp Sample: 1.0265359696838637e-05, Train Time Sample: 0.00011988376506866485, Battery Level: 99.9076451751%
+    Device 11 - Energy Comp Sample: 1.340250516517992e-05, Train Time Sample: 0.00011554794998117816, Battery Level: 99.9076345909%
+    Device 13 - Energy Comp Sample: 1.092745843380148e-05, Train Time Sample: 0.00010967163768334641, Battery Level: 99.9076429413%
+    Device 21 - Energy Comp Sample: 1.2278982756515469e-05, Train Time Sample: 0.00012893879636021073, Battery Level: 99.9076383815%
+    Device 22 - Energy Comp Sample: 1.0797919769236275e-05, Train Time Sample: 0.00012327908863610302, Battery Level: 99.9076433783%
+    Device 23 - Energy Comp Sample: 1.1010014294097293e-05, Train Time Sample: 0.00012779736031100922, Battery Level: 99.9076426627%
+    Device 25 - Energy Comp Sample: 1.3701809671168827e-05, Train Time Sample: 0.00012095070307714877, Battery Level: 99.9076335811%
+    Device 29 - Energy Comp Sample: 1.1634024937619285e-05, Train Time Sample: 0.00013794554417576477, Battery Level: 99.9076405574%
+    Device 33 - Energy Comp Sample: 1.2290480719641044e-05, Train Time Sample: 0.00010321002439040378, Battery Level: 99.9076383427%
+    Device 34 - Energy Comp Sample: 1.315453048059082e-05, Train Time Sample: 0.00012677408759757027, Battery Level: 99.9076354275%
+    Device 39 - Energy Comp Sample: 1.2648801664980526e-05, Train Time Sample: 0.00012466275076939836, Battery Level: 99.9076371338%
+    Device 42 - Energy Comp Sample: 1.3994005051403974e-05, Train Time Sample: 0.00012193207591572835, Battery Level: 99.9076325953%
+    Device 44 - Energy Comp Sample: 1.090909412173794e-05, Train Time Sample: 0.00010471163754247347, Battery Level: 99.9076430032%
+    Device 47 - Energy Comp Sample: 1.0635277061519573e-05, Train Time Sample: 0.0001381619286506537, Battery Level: 99.907643927%
+
+Cluster 3 assigned to Edge Server 3 with 7 clients:
+    Device 12 - Energy Comp Sample: 1.9572130722067816e-05, Train Time Sample: 0.00013365945451126267, Battery Level: 99.9075477429%
+    Device 24 - Energy Comp Sample: 1.6356844442644e-05, Train Time Sample: 0.00013648321789700842, Battery Level: 99.9075694385%
+    Device 36 - Energy Comp Sample: 1.876367626472669e-05, Train Time Sample: 0.0001314677880798478, Battery Level: 99.907553198%
+    Device 37 - Energy Comp Sample: 1.6554386652948802e-05, Train Time Sample: 0.00013956319010606643, Battery Level: 99.9075681055%
+    Device 38 - Energy Comp Sample: 1.9145475897405437e-05, Train Time Sample: 0.00014588518525873988, Battery Level: 99.9075506218%
+    Device 40 - Energy Comp Sample: 1.561368134163151e-05, Train Time Sample: 0.00012627416085229354, Battery Level: 99.9075744531%
+    Device 46 - Energy Comp Sample: 1.792079364362964e-05, Train Time Sample: 0.0001422159966799684, Battery Level: 99.9075588855%
+
+Cluster 4 assigned to Edge Server 4 with 5 clients:
+    Device 0 - Energy Comp Sample: 1.639426798457884e-05, Train Time Sample: 0.0001025010755222667, Battery Level: 99.907587623%
+    Device 3 - Energy Comp Sample: 1.8921795677048456e-05, Train Time Sample: 0.00010869388326294163, Battery Level: 99.9075734107%
+    Device 4 - Energy Comp Sample: 1.4219218196852705e-05, Train Time Sample: 0.00010297972194380704, Battery Level: 99.9075998534%
+    Device 9 - Energy Comp Sample: 1.8094304566778268e-05, Train Time Sample: 0.00010064987596780611, Battery Level: 99.9075780637%
+    Device 20 - Energy Comp Sample: 1.7045718362149236e-05, Train Time Sample: 0.00010458243836556623, Battery Level: 99.9075839599%
+
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 21 Evaluation -Loss: 0.00019149773269891738 	Accuracy: 0.9419 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000003 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 22 Evaluation -Loss: 0.000152175472676754 	Accuracy: 0.956 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000001 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 23 Evaluation -Loss: 0.0001447681710124016 	Accuracy: 0.9569 	Training time: 7.363865776s
+Energy Computation: 0.8022730530000003 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 24 Evaluation -Loss: 0.00013458708375692368 	Accuracy: 0.96 	Training time: 7.363865776000001s
+Energy Computation: 0.8022730530000001 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 3 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+
+GLOBAL TEST ROUND: 25 Evaluation -Loss: 0.00025214010924100874 	Accuracy: 0.9172 	Training time: 7.363865776000002s
+Energy Computation: 0.8022730530000003 	Energy Communication: 828.3610752500006 	Number of communications: 500 
+
+SUMMARY EXPERIMENTS-
+Loss: 0.0018515842914581299 	Accuracy: 0.4124 	Training time: 7.363865776s	Energy Computation: 0.8022730530000003 	                             Energy Communication: 828.3610752500006 	                             Total Energy: 829.1633483030006 	                             Number of communications: 500
+ Loss: 0.0012815128684043884 	Accuracy: 0.5815 	Training time: 14.727731552000002s	Energy Computation: 1.6045461060000008 	                             Energy Communication: 1656.7221505000011 	                             Total Energy: 1658.3266966060012 	                             Number of communications: 1000
+ Loss: 0.0008450751304626465 	Accuracy: 0.7537 	Training time: 22.091597328000002s	Energy Computation: 2.406819159000001 	                             Energy Communication: 2485.0832257500015 	                             Total Energy: 2487.4900449090014 	                             Number of communications: 1500
+ Loss: 0.0007868907511234284 	Accuracy: 0.7717 	Training time: 29.455463104000003s	Energy Computation: 3.209092212000001 	                             Energy Communication: 3313.4443010000023 	                             Total Energy: 3316.6533932120024 	                             Number of communications: 2000
+ Loss: 0.000489780592918396 	Accuracy: 0.8662 	Training time: 36.81932888s	Energy Computation: 4.011365265000001 	                             Energy Communication: 4141.805376250003 	                             Total Energy: 4145.816741515003 	                             Number of communications: 2500
+ Loss: 0.0004599926084280014 	Accuracy: 0.8648 	Training time: 44.183194656000005s	Energy Computation: 4.8136383180000015 	                             Energy Communication: 4970.166451500004 	                             Total Energy: 4974.980089818004 	                             Number of communications: 3000
+ Loss: 0.0003840291917324066 	Accuracy: 0.8859 	Training time: 51.54706043200001s	Energy Computation: 5.615911371000002 	                             Energy Communication: 5798.527526750005 	                             Total Energy: 5804.143438121005 	                             Number of communications: 3500
+ Loss: 0.00034068558812141417 	Accuracy: 0.9005 	Training time: 58.910926208000014s	Energy Computation: 6.418184424000002 	                             Energy Communication: 6626.888602000005 	                             Total Energy: 6633.306786424006 	                             Number of communications: 4000
+ Loss: 0.00030899790823459624 	Accuracy: 0.9093 	Training time: 66.27479198400002s	Energy Computation: 7.220457477000003 	                             Energy Communication: 7455.249677250006 	                             Total Energy: 7462.470134727007 	                             Number of communications: 4500
+ Loss: 0.00032090641260147093 	Accuracy: 0.9019 	Training time: 73.63865776000002s	Energy Computation: 8.022730530000002 	                             Energy Communication: 8283.610752500006 	                             Total Energy: 8291.633483030006 	                             Number of communications: 5000
+ Loss: 0.0002510876595973969 	Accuracy: 0.9293 	Training time: 81.00252353600001s	Energy Computation: 8.825003583000003 	                             Energy Communication: 9111.971827750007 	                             Total Energy: 9120.796831333008 	                             Number of communications: 5500
+ Loss: 0.00023990227729082106 	Accuracy: 0.9328 	Training time: 88.36638931200001s	Energy Computation: 9.627276636000003 	                             Energy Communication: 9940.332903000008 	                             Total Energy: 9949.960179636008 	                             Number of communications: 6000
+ Loss: 0.00024285278469324113 	Accuracy: 0.9277 	Training time: 95.730255088s	Energy Computation: 10.429549689000003 	                             Energy Communication: 10768.693978250009 	                             Total Energy: 10779.12352793901 	                             Number of communications: 6500
+ Loss: 0.00027315989434719085 	Accuracy: 0.9172 	Training time: 103.094120864s	Energy Computation: 11.231822742000004 	                             Energy Communication: 11597.05505350001 	                             Total Energy: 11608.28687624201 	                             Number of communications: 7000
+ Loss: 0.00019818118661642074 	Accuracy: 0.944 	Training time: 110.45798664s	Energy Computation: 12.034095795000004 	                             Energy Communication: 12425.41612875001 	                             Total Energy: 12437.45022454501 	                             Number of communications: 7500
+ Loss: 0.00020958406776189805 	Accuracy: 0.9437 	Training time: 117.821852416s	Energy Computation: 12.836368848000005 	                             Energy Communication: 13253.77720400001 	                             Total Energy: 13266.613572848011 	                             Number of communications: 8000
+ Loss: 0.00017899726778268813 	Accuracy: 0.9476 	Training time: 125.185718192s	Energy Computation: 13.638641901000005 	                             Energy Communication: 14082.138279250012 	                             Total Energy: 14095.776921151011 	                             Number of communications: 8500
+ Loss: 0.00022422605156898498 	Accuracy: 0.9328 	Training time: 132.549583968s	Energy Computation: 14.440914954000005 	                             Energy Communication: 14910.499354500012 	                             Total Energy: 14924.940269454013 	                             Number of communications: 9000
+ Loss: 0.00017259232699871064 	Accuracy: 0.9484 	Training time: 139.91344974400002s	Energy Computation: 15.243188007000006 	                             Energy Communication: 15738.860429750013 	                             Total Energy: 15754.103617757013 	                             Number of communications: 9500
+ Loss: 0.0001656300961971283 	Accuracy: 0.9493 	Training time: 147.27731552000003s	Energy Computation: 16.045461060000004 	                             Energy Communication: 16567.221505000012 	                             Total Energy: 16583.26696606001 	                             Number of communications: 10000
+ Loss: 0.00019149773269891738 	Accuracy: 0.9419 	Training time: 154.64118129600004s	Energy Computation: 16.847734113000005 	                             Energy Communication: 17395.58258025001 	                             Total Energy: 17412.43031436301 	                             Number of communications: 10500
+ Loss: 0.000152175472676754 	Accuracy: 0.956 	Training time: 162.00504707200005s	Energy Computation: 17.650007166000005 	                             Energy Communication: 18223.94365550001 	                             Total Energy: 18241.59366266601 	                             Number of communications: 11000
+ Loss: 0.0001447681710124016 	Accuracy: 0.9569 	Training time: 169.36891284800006s	Energy Computation: 18.452280219000006 	                             Energy Communication: 19052.30473075001 	                             Total Energy: 19070.75701096901 	                             Number of communications: 11500
+ Loss: 0.00013458708375692368 	Accuracy: 0.96 	Training time: 176.73277862400008s	Energy Computation: 19.254553272000006 	                             Energy Communication: 19880.665806000008 	                             Total Energy: 19899.920359272008 	                             Number of communications: 12000
+ Loss: 0.00025214010924100874 	Accuracy: 0.9172 	Training time: 184.0966444000001s	Energy Computation: 20.056826325000007 	                             Energy Communication: 20709.026881250007 	                             Total Energy: 20729.083707575006 	                             Number of communications: 12500
+ 
+
+SUMMARY Device STATISTICS-
+
+Device 0 -	 Battery Level: 99.8844845288% -	 Communications with base stations: 0 
+Device 1 -	 Battery Level: 99.8845459892% -	 Communications with base stations: 0 
+Device 2 -	 Battery Level: 99.8844288866% -	 Communications with base stations: 0 
+Device 3 -	 Battery Level: 99.8844667634% -	 Communications with base stations: 0 
+Device 4 -	 Battery Level: 99.8844998168% -	 Communications with base stations: 0 
+Device 5 -	 Battery Level: 99.8845312363% -	 Communications with base stations: 0 
+Device 6 -	 Battery Level: 99.8845564688% -	 Communications with base stations: 0 
+Device 7 -	 Battery Level: 99.884437407% -	 Communications with base stations: 0 
+Device 8 -	 Battery Level: 99.8845311349% -	 Communications with base stations: 0 
+Device 9 -	 Battery Level: 99.8844725796% -	 Communications with base stations: 0 
+Device 10 -	 Battery Level: 99.8844220625% -	 Communications with base stations: 0 
+Device 11 -	 Battery Level: 99.8845432386% -	 Communications with base stations: 0 
+Device 12 -	 Battery Level: 99.8844346786% -	 Communications with base stations: 0 
+Device 13 -	 Battery Level: 99.8845536766% -	 Communications with base stations: 0 
+Device 14 -	 Battery Level: 99.8844179616% -	 Communications with base stations: 0 
+Device 15 -	 Battery Level: 99.8844219337% -	 Communications with base stations: 0 
+Device 16 -	 Battery Level: 99.8845133781% -	 Communications with base stations: 0 
+Device 17 -	 Battery Level: 99.8845222452% -	 Communications with base stations: 0 
+Device 18 -	 Battery Level: 99.8844197417% -	 Communications with base stations: 0 
+Device 19 -	 Battery Level: 99.884416563% -	 Communications with base stations: 0 
+Device 20 -	 Battery Level: 99.8844799499% -	 Communications with base stations: 0 
+Device 21 -	 Battery Level: 99.8845479768% -	 Communications with base stations: 0 
+Device 22 -	 Battery Level: 99.8845542229% -	 Communications with base stations: 0 
+Device 23 -	 Battery Level: 99.8845533284% -	 Communications with base stations: 0 
+Device 24 -	 Battery Level: 99.8844617981% -	 Communications with base stations: 0 
+Device 25 -	 Battery Level: 99.8845419764% -	 Communications with base stations: 0 
+Device 26 -	 Battery Level: 99.8845285181% -	 Communications with base stations: 0 
+Device 27 -	 Battery Level: 99.8844375889% -	 Communications with base stations: 0 
+Device 28 -	 Battery Level: 99.8845339072% -	 Communications with base stations: 0 
+Device 29 -	 Battery Level: 99.8845506968% -	 Communications with base stations: 0 
+Device 30 -	 Battery Level: 99.8844039855% -	 Communications with base stations: 0 
+Device 31 -	 Battery Level: 99.8844465521% -	 Communications with base stations: 0 
+Device 32 -	 Battery Level: 99.8844184184% -	 Communications with base stations: 0 
+Device 33 -	 Battery Level: 99.8845479284% -	 Communications with base stations: 0 
+Device 34 -	 Battery Level: 99.8845442844% -	 Communications with base stations: 0 
+Device 35 -	 Battery Level: 99.8845316667% -	 Communications with base stations: 0 
+Device 36 -	 Battery Level: 99.8844414976% -	 Communications with base stations: 0 
+Device 37 -	 Battery Level: 99.8844601319% -	 Communications with base stations: 0 
+Device 38 -	 Battery Level: 99.8844382773% -	 Communications with base stations: 0 
+Device 39 -	 Battery Level: 99.8845464172% -	 Communications with base stations: 0 
+Device 40 -	 Battery Level: 99.8844680663% -	 Communications with base stations: 0 
+Device 41 -	 Battery Level: 99.8844438326% -	 Communications with base stations: 0 
+Device 42 -	 Battery Level: 99.8845407441% -	 Communications with base stations: 0 
+Device 43 -	 Battery Level: 99.8844031969% -	 Communications with base stations: 0 
+Device 44 -	 Battery Level: 99.884553754% -	 Communications with base stations: 0 
+Device 45 -	 Battery Level: 99.8845373648% -	 Communications with base stations: 0 
+Device 46 -	 Battery Level: 99.8844486069% -	 Communications with base stations: 0 
+Device 47 -	 Battery Level: 99.8845549088% -	 Communications with base stations: 0 
+Device 48 -	 Battery Level: 99.8844033362% -	 Communications with base stations: 0 
+Device 49 -	 Battery Level: 99.8844058005% -	 Communications with base stations: 0 
