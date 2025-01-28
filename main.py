@@ -41,7 +41,7 @@ from utils import generate_random_sizes
 
 def main():
     args = {
-    'EXPERIMENT': 22,
+    'EXPERIMENT': 23,
     'SEED': 1,
     'DATASET': "mnist",
     'DATA_DISTRIBUTION': "NON-IID",

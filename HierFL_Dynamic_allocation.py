@@ -151,8 +151,9 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
                 cluster_local_iterations = {
                     cluster_id: int(np.clip(np.random.normal(mean_k1, std_dev_k1), 3, 10))
-                    for cluster_id in sorted_clusters.keys()
+                    for cluster_id, _ in sorted_clusters
                 }
+
 
                 # Assign LOCAL_ITERATIONS to each cluster
                 for cluster_id, local_iterations in cluster_local_iterations.items():
