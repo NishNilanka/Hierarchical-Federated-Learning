@@ -106,7 +106,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
                     # Perform K-means clustering on clients based on their features
                     NUM_CLUSTERS = 5  # Number of clusters
-                    client_features = np.array([[client.energy_comp_sample] for client in clients])
+                    client_features = np.array([[client.energy_comp_sample, client.train_time_sample] for client in clients])
 
                     # Normalize client features for better clustering
                     scaler = StandardScaler()

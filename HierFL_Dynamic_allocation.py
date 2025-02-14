@@ -106,12 +106,12 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 NUM_CLIENTS = len(clients)
                 
                 # Define client features (e.g., battery level and number of samples)
-                #client_features = np.array([
-                #    [client.energy_comp_sample] for client in clients
-                #])
                 client_features = np.array([
-                    [client.energy_comp_sample, client.train_time_sample] for client in clients
+                    [client.energy_comp_sample] for client in clients
                 ])
+                #client_features = np.array([
+                #    [client.energy_comp_sample, client.train_time_sample] for client in clients
+                #])
 
 
                 scaler = StandardScaler()
@@ -137,13 +137,14 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 
                 # Parameters for normal distribution
                 mean_k1 = 5  # Mean value for k1
-                std_dev_k1 = 1  # Standard deviation for k1
+                std_dev_k1 = 10  # Standard deviation for k1
+                min_k1, max_k1 = 2, 25
                 #local_iteration_values = [3, 4, 5, 6, 7]
                 # Generate k1 values from normal distribution and clip them to a valid range
-                local_iteration_values = [int(np.clip(np.random.normal(mean_k1, std_dev_k1), 3, 10)) for _ in range(len(cluster_mean_energy))]
+                local_iteration_values = [int(np.clip(np.random.normal(mean_k1, std_dev_k1), min_k1, max_k1)) for _ in range(len(cluster_mean_energy))]
 
                 #sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1])
-                sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1])
+                sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1], reverse=True)
                 #cluster_local_iterations = {
                 #    cluster_id: local_iteration_values[i]
                 #    for i, (cluster_id, _) in enumerate(sorted_clusters)
@@ -227,12 +228,24 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 model_size_bits = sum([param.numel() for param in model.parameters()]) * 32  # Assuming 32-bit floating point
                 edge_comm_energy = edge_server.compute_cloud_communication_energy(size_model_bits=model_size_bits)
                 CommEnergyConsumedRound += edge_comm_energy  # Add to round communication energy
-            
-                # Log edge-to-cloud communication energy
+                
+                # Compute the communication time
+                bandwidth_bps = 1e7  # Example: 10 Mbps (can be modified)
+                communication_time_per_round = model_size_bits / bandwidth_bps  # Time in seconds
+                
+                # Total communication time considering all global rounds and edge aggregations
+                total_communication_time = communication_time_per_round * (args['GLOBAL_ROUNDS'] / args['EDGE_AGGREGATIONS'])
+                
+                # Log edge-to-cloud communication details
                 with open(train_args['file_path'], "a") as file:
                     file.write(f"\nEdge Server {edge_server.get_server_id()} sent data to cloud consuming {edge_comm_energy:.2f} J.")
-            
+                    file.write(f"\nEdge Server {edge_server.get_server_id()} sent data to cloud in {communication_time_per_round:.4f} seconds per round.")
+                    file.write(f"\nTotal time for edge-to-cloud communication across all global rounds: {total_communication_time:.4f} seconds.")
+                
                 print(f"Edge Server {edge_server.get_server_id()} consumed {edge_comm_energy:.2f} J for cloud communication.")
+                print(f"Edge Server {edge_server.get_server_id()} took {communication_time_per_round:.4f} seconds to send data to the cloud.")
+                print(f"Total edge-to-cloud communication time across all global rounds: {total_communication_time:.4f} seconds.")
+
 
                 # Update energy and communication statistics
                 for deviceid in devices_info:
