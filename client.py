@@ -31,7 +31,7 @@ class FlowerClient(fl.client.NumPyClient):
         # Read values from config
         # server_round = config["server_round"]
 
-        print(f"[Client {self.cid}] Starting fit...")
+        print(f"[Client {self.cid}] Training started with {len(self.trainloader)} samples")
         hyperparameters = {
             'lr': config['learning_rate'],
             'exp_decay_rate': config['exponential_decay_rate'],

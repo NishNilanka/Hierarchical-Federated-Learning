@@ -1,6 +1,7 @@
 import flwr as fl
 from flwr.common import Metrics
 from logging import INFO, log, DEBUG
+import importlib
 
 from flwr.common import (
     EvaluateIns,
@@ -24,24 +25,30 @@ from torch.utils.tensorboard import SummaryWriter
 import multiprocessing
 import numpy as np
 import os
-
+from parameters import CLUSTERING, K1_ALLOCATION
 from model import Net, train, test, get_parameters, set_parameters
-#from HierFL import HierFL
-#from HierFL_random_clustering import HierFL
-#from HierFL_Kmeans import HierFL
-from HierFL_Dynamic_allocation import HierFL
-#from HierFL_Kmeans_Edge_Aggre import HierFL
+# Select the appropriate module based on K1_ALLOCATION
+if K1_ALLOCATION in ["reversed", "non_reversed"]:
+    HierFL_module = importlib.import_module("HierFL_Dynamic_allocation")
+elif K1_ALLOCATION == "uniform":
+    HierFL_module = importlib.import_module("HierFL_Uniform_allocation")
+else:
+    raise ValueError(f"Invalid K1_ALLOCATION value: {K1_ALLOCATION}")
+
+# Import the HierFL function dynamically
+HierFL = getattr(HierFL_module, "HierFL")
 from client import FlowerClient
 from strategy import FedAvgCustom
 from load_datasets import load_datasets
 from utils import generate_random_sizes
 
 
+
         
 
 def main():
     args = {
-    'EXPERIMENT': 25,
+    'EXPERIMENT': 27,
     'SEED': 1,
     'DATASET': "mnist",
     'DATA_DISTRIBUTION': "NON-IID",
@@ -101,6 +108,7 @@ def main():
 
     
 if __name__ == "__main__":
+    print(f"Running experiment with clustering: {CLUSTERING} and k1 allocation: {K1_ALLOCATION}")
     main()
     
 

@@ -1,3 +1,4 @@
+from parameters import CLUSTERING, K1_ALLOCATION
 import flwr as fl
 from typing import Dict, List, Optional, Tuple
 import torch
@@ -28,11 +29,16 @@ from EdgeServer import EdgeServer
 from sklearn.preprocessing import StandardScaler
 
 
+k1_allocation, clustering = K1_ALLOCATION, CLUSTERING
+
+
 def HierFL(args, trainloaders, valloaders, testloader):
     """
     Hierarchical Federated Learning with Edge Servers and K-means clustering of clients (devices).
     """
 
+    
+    
     def fit_config(server_round: int):
         """Return training configuration for each round."""
         config = {
@@ -75,6 +81,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
         }
     ]
 
+    
     # Initialize the clients (DeviceManager objects)
     clients = []
     for id in range(args['NUM_CLIENTS']):
@@ -85,7 +92,10 @@ def HierFL(args, trainloaders, valloaders, testloader):
     edge_servers = [EdgeServer(server_id=i, num_clients=0) for i in range(num_edge_servers)]
 
     for train_args in train_args_conf:
+        LOCAL_ITERATIONS_UNIFORM = train_args['LOCAL_ITERATIONS']
         log_experiment_file(args, train_args)
+        with open(train_args['file_path'], "a") as file:
+            file.write(f"Training Configuration - K1_Allocation: {k1_allocation}, Clustering: {clustering}, K1: {train_args['LOCAL_ITERATIONS']}, K2: {train_args['EDGE_AGGREGATIONS']}\n")
         params = initialisation_params
         phase = 0
 
@@ -106,7 +116,14 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
                     # Perform K-means clustering on clients based on their features
                     NUM_CLUSTERS = 5  # Number of clusters
-                    client_features = np.array([[client.energy_comp_sample, client.train_time_sample] for client in clients])
+                    if clustering == "energyandtraintime":
+                        client_features = np.array([
+                            [client.energy_comp_sample, client.train_time_sample] for client in clients
+                        ])
+                    else:
+                        client_features = np.array([
+                            [client.energy_comp_sample] for client in clients
+                        ])
 
                     # Normalize client features for better clustering
                     scaler = StandardScaler()
@@ -126,9 +143,12 @@ def HierFL(args, trainloaders, valloaders, testloader):
                     for cluster_id, devices in clustered_clients.items():
                         avg_energy = np.mean([device.energy_comp_sample for device in devices])
                         avg_time = np.mean([device.train_time_sample for device in devices])
-                        file.write(f"Cluster {cluster_id}: Avg Energy: {avg_energy:.6f}, Avg Time: {avg_time:.6f}\n")
-                        for device in devices:
-                            file.write(f"    Device {device.deviceId} - Energy Comp Sample: {device.energy_comp_sample}, Train Time Sample: {device.train_time_sample}, Battery Level: {device.getEnergyLevel()}%\n")
+
+                        with open(train_args['file_path'], "a") as file:
+                            file.write(f"Cluster {cluster_id}: Avg Energy: {avg_energy:.6f}, Avg Time: {avg_time:.6f}, LOCAL_ITERATIONS: {LOCAL_ITERATIONS_UNIFORM}\n")
+                        #file.write(f"Cluster {cluster_id}: Avg Energy: {avg_energy:.6f}, Avg Time: {avg_time:.6f}\n")
+                        #for device in devices:
+                        #    file.write(f"    Device {device.deviceId} - Energy Comp Sample: {device.energy_comp_sample}, Train Time Sample: {device.train_time_sample}, Battery Level: {device.getEnergyLevel()}%\n")
 
                     # Assign clusters to edge servers and log assignments
                     edge_server_idx = 0
@@ -136,7 +156,9 @@ def HierFL(args, trainloaders, valloaders, testloader):
                         edge_server = edge_servers[edge_server_idx]
                         edge_server.assign_devices(cluster_devices)
                         print(f"Edge Server {edge_server.get_server_id()} assigned to Cluster {cluster_id} with {len(cluster_devices)} clients.")
-                        file.write(f"Edge Server {edge_server.get_server_id()} assigned to Cluster {cluster_id} with {len(cluster_devices)} clients.\n")
+                        with open(train_args['file_path'], "a") as file:
+                            file.write(f"Edge Server {edge_server.get_server_id()} assigned to Cluster {cluster_id} with {len(cluster_devices)} clients.\n")
+
                         for device in cluster_devices:
                             file.write(f"    Device {device.deviceId} - Battery Level: {device.getEnergyLevel()}%\n")
                         edge_server_idx = (edge_server_idx + 1) % num_edge_servers

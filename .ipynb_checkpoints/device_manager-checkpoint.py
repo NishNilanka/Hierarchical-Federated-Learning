@@ -19,8 +19,17 @@ class DeviceManager():
         #self.channel_capacity = 5.672e6  # bits/s (from Shannon-Hartley theorem)
         #self.transmitter_power = 0.5     # Watts
 
-        self.energy_comp_sample = random.uniform(0.00001, 0.00002)  # Joules per sample computation
-        self.train_time_sample = random.uniform(0.0001, 0.0002)     # Seconds per sample
+        #self.energy_comp_sample = random.uniform(0.00001, 0.00002)  # Joules per sample computation
+        #self.train_time_sample = random.uniform(0.0001, 0.0002)     # Seconds per sample
+
+        self.energy_comp_sample = random.uniform(0.00001, 0.00004)
+        min_energy, max_energy = 0.00001, 0.00004
+        min_time, max_time = 0.0001, 0.0004
+
+        self.train_time_sample = min_time + (self.energy_comp_sample - min_energy) * (max_time - min_time) / (max_energy - min_energy)
+
+        
+        
         self.transmitter_power = 0.5
         self.channel_capacity = 5.672e6
 

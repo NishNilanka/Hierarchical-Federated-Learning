@@ -1,3 +1,4 @@
+from parameters import CLUSTERING, K1_ALLOCATION
 import flwr as fl
 from typing import Dict, List, Optional, Tuple
 import torch
@@ -26,6 +27,8 @@ from device_manager import DeviceManager
 from metrics import weighted_average, evaluate
 from utils import show_distribution, log_experiment_file
 from EdgeServer import EdgeServer
+
+k1_allocation, clustering = K1_ALLOCATION, CLUSTERING
 
 def HierFL(args, trainloaders, valloaders, testloader):
     """
@@ -74,6 +77,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
         }
     ]
 
+    
+
     # Initialize the clients (DeviceManager objects)
     clients = [DeviceManager(id) for id in range(args['NUM_CLIENTS'])]
 
@@ -83,6 +88,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
     for train_args in train_args_conf:
         log_experiment_file(args, train_args)
+        with open(train_args['file_path'], "a") as file:
+            file.write(f"Training Configuration - K1_Allocation: {k1_allocation}, Clustering: {clustering}, K1: {train_args['LOCAL_ITERATIONS']}, K2: {train_args['EDGE_AGGREGATIONS']}\n")
         params = initialisation_params
         phase = 0
 
@@ -106,12 +113,15 @@ def HierFL(args, trainloaders, valloaders, testloader):
                 NUM_CLIENTS = len(clients)
                 
                 # Define client features (e.g., battery level and number of samples)
-                client_features = np.array([
-                    [client.energy_comp_sample] for client in clients
-                ])
-                #client_features = np.array([
-                #    [client.energy_comp_sample, client.train_time_sample] for client in clients
-                #])
+                if clustering == "energyandtraintime":
+                    client_features = np.array([
+                        [client.energy_comp_sample, client.train_time_sample] for client in clients
+                    ])
+                else:
+                    client_features = np.array([
+                        [client.energy_comp_sample] for client in clients
+                    ])
+                
 
 
                 scaler = StandardScaler()
@@ -136,29 +146,39 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
                 
                 # Parameters for normal distribution
-                mean_k1 = 5  # Mean value for k1
-                std_dev_k1 = 10  # Standard deviation for k1
-                min_k1, max_k1 = 2, 25
+                mean_k1 = train_args['LOCAL_ITERATIONS']  # Mean value for k1
+                print(mean_k1)
+                std_dev_k1 = mean_k1 / 3  # Keeps values centered around mean_k1  # Standard deviation for k1
+                min_k1, max_k1 = max(2, mean_k1 - std_dev_k1), mean_k1 + std_dev_k1
                 #local_iteration_values = [3, 4, 5, 6, 7]
                 # Generate k1 values from normal distribution and clip them to a valid range
                 local_iteration_values = [int(np.clip(np.random.normal(mean_k1, std_dev_k1), min_k1, max_k1)) for _ in range(len(cluster_mean_energy))]
-
+                print("local_iteration_values", local_iteration_values)
                 #sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1])
-                sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1], reverse=True)
-                #cluster_local_iterations = {
-                #    cluster_id: local_iteration_values[i]
-                #    for i, (cluster_id, _) in enumerate(sorted_clusters)
-                #}
-
+                #sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1], reverse=True)
+                if k1_allocation == "reversed":
+                    sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1])
+                    local_iteration_values.sort(reverse=True)  # Assign lower k1 values to lower-energy clusters
+                elif k1_allocation == "non_reversed":
+                    sorted_clusters = sorted(cluster_mean_energy.items(), key=lambda x: x[1], reverse=True)
+                    local_iteration_values.sort(reverse=True)  # Assign higher k1 values to higher-energy clusters
+                
+                # Assign sorted k1 values to sorted clusters
                 cluster_local_iterations = {
-                    cluster_id: int(np.clip(np.random.normal(mean_k1, std_dev_k1), 3, 10))
-                    for cluster_id, _ in sorted_clusters
+                    cluster_id: local_iteration_values[i]
+                    for i, (cluster_id, _) in enumerate(sorted_clusters)
                 }
+                
+                # Print results
+                print("local_iteration_values:", local_iteration_values)
+                print(f"Sorted Clusters (by energy, reversed={k1_allocation == 'reversed'}): {sorted_clusters}")
+                print("Final cluster_local_iterations:", cluster_local_iterations)
 
 
-                # Assign LOCAL_ITERATIONS to each cluster
-                for cluster_id, local_iterations in cluster_local_iterations.items():
-                    print(f"Cluster {cluster_id}: LOCAL_ITERATIONS = {local_iterations}")
+                #cluster_local_iterations = {
+                #    cluster_id: int(np.clip(np.random.normal(mean_k1, std_dev_k1), 3, 10))
+                #    for cluster_id, _ in sorted_clusters
+                #
 
                 # Log clustering statistics
                 for cluster_id, devices in clustered_clients.items():
@@ -168,6 +188,7 @@ def HierFL(args, trainloaders, valloaders, testloader):
 
                     with open(train_args['file_path'], "a") as file:
                         file.write(f"Cluster {cluster_id}: Avg Energy: {avg_energy:.6f}, Avg Time: {avg_time:.6f}, LOCAL_ITERATIONS: {cluster_local_iterations[cluster_id]}\n")
+                    print(f"Cluster {cluster_id}: Avg Energy: {avg_energy:.6f}, Avg Time: {avg_time:.6f}, LOCAL_ITERATIONS: {cluster_local_iterations[cluster_id]}\n")
 
                 # Assign each cluster to an edge server (you can balance this based on the number of clients per cluster)
                 edge_server_idx = 0
