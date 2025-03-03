@@ -1,0 +1,89 @@
+EXPERIMENT 27 Log 03-03-2025-12-57-34
+================================
+DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
+TOTAL NUMBER OF CLIENTS: 50
+TOTAL NUMBER OF EDGE SERVER: [3 - 5]
+
+HIERARCHICAL FEDERATED LEARNING CONFIGURATION:
+CLIENT LOCAL_ITERATIONS (K1): 5
+TOTAL NUMBER OF EDGE_AGGREGATIONS: 10
+TOTAL NUMBER OF GLOBAL_ROUNDS: 25
+TRAIN_PHASES: 5
+
+FL STRATEGY CONFIGURATION:
+CLIENT FRACTION: 1
+EVALUATE_FRACTION: 1
+CLIENT_RESOURCES: {'num_cpus': 1, 'num_gpus': 1}
+
+TRAINING PROCESS CONFIGURATION:
+DATASET: mnist
+DATA DISTRIBUTION: NON-IID
+TYPE DISTRIBUTION: pathological-balanced
+BATCH_SIZE: 20
+LEARNING_RATE: 0.01
+EXPONENTIAL_DECAY_RATE: 0.995
+================================
+Training Configuration - K1_Allocation: uniform, Clustering: energy, K1: 5, K2: 10
+Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 5
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 5
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 5
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 5
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 5
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+    Device 4 - Battery Level: 100.0%
+    Device 6 - Battery Level: 100.0%
+    Device 18 - Battery Level: 100.0%
+    Device 20 - Battery Level: 100.0%
+    Device 24 - Battery Level: 100.0%
+    Device 28 - Battery Level: 100.0%
+    Device 30 - Battery Level: 100.0%
+    Device 31 - Battery Level: 100.0%
+    Device 33 - Battery Level: 100.0%
+    Device 36 - Battery Level: 100.0%
+    Device 38 - Battery Level: 100.0%
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+    Device 1 - Battery Level: 100.0%
+    Device 7 - Battery Level: 100.0%
+    Device 9 - Battery Level: 100.0%
+    Device 12 - Battery Level: 100.0%
+    Device 19 - Battery Level: 100.0%
+    Device 26 - Battery Level: 100.0%
+    Device 27 - Battery Level: 100.0%
+    Device 41 - Battery Level: 100.0%
+    Device 44 - Battery Level: 100.0%
+    Device 46 - Battery Level: 100.0%
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+    Device 8 - Battery Level: 100.0%
+    Device 22 - Battery Level: 100.0%
+    Device 25 - Battery Level: 100.0%
+    Device 34 - Battery Level: 100.0%
+    Device 49 - Battery Level: 100.0%
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+    Device 0 - Battery Level: 100.0%
+    Device 5 - Battery Level: 100.0%
+    Device 11 - Battery Level: 100.0%
+    Device 14 - Battery Level: 100.0%
+    Device 15 - Battery Level: 100.0%
+    Device 17 - Battery Level: 100.0%
+    Device 21 - Battery Level: 100.0%
+    Device 29 - Battery Level: 100.0%
+    Device 32 - Battery Level: 100.0%
+    Device 35 - Battery Level: 100.0%
+    Device 37 - Battery Level: 100.0%
+    Device 39 - Battery Level: 100.0%
+    Device 40 - Battery Level: 100.0%
+    Device 48 - Battery Level: 100.0%
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+    Device 2 - Battery Level: 100.0%
+    Device 3 - Battery Level: 100.0%
+    Device 10 - Battery Level: 100.0%
+    Device 13 - Battery Level: 100.0%
+    Device 16 - Battery Level: 100.0%
+    Device 23 - Battery Level: 100.0%
+    Device 42 - Battery Level: 100.0%
+    Device 43 - Battery Level: 100.0%
+    Device 45 - Battery Level: 100.0%
+    Device 47 - Battery Level: 100.0%
+
+----------------------------------------------------------------------------------
+PHASE 1 - CONFIGURING K-MEANS CLUSTERS

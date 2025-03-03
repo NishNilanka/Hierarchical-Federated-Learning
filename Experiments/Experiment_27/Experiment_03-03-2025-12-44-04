@@ -123,3 +123,12 @@ Total time for edge-to-cloud communication across all global rounds: 4.6562 seco
 Edge Server 3 sent data to cloud consuming 1.49 J.
 Edge Server 3 sent data to cloud in 1.8625 seconds per round.
 Total time for edge-to-cloud communication across all global rounds: 4.6562 seconds.
+Edge Server 4 sent data to cloud consuming 1.49 J.
+Edge Server 4 sent data to cloud in 1.8625 seconds per round.
+Total time for edge-to-cloud communication across all global rounds: 4.6562 seconds.
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.0012941260933876037 	Accuracy: 0.5999 	Training time: 11.967361770999997s
+Energy Computation: 1.1967361920000001 	Energy Communication: 828.3610752500005 	Number of communications: 500 
+Edge Server 0 sent data to cloud consuming 1.49 J.
+Edge Server 0 sent data to cloud in 1.8625 seconds per round.
+Total time for edge-to-cloud communication across all global rounds: 4.6562 seconds.

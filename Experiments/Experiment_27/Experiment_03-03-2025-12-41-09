@@ -132,3 +132,9 @@ Energy Computation: 0.8990585010000002 	Energy Communication: 828.3610752500005 
 Edge Server 0 sent data to cloud consuming 1.49 J.
 Edge Server 0 sent data to cloud in 1.8625 seconds per round.
 Total time for edge-to-cloud communication across all global rounds: 4.6562 seconds.
+Edge Server 1 sent data to cloud consuming 1.49 J.
+Edge Server 1 sent data to cloud in 1.8625 seconds per round.
+Total time for edge-to-cloud communication across all global rounds: 4.6562 seconds.
+Edge Server 2 sent data to cloud consuming 1.49 J.
+Edge Server 2 sent data to cloud in 1.8625 seconds per round.
+Total time for edge-to-cloud communication across all global rounds: 4.6562 seconds.

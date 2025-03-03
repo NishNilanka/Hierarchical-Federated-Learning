@@ -158,9 +158,6 @@ def HierFL(args, trainloaders, valloaders, testloader):
                         print(f"Edge Server {edge_server.get_server_id()} assigned to Cluster {cluster_id} with {len(cluster_devices)} clients.")
                         with open(train_args['file_path'], "a") as file:
                             file.write(f"Edge Server {edge_server.get_server_id()} assigned to Cluster {cluster_id} with {len(cluster_devices)} clients.\n")
-
-                        for device in cluster_devices:
-                            file.write(f"    Device {device.deviceId} - Battery Level: {device.getEnergyLevel()}%\n")
                         edge_server_idx = (edge_server_idx + 1) % num_edge_servers
 
                 phase += 1
