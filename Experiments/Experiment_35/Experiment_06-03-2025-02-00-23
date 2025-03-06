@@ -1,0 +1,248 @@
+EXPERIMENT 35 Log 06-03-2025-02-00-23
+================================
+DISTRIBUTED INFRASTRUCTURE CONFIGURATION:
+TOTAL NUMBER OF CLIENTS: 50
+TOTAL NUMBER OF EDGE SERVER: [3 - 5]
+
+HIERARCHICAL FEDERATED LEARNING CONFIGURATION:
+CLIENT LOCAL_ITERATIONS (K1): 20
+TOTAL NUMBER OF EDGE_AGGREGATIONS: 20
+TOTAL NUMBER OF GLOBAL_ROUNDS: 25
+TRAIN_PHASES: 5
+
+FL STRATEGY CONFIGURATION:
+CLIENT FRACTION: 1
+EVALUATE_FRACTION: 1
+CLIENT_RESOURCES: {'num_cpus': 1, 'num_gpus': 1}
+
+TRAINING PROCESS CONFIGURATION:
+DATASET: mnist
+DATA DISTRIBUTION: NON-IID
+TYPE DISTRIBUTION: pathological-balanced
+BATCH_SIZE: 20
+LEARNING_RATE: 0.01
+EXPONENTIAL_DECAY_RATE: 0.995
+================================
+Training Configuration - K1_Allocation: uniform, Clustering: energy, K1: 20, K2: 20
+Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 20
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 20
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 20
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 20
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 20
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+
+----------------------------------------------------------------------------------
+PHASE 1 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 1 Evaluation -Loss: 0.0022879751443862914 	Accuracy: 0.11 	Training time: 94.08210960000001s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.0011485987544059754 	Accuracy: 0.6154 	Training time: 94.08210960000001s
+Energy Computation: 9.408211080000003 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 3 Evaluation -Loss: 0.000562401169538498 	Accuracy: 0.8021 	Training time: 94.0821096s
+Energy Computation: 9.408211080000006 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 4 Evaluation -Loss: 0.00034773233830928804 	Accuracy: 0.8871 	Training time: 94.08210960000002s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 5 Evaluation -Loss: 0.0002208735376596451 	Accuracy: 0.9325 	Training time: 94.0821096s
+Energy Computation: 9.408211080000003 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 20
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 20
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 20
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 20
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 20
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+
+----------------------------------------------------------------------------------
+PHASE 2 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 6 Evaluation -Loss: 0.00015369578301906584 	Accuracy: 0.9536 	Training time: 94.08210960000001s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 7 Evaluation -Loss: 0.00017112806290388107 	Accuracy: 0.9442 	Training time: 94.08210960000002s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 8 Evaluation -Loss: 0.00015084155946969987 	Accuracy: 0.9518 	Training time: 94.08210959999998s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 9 Evaluation -Loss: 0.00012847015634179115 	Accuracy: 0.9595 	Training time: 94.0821096s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 10 Evaluation -Loss: 9.309716895222663e-05 	Accuracy: 0.9706 	Training time: 94.08210960000001s
+Energy Computation: 9.408211080000003 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 20
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 20
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 20
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 20
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 20
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+
+----------------------------------------------------------------------------------
+PHASE 3 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 11 Evaluation -Loss: 8.548045009374618e-05 	Accuracy: 0.9728 	Training time: 94.0821096s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 12 Evaluation -Loss: 0.00013229347318410875 	Accuracy: 0.9602 	Training time: 94.08210960000001s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 13 Evaluation -Loss: 7.528526708483696e-05 	Accuracy: 0.9756 	Training time: 94.08210960000001s
+Energy Computation: 9.408211080000003 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 14 Evaluation -Loss: 7.28275153785944e-05 	Accuracy: 0.9764 	Training time: 94.0821096s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 15 Evaluation -Loss: 7.194270603358745e-05 	Accuracy: 0.9769 	Training time: 94.0821096s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 20
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 20
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 20
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 20
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 20
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+
+----------------------------------------------------------------------------------
+PHASE 4 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 16 Evaluation -Loss: 6.355611197650432e-05 	Accuracy: 0.9789 	Training time: 94.0821096s
+Energy Computation: 9.408211080000003 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 17 Evaluation -Loss: 6.856187023222447e-05 	Accuracy: 0.9765 	Training time: 94.08210959999998s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 18 Evaluation -Loss: 5.856492184102535e-05 	Accuracy: 0.9803 	Training time: 94.0821096s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 19 Evaluation -Loss: 5.395934954285622e-05 	Accuracy: 0.9812 	Training time: 94.08210960000001s
+Energy Computation: 9.408211080000003 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 20 Evaluation -Loss: 5.206448100507259e-05 	Accuracy: 0.9822 	Training time: 94.08210960000001s
+Energy Computation: 9.408211080000006 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 20
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 20
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 20
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 20
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 20
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+
+----------------------------------------------------------------------------------
+PHASE 5 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 21 Evaluation -Loss: 5.2331146597862245e-05 	Accuracy: 0.9819 	Training time: 94.0821096s
+Energy Computation: 9.408211080000006 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 22 Evaluation -Loss: 4.822764582931995e-05 	Accuracy: 0.9836 	Training time: 94.0821096s
+Energy Computation: 9.408211080000003 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 23 Evaluation -Loss: 5.7081107422709465e-05 	Accuracy: 0.9808 	Training time: 94.0821096s
+Energy Computation: 9.408211080000006 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 24 Evaluation -Loss: 4.3941240757703783e-05 	Accuracy: 0.9849 	Training time: 94.08210959999998s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+GLOBAL TEST ROUND: 25 Evaluation -Loss: 4.2879532650113104e-05 	Accuracy: 0.9847 	Training time: 94.0821096s
+Energy Computation: 9.408211080000005 	Energy Communication: 1641.8222849000015 	Number of communications: 1000 
+
+SUMMARY EXPERIMENTS-
+Loss: 0.0022879751443862914 	Accuracy: 0.11 	Training time: 94.08210960000001s	Energy Computation: 9.408211080000005 	                             Energy Communication: 1641.8222849000015 	                             Total Energy: 1651.2304959800015 	                             Number of communications: 1000
+ Loss: 0.0011485987544059754 	Accuracy: 0.6154 	Training time: 188.16421920000002s	Energy Computation: 18.81642216000001 	                             Energy Communication: 3283.644569800003 	                             Total Energy: 3302.460991960003 	                             Number of communications: 2000
+ Loss: 0.000562401169538498 	Accuracy: 0.8021 	Training time: 282.2463288s	Energy Computation: 28.224633240000017 	                             Energy Communication: 4925.466854700005 	                             Total Energy: 4953.691487940005 	                             Number of communications: 3000
+ Loss: 0.00034773233830928804 	Accuracy: 0.8871 	Training time: 376.32843840000004s	Energy Computation: 37.63284432000002 	                             Energy Communication: 6567.289139600006 	                             Total Energy: 6604.921983920006 	                             Number of communications: 4000
+ Loss: 0.0002208735376596451 	Accuracy: 0.9325 	Training time: 470.41054800000006s	Energy Computation: 47.04105540000002 	                             Energy Communication: 8209.111424500008 	                             Total Energy: 8256.152479900009 	                             Number of communications: 5000
+ Loss: 0.00015369578301906584 	Accuracy: 0.9536 	Training time: 564.4926576s	Energy Computation: 56.44926648000002 	                             Energy Communication: 9850.93370940001 	                             Total Energy: 9907.38297588001 	                             Number of communications: 6000
+ Loss: 0.00017112806290388107 	Accuracy: 0.9442 	Training time: 658.5747672s	Energy Computation: 65.85747756000002 	                             Energy Communication: 11492.75599430001 	                             Total Energy: 11558.613471860011 	                             Number of communications: 7000
+ Loss: 0.00015084155946969987 	Accuracy: 0.9518 	Training time: 752.6568768s	Energy Computation: 75.26568864000002 	                             Energy Communication: 13134.578279200012 	                             Total Energy: 13209.843967840012 	                             Number of communications: 8000
+ Loss: 0.00012847015634179115 	Accuracy: 0.9595 	Training time: 846.7389863999999s	Energy Computation: 84.67389972000002 	                             Energy Communication: 14776.400564100013 	                             Total Energy: 14861.074463820014 	                             Number of communications: 9000
+ Loss: 9.309716895222663e-05 	Accuracy: 0.9706 	Training time: 940.8210959999999s	Energy Computation: 94.08211080000002 	                             Energy Communication: 16418.222849000016 	                             Total Energy: 16512.304959800018 	                             Number of communications: 10000
+ Loss: 8.548045009374618e-05 	Accuracy: 0.9728 	Training time: 1034.9032055999999s	Energy Computation: 103.49032188000002 	                             Energy Communication: 18060.045133900017 	                             Total Energy: 18163.535455780016 	                             Number of communications: 11000
+ Loss: 0.00013229347318410875 	Accuracy: 0.9602 	Training time: 1128.9853151999998s	Energy Computation: 112.89853296000003 	                             Energy Communication: 19701.86741880002 	                             Total Energy: 19814.76595176002 	                             Number of communications: 12000
+ Loss: 7.528526708483696e-05 	Accuracy: 0.9756 	Training time: 1223.0674247999998s	Energy Computation: 122.30674404000003 	                             Energy Communication: 21343.68970370002 	                             Total Energy: 21465.99644774002 	                             Number of communications: 13000
+ Loss: 7.28275153785944e-05 	Accuracy: 0.9764 	Training time: 1317.1495343999998s	Energy Computation: 131.71495512000004 	                             Energy Communication: 22985.51198860002 	                             Total Energy: 23117.226943720023 	                             Number of communications: 14000
+ Loss: 7.194270603358745e-05 	Accuracy: 0.9769 	Training time: 1411.2316439999997s	Energy Computation: 141.12316620000004 	                             Energy Communication: 24627.334273500022 	                             Total Energy: 24768.45743970002 	                             Number of communications: 15000
+ Loss: 6.355611197650432e-05 	Accuracy: 0.9789 	Training time: 1505.3137535999997s	Energy Computation: 150.53137728000004 	                             Energy Communication: 26269.156558400024 	                             Total Energy: 26419.687935680024 	                             Number of communications: 16000
+ Loss: 6.856187023222447e-05 	Accuracy: 0.9765 	Training time: 1599.3958631999997s	Energy Computation: 159.93958836000004 	                             Energy Communication: 27910.978843300025 	                             Total Energy: 28070.918431660026 	                             Number of communications: 17000
+ Loss: 5.856492184102535e-05 	Accuracy: 0.9803 	Training time: 1693.4779727999996s	Energy Computation: 169.34779944000005 	                             Energy Communication: 29552.801128200026 	                             Total Energy: 29722.148927640028 	                             Number of communications: 18000
+ Loss: 5.395934954285622e-05 	Accuracy: 0.9812 	Training time: 1787.5600823999996s	Energy Computation: 178.75601052000005 	                             Energy Communication: 31194.623413100027 	                             Total Energy: 31373.379423620027 	                             Number of communications: 19000
+ Loss: 5.206448100507259e-05 	Accuracy: 0.9822 	Training time: 1881.6421919999996s	Energy Computation: 188.16422160000005 	                             Energy Communication: 32836.44569800003 	                             Total Energy: 33024.609919600036 	                             Number of communications: 20000
+ Loss: 5.2331146597862245e-05 	Accuracy: 0.9819 	Training time: 1975.7243015999995s	Energy Computation: 197.57243268000005 	                             Energy Communication: 34478.26798290003 	                             Total Energy: 34675.84041558003 	                             Number of communications: 21000
+ Loss: 4.822764582931995e-05 	Accuracy: 0.9836 	Training time: 2069.8064111999997s	Energy Computation: 206.98064376000005 	                             Energy Communication: 36120.090267800035 	                             Total Energy: 36327.07091156003 	                             Number of communications: 22000
+ Loss: 5.7081107422709465e-05 	Accuracy: 0.9808 	Training time: 2163.8885207999997s	Energy Computation: 216.38885484000005 	                             Energy Communication: 37761.912552700036 	                             Total Energy: 37978.301407540035 	                             Number of communications: 23000
+ Loss: 4.3941240757703783e-05 	Accuracy: 0.9849 	Training time: 2257.9706303999997s	Energy Computation: 225.79706592000005 	                             Energy Communication: 39403.73483760004 	                             Total Energy: 39629.53190352004 	                             Number of communications: 24000
+ Loss: 4.2879532650113104e-05 	Accuracy: 0.9847 	Training time: 2352.0527399999996s	Energy Computation: 235.20527700000005 	                             Energy Communication: 41045.55712250004 	                             Total Energy: 41280.76239950004 	                             Number of communications: 25000
+ 
+
+SUMMARY Device STATISTICS-
+
+Device 0 -	 Battery Level: 99.7675585629% -	 Communications with base stations: 0 
+Device 1 -	 Battery Level: 99.7685950271% -	 Communications with base stations: 0 
+Device 2 -	 Battery Level: 99.7681732685% -	 Communications with base stations: 0 
+Device 3 -	 Battery Level: 99.7682606819% -	 Communications with base stations: 0 
+Device 4 -	 Battery Level: 99.7673948579% -	 Communications with base stations: 0 
+Device 5 -	 Battery Level: 99.7674956873% -	 Communications with base stations: 0 
+Device 6 -	 Battery Level: 99.767132192% -	 Communications with base stations: 0 
+Device 7 -	 Battery Level: 99.7684905602% -	 Communications with base stations: 0 
+Device 8 -	 Battery Level: 99.7679254742% -	 Communications with base stations: 0 
+Device 9 -	 Battery Level: 99.768586953% -	 Communications with base stations: 0 
+Device 10 -	 Battery Level: 99.7682683956% -	 Communications with base stations: 0 
+Device 11 -	 Battery Level: 99.7677847294% -	 Communications with base stations: 0 
+Device 12 -	 Battery Level: 99.7685924543% -	 Communications with base stations: 0 
+Device 13 -	 Battery Level: 99.768301797% -	 Communications with base stations: 0 
+Device 14 -	 Battery Level: 99.7675409218% -	 Communications with base stations: 0 
+Device 15 -	 Battery Level: 99.7677179511% -	 Communications with base stations: 0 
+Device 16 -	 Battery Level: 99.7682653547% -	 Communications with base stations: 0 
+Device 17 -	 Battery Level: 99.7676431803% -	 Communications with base stations: 0 
+Device 18 -	 Battery Level: 99.7672717821% -	 Communications with base stations: 0 
+Device 19 -	 Battery Level: 99.7686262552% -	 Communications with base stations: 0 
+Device 20 -	 Battery Level: 99.7672778738% -	 Communications with base stations: 0 
+Device 21 -	 Battery Level: 99.7674595202% -	 Communications with base stations: 0 
+Device 22 -	 Battery Level: 99.7680632463% -	 Communications with base stations: 0 
+Device 23 -	 Battery Level: 99.7683749383% -	 Communications with base stations: 0 
+Device 24 -	 Battery Level: 99.7670224864% -	 Communications with base stations: 0 
+Device 25 -	 Battery Level: 99.7680694137% -	 Communications with base stations: 0 
+Device 26 -	 Battery Level: 99.7684807643% -	 Communications with base stations: 0 
+Device 27 -	 Battery Level: 99.7684740665% -	 Communications with base stations: 0 
+Device 28 -	 Battery Level: 99.7672075718% -	 Communications with base stations: 0 
+Device 29 -	 Battery Level: 99.767618787% -	 Communications with base stations: 0 
+Device 30 -	 Battery Level: 99.7672756656% -	 Communications with base stations: 0 
+Device 31 -	 Battery Level: 99.7674062265% -	 Communications with base stations: 0 
+Device 32 -	 Battery Level: 99.7677326497% -	 Communications with base stations: 0 
+Device 33 -	 Battery Level: 99.7669956597% -	 Communications with base stations: 0 
+Device 34 -	 Battery Level: 99.767998665% -	 Communications with base stations: 0 
+Device 35 -	 Battery Level: 99.7677059755% -	 Communications with base stations: 0 
+Device 36 -	 Battery Level: 99.7672380875% -	 Communications with base stations: 0 
+Device 37 -	 Battery Level: 99.7675938311% -	 Communications with base stations: 0 
+Device 38 -	 Battery Level: 99.7671835966% -	 Communications with base stations: 0 
+Device 39 -	 Battery Level: 99.7676632773% -	 Communications with base stations: 0 
+Device 40 -	 Battery Level: 99.7674486692% -	 Communications with base stations: 0 
+Device 41 -	 Battery Level: 99.7685599167% -	 Communications with base stations: 0 
+Device 42 -	 Battery Level: 99.7682527743% -	 Communications with base stations: 0 
+Device 43 -	 Battery Level: 99.7681490468% -	 Communications with base stations: 0 
+Device 44 -	 Battery Level: 99.7685026163% -	 Communications with base stations: 0 
+Device 45 -	 Battery Level: 99.7682445211% -	 Communications with base stations: 0 
+Device 46 -	 Battery Level: 99.7684668378% -	 Communications with base stations: 0 
+Device 47 -	 Battery Level: 99.7681683017% -	 Communications with base stations: 0 
+Device 48 -	 Battery Level: 99.7675648759% -	 Communications with base stations: 0 
+Device 49 -	 Battery Level: 99.7680217793% -	 Communications with base stations: 0 

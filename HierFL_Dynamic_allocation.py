@@ -72,8 +72,8 @@ def HierFL(args, trainloaders, valloaders, testloader):
     # Configuration for local iterations and edge aggregations
     train_args_conf = [
         {
-            'LOCAL_ITERATIONS': 5,
-            'EDGE_AGGREGATIONS': 10,
+            'LOCAL_ITERATIONS': 20,
+            'EDGE_AGGREGATIONS': 20,
         }
     ]
 

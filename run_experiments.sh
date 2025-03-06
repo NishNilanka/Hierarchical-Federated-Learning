@@ -23,8 +23,8 @@ for i in "${!experiments[@]}"; do
     
     # Wait 5 minutes before starting the next one
     if [[ $i -lt $((${#experiments[@]} - 1)) ]]; then
-        echo "Waiting 1 minutes before starting the next experiment..."
-        sleep 60
+        echo "Waiting 2 minutes before starting the next experiment..."
+        sleep 120
     fi
 done
 

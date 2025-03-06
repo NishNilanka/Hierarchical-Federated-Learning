@@ -87,3 +87,412 @@ Edge Server 4 assigned to Cluster 4 with 10 clients.
 
 ----------------------------------------------------------------------------------
 PHASE 1 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 1 Evaluation -Loss: 0.0018265255212783814 	Accuracy: 0.5234 	Training time: 11.760263700000003s
+Energy Computation: 1.1760263850000006 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 2 Evaluation -Loss: 0.0012578752875328065 	Accuracy: 0.566 	Training time: 11.760263700000003s
+Energy Computation: 1.1760263850000001 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 3 Evaluation -Loss: 0.0008444164514541626 	Accuracy: 0.7556 	Training time: 11.760263700000003s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 4 Evaluation -Loss: 0.0006609477818012237 	Accuracy: 0.803 	Training time: 11.760263700000003s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 5 Evaluation -Loss: 0.0005601819694042206 	Accuracy: 0.8296 	Training time: 11.760263700000001s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 5
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 5
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 5
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 5
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 5
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+    Device 4 - Battery Level: 99.9768748355%
+    Device 6 - Battery Level: 99.9768682689%
+    Device 18 - Battery Level: 99.9768717587%
+    Device 20 - Battery Level: 99.9768719109%
+    Device 24 - Battery Level: 99.9768655263%
+    Device 28 - Battery Level: 99.9768701534%
+    Device 30 - Battery Level: 99.9768718557%
+    Device 31 - Battery Level: 99.9768751198%
+    Device 33 - Battery Level: 99.9768648556%
+    Device 36 - Battery Level: 99.9768709163%
+    Device 38 - Battery Level: 99.976869554%
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+    Device 1 - Battery Level: 99.9769048398%
+    Device 7 - Battery Level: 99.9769022281%
+    Device 9 - Battery Level: 99.9769046379%
+    Device 12 - Battery Level: 99.9769047755%
+    Device 19 - Battery Level: 99.9769056205%
+    Device 26 - Battery Level: 99.9769019832%
+    Device 27 - Battery Level: 99.9769018158%
+    Device 41 - Battery Level: 99.976903962%
+    Device 44 - Battery Level: 99.9769025295%
+    Device 46 - Battery Level: 99.976901635%
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+    Device 8 - Battery Level: 99.976888101%
+    Device 22 - Battery Level: 99.9768915453%
+    Device 25 - Battery Level: 99.9768916994%
+    Device 34 - Battery Level: 99.9768899307%
+    Device 49 - Battery Level: 99.9768905086%
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+    Device 0 - Battery Level: 99.9768789282%
+    Device 5 - Battery Level: 99.9768773563%
+    Device 11 - Battery Level: 99.9768845823%
+    Device 14 - Battery Level: 99.9768784871%
+    Device 15 - Battery Level: 99.9768829129%
+    Device 17 - Battery Level: 99.9768810436%
+    Device 21 - Battery Level: 99.9768764521%
+    Device 29 - Battery Level: 99.9768804338%
+    Device 32 - Battery Level: 99.9768832803%
+    Device 35 - Battery Level: 99.9768826135%
+    Device 37 - Battery Level: 99.9768798099%
+    Device 39 - Battery Level: 99.976881546%
+    Device 40 - Battery Level: 99.9768761808%
+    Device 48 - Battery Level: 99.976879086%
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+    Device 2 - Battery Level: 99.9768942958%
+    Device 3 - Battery Level: 99.9768964812%
+    Device 10 - Battery Level: 99.976896674%
+    Device 13 - Battery Level: 99.976897509%
+    Device 16 - Battery Level: 99.976896598%
+    Device 23 - Battery Level: 99.9768993376%
+    Device 42 - Battery Level: 99.9768962835%
+    Device 43 - Battery Level: 99.9768936903%
+    Device 45 - Battery Level: 99.9768960771%
+    Device 47 - Battery Level: 99.9768941716%
+
+----------------------------------------------------------------------------------
+PHASE 2 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 6 Evaluation -Loss: 0.00046642453968524935 	Accuracy: 0.8475 	Training time: 11.7602637s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 7 Evaluation -Loss: 0.0004203567624092102 	Accuracy: 0.8788 	Training time: 11.760263700000003s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 8 Evaluation -Loss: 0.00034953165650367736 	Accuracy: 0.8985 	Training time: 11.760263700000001s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 9 Evaluation -Loss: 0.0003164203524589539 	Accuracy: 0.9079 	Training time: 11.760263700000001s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 10 Evaluation -Loss: 0.0002954832196235657 	Accuracy: 0.9137 	Training time: 11.7602637s
+Energy Computation: 1.1760263850000001 	Energy Communication: 820.9111424500005 	Number of communications: 500 Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 5
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 5
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 5
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 5
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 5
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+    Device 4 - Battery Level: 99.9537496711%
+    Device 6 - Battery Level: 99.9537365378%
+    Device 18 - Battery Level: 99.9537435173%
+    Device 20 - Battery Level: 99.9537438219%
+    Device 24 - Battery Level: 99.9537310525%
+    Device 28 - Battery Level: 99.9537403068%
+    Device 30 - Battery Level: 99.9537437115%
+    Device 31 - Battery Level: 99.9537502395%
+    Device 33 - Battery Level: 99.9537297112%
+    Device 36 - Battery Level: 99.9537418326%
+    Device 38 - Battery Level: 99.953739108%
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+    Device 1 - Battery Level: 99.9538096796%
+    Device 7 - Battery Level: 99.9538044562%
+    Device 9 - Battery Level: 99.9538092759%
+    Device 12 - Battery Level: 99.9538095509%
+    Device 19 - Battery Level: 99.953811241%
+    Device 26 - Battery Level: 99.9538039664%
+    Device 27 - Battery Level: 99.9538036315%
+    Device 41 - Battery Level: 99.953807924%
+    Device 44 - Battery Level: 99.953805059%
+    Device 46 - Battery Level: 99.9538032701%
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+    Device 8 - Battery Level: 99.9537762019%
+    Device 22 - Battery Level: 99.9537830905%
+    Device 25 - Battery Level: 99.9537833989%
+    Device 34 - Battery Level: 99.9537798615%
+    Device 49 - Battery Level: 99.9537810172%
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+    Device 0 - Battery Level: 99.9537578563%
+    Device 5 - Battery Level: 99.9537547126%
+    Device 11 - Battery Level: 99.9537691647%
+    Device 14 - Battery Level: 99.9537569743%
+    Device 15 - Battery Level: 99.9537658258%
+    Device 17 - Battery Level: 99.9537620872%
+    Device 21 - Battery Level: 99.9537529042%
+    Device 29 - Battery Level: 99.9537608676%
+    Device 32 - Battery Level: 99.9537665607%
+    Device 35 - Battery Level: 99.953765227%
+    Device 37 - Battery Level: 99.9537596198%
+    Device 39 - Battery Level: 99.9537630921%
+    Device 40 - Battery Level: 99.9537523617%
+    Device 48 - Battery Level: 99.953758172%
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+    Device 2 - Battery Level: 99.9537885916%
+    Device 3 - Battery Level: 99.9537929623%
+    Device 10 - Battery Level: 99.953793348%
+    Device 13 - Battery Level: 99.9537950181%
+    Device 16 - Battery Level: 99.9537931959%
+    Device 23 - Battery Level: 99.9537986751%
+    Device 42 - Battery Level: 99.9537925669%
+    Device 43 - Battery Level: 99.9537873805%
+    Device 45 - Battery Level: 99.9537921543%
+    Device 47 - Battery Level: 99.9537883433%
+
+----------------------------------------------------------------------------------
+PHASE 3 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 11 Evaluation -Loss: 0.0002537066489458084 	Accuracy: 0.926 	Training time: 11.760263700000003s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 12 Evaluation -Loss: 0.0002746427908539772 	Accuracy: 0.9163 	Training time: 11.760263700000005s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 13 Evaluation -Loss: 0.0002475876644253731 	Accuracy: 0.9234 	Training time: 11.760263700000005s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 14 Evaluation -Loss: 0.00021209247261285783 	Accuracy: 0.9378 	Training time: 11.760263700000001s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 15 Evaluation -Loss: 0.000199824820458889 	Accuracy: 0.9415 	Training time: 11.7602637s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 5
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 5
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 5
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 5
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 5
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+    Device 4 - Battery Level: 99.9306245066%
+    Device 6 - Battery Level: 99.9306048067%
+    Device 18 - Battery Level: 99.930615276%
+    Device 20 - Battery Level: 99.9306157328%
+    Device 24 - Battery Level: 99.9305965788%
+    Device 28 - Battery Level: 99.9306104602%
+    Device 30 - Battery Level: 99.9306155672%
+    Device 31 - Battery Level: 99.9306253593%
+    Device 33 - Battery Level: 99.9305945668%
+    Device 36 - Battery Level: 99.9306127489%
+    Device 38 - Battery Level: 99.9306086621%
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+    Device 1 - Battery Level: 99.9307145193%
+    Device 7 - Battery Level: 99.9307066843%
+    Device 9 - Battery Level: 99.9307139138%
+    Device 12 - Battery Level: 99.9307143264%
+    Device 19 - Battery Level: 99.9307168614%
+    Device 26 - Battery Level: 99.9307059496%
+    Device 27 - Battery Level: 99.9307054473%
+    Device 41 - Battery Level: 99.9307118861%
+    Device 44 - Battery Level: 99.9307075885%
+    Device 46 - Battery Level: 99.9307049051%
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+    Device 8 - Battery Level: 99.9306643029%
+    Device 22 - Battery Level: 99.9306746358%
+    Device 25 - Battery Level: 99.9306750983%
+    Device 34 - Battery Level: 99.9306697922%
+    Device 49 - Battery Level: 99.9306715258%
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+    Device 0 - Battery Level: 99.9306367845%
+    Device 5 - Battery Level: 99.9306320689%
+    Device 11 - Battery Level: 99.930653747%
+    Device 14 - Battery Level: 99.9306354614%
+    Device 15 - Battery Level: 99.9306487386%
+    Device 17 - Battery Level: 99.9306431308%
+    Device 21 - Battery Level: 99.9306293563%
+    Device 29 - Battery Level: 99.9306413013%
+    Device 32 - Battery Level: 99.930649841%
+    Device 35 - Battery Level: 99.9306478405%
+    Device 37 - Battery Level: 99.9306394296%
+    Device 39 - Battery Level: 99.9306446381%
+    Device 40 - Battery Level: 99.9306285425%
+    Device 48 - Battery Level: 99.930637258%
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+    Device 2 - Battery Level: 99.9306828874%
+    Device 3 - Battery Level: 99.9306894435%
+    Device 10 - Battery Level: 99.930690022%
+    Device 13 - Battery Level: 99.9306925271%
+    Device 16 - Battery Level: 99.9306897939%
+    Device 23 - Battery Level: 99.9306980127%
+    Device 42 - Battery Level: 99.9306888504%
+    Device 43 - Battery Level: 99.9306810708%
+    Device 45 - Battery Level: 99.9306882314%
+    Device 47 - Battery Level: 99.9306825149%
+
+----------------------------------------------------------------------------------
+PHASE 4 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 16 Evaluation -Loss: 0.00018918659538030624 	Accuracy: 0.9452 	Training time: 11.760263700000001s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 17 Evaluation -Loss: 0.0001872813954949379 	Accuracy: 0.9438 	Training time: 11.760263700000005s
+Energy Computation: 1.1760263850000001 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 18 Evaluation -Loss: 0.00018216790854930876 	Accuracy: 0.9473 	Training time: 11.7602637s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 19 Evaluation -Loss: 0.00016605305224657059 	Accuracy: 0.9518 	Training time: 11.760263700000003s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 20 Evaluation -Loss: 0.0001648466572165489 	Accuracy: 0.9512 	Training time: 11.7602637s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 Cluster 0: Avg Energy: 0.000035, Avg Time: 0.000352, LOCAL_ITERATIONS: 5
+Cluster 1: Avg Energy: 0.000012, Avg Time: 0.000118, LOCAL_ITERATIONS: 5
+Cluster 2: Avg Energy: 0.000021, Avg Time: 0.000211, LOCAL_ITERATIONS: 5
+Cluster 3: Avg Energy: 0.000028, Avg Time: 0.000283, LOCAL_ITERATIONS: 5
+Cluster 4: Avg Energy: 0.000017, Avg Time: 0.000170, LOCAL_ITERATIONS: 5
+Edge Server 0 assigned to Cluster 0 with 11 clients.
+    Device 4 - Battery Level: 99.9074993422%
+    Device 6 - Battery Level: 99.9074730756%
+    Device 18 - Battery Level: 99.9074870346%
+    Device 20 - Battery Level: 99.9074876438%
+    Device 24 - Battery Level: 99.907462105%
+    Device 28 - Battery Level: 99.9074806136%
+    Device 30 - Battery Level: 99.907487423%
+    Device 31 - Battery Level: 99.9075004791%
+    Device 33 - Battery Level: 99.9074594224%
+    Device 36 - Battery Level: 99.9074836652%
+    Device 38 - Battery Level: 99.9074782161%
+Edge Server 1 assigned to Cluster 1 with 10 clients.
+    Device 1 - Battery Level: 99.9076193591%
+    Device 7 - Battery Level: 99.9076089124%
+    Device 9 - Battery Level: 99.9076185517%
+    Device 12 - Battery Level: 99.9076191018%
+    Device 19 - Battery Level: 99.9076224819%
+    Device 26 - Battery Level: 99.9076079328%
+    Device 27 - Battery Level: 99.9076072631%
+    Device 41 - Battery Level: 99.9076158481%
+    Device 44 - Battery Level: 99.907610118%
+    Device 46 - Battery Level: 99.9076065402%
+Edge Server 2 assigned to Cluster 2 with 5 clients.
+    Device 8 - Battery Level: 99.9075524038%
+    Device 22 - Battery Level: 99.907566181%
+    Device 25 - Battery Level: 99.9075667978%
+    Device 34 - Battery Level: 99.9075597229%
+    Device 49 - Battery Level: 99.9075620343%
+Edge Server 3 assigned to Cluster 3 with 14 clients.
+    Device 0 - Battery Level: 99.9075157127%
+    Device 5 - Battery Level: 99.9075094251%
+    Device 11 - Battery Level: 99.9075383293%
+    Device 14 - Battery Level: 99.9075139486%
+    Device 15 - Battery Level: 99.9075316515%
+    Device 17 - Battery Level: 99.9075241744%
+    Device 21 - Battery Level: 99.9075058084%
+    Device 29 - Battery Level: 99.9075217351%
+    Device 32 - Battery Level: 99.9075331214%
+    Device 35 - Battery Level: 99.907530454%
+    Device 37 - Battery Level: 99.9075192395%
+    Device 39 - Battery Level: 99.9075261841%
+    Device 40 - Battery Level: 99.9075047233%
+    Device 48 - Battery Level: 99.907516344%
+Edge Server 4 assigned to Cluster 4 with 10 clients.
+    Device 2 - Battery Level: 99.9075771833%
+    Device 3 - Battery Level: 99.9075859246%
+    Device 10 - Battery Level: 99.907586696%
+    Device 13 - Battery Level: 99.9075900361%
+    Device 16 - Battery Level: 99.9075863919%
+    Device 23 - Battery Level: 99.9075973502%
+    Device 42 - Battery Level: 99.9075851338%
+    Device 43 - Battery Level: 99.9075747611%
+    Device 45 - Battery Level: 99.9075843085%
+    Device 47 - Battery Level: 99.9075766866%
+
+----------------------------------------------------------------------------------
+PHASE 5 - CONFIGURING K-MEANS CLUSTERS
+
+
+GLOBAL TEST ROUND: 21 Evaluation -Loss: 0.000165951968729496 	Accuracy: 0.9519 	Training time: 11.760263700000001s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 22 Evaluation -Loss: 0.00015366767346858978 	Accuracy: 0.9566 	Training time: 11.760263700000001s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 23 Evaluation -Loss: 0.00015203121602535248 	Accuracy: 0.9565 	Training time: 11.760263700000001s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 24 Evaluation -Loss: 0.00014250854849815367 	Accuracy: 0.9583 	Training time: 11.760263700000003s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+GLOBAL TEST ROUND: 25 Evaluation -Loss: 0.00013286929205060004 	Accuracy: 0.9606 	Training time: 11.760263700000001s
+Energy Computation: 1.1760263850000003 	Energy Communication: 820.9111424500005 	Number of communications: 500 
+
+SUMMARY EXPERIMENTS-
+Loss: 0.0018265255212783814 	Accuracy: 0.5234 	Training time: 11.760263700000003s	Energy Computation: 1.1760263850000006 	                             Energy Communication: 820.9111424500005 	                             Total Energy: 822.0871688350005 	                             Number of communications: 500
+ Loss: 0.0012578752875328065 	Accuracy: 0.566 	Training time: 23.520527400000006s	Energy Computation: 2.3520527700000007 	                             Energy Communication: 1641.822284900001 	                             Total Energy: 1644.174337670001 	                             Number of communications: 1000
+ Loss: 0.0008444164514541626 	Accuracy: 0.7556 	Training time: 35.28079110000001s	Energy Computation: 3.5280791550000012 	                             Energy Communication: 2462.7334273500014 	                             Total Energy: 2466.2615065050013 	                             Number of communications: 1500
+ Loss: 0.0006609477818012237 	Accuracy: 0.803 	Training time: 47.04105480000001s	Energy Computation: 4.704105540000001 	                             Energy Communication: 3283.644569800002 	                             Total Energy: 3288.348675340002 	                             Number of communications: 2000
+ Loss: 0.0005601819694042206 	Accuracy: 0.8296 	Training time: 58.801318500000015s	Energy Computation: 5.8801319250000015 	                             Energy Communication: 4104.555712250002 	                             Total Energy: 4110.435844175002 	                             Number of communications: 2500
+ Loss: 0.00046642453968524935 	Accuracy: 0.8475 	Training time: 70.56158220000002s	Energy Computation: 7.056158310000002 	                             Energy Communication: 4925.466854700003 	                             Total Energy: 4932.523013010003 	                             Number of communications: 3000
+ Loss: 0.0004203567624092102 	Accuracy: 0.8788 	Training time: 82.32184590000003s	Energy Computation: 8.232184695000003 	                             Energy Communication: 5746.3779971500035 	                             Total Energy: 5754.610181845003 	                             Number of communications: 3500
+ Loss: 0.00034953165650367736 	Accuracy: 0.8985 	Training time: 94.08210960000002s	Energy Computation: 9.408211080000003 	                             Energy Communication: 6567.289139600004 	                             Total Energy: 6576.697350680004 	                             Number of communications: 4000
+ Loss: 0.0003164203524589539 	Accuracy: 0.9079 	Training time: 105.84237330000002s	Energy Computation: 10.584237465000003 	                             Energy Communication: 7388.200282050005 	                             Total Energy: 7398.784519515005 	                             Number of communications: 4500
+ Loss: 0.0002954832196235657 	Accuracy: 0.9137 	Training time: 117.60263700000002s	Energy Computation: 11.760263850000003 	                             Energy Communication: 8209.111424500004 	                             Total Energy: 8220.871688350004 	                             Number of communications: 5000
+ Loss: 0.0002537066489458084 	Accuracy: 0.926 	Training time: 129.3629007s	Energy Computation: 12.936290235000003 	                             Energy Communication: 9030.022566950005 	                             Total Energy: 9042.958857185005 	                             Number of communications: 5500
+ Loss: 0.0002746427908539772 	Accuracy: 0.9163 	Training time: 141.1231644s	Energy Computation: 14.112316620000003 	                             Energy Communication: 9850.933709400006 	                             Total Energy: 9865.046026020005 	                             Number of communications: 6000
+ Loss: 0.0002475876644253731 	Accuracy: 0.9234 	Training time: 152.8834281s	Energy Computation: 15.288343005000003 	                             Energy Communication: 10671.844851850006 	                             Total Energy: 10687.133194855007 	                             Number of communications: 6500
+ Loss: 0.00021209247261285783 	Accuracy: 0.9378 	Training time: 164.6436918s	Energy Computation: 16.464369390000005 	                             Energy Communication: 11492.755994300007 	                             Total Energy: 11509.220363690007 	                             Number of communications: 7000
+ Loss: 0.000199824820458889 	Accuracy: 0.9415 	Training time: 176.4039555s	Energy Computation: 17.640395775000005 	                             Energy Communication: 12313.667136750008 	                             Total Energy: 12331.307532525008 	                             Number of communications: 7500
+ Loss: 0.00018918659538030624 	Accuracy: 0.9452 	Training time: 188.1642192s	Energy Computation: 18.816422160000005 	                             Energy Communication: 13134.578279200008 	                             Total Energy: 13153.394701360008 	                             Number of communications: 8000
+ Loss: 0.0001872813954949379 	Accuracy: 0.9438 	Training time: 199.9244829s	Energy Computation: 19.992448545000006 	                             Energy Communication: 13955.489421650009 	                             Total Energy: 13975.481870195008 	                             Number of communications: 8500
+ Loss: 0.00018216790854930876 	Accuracy: 0.9473 	Training time: 211.68474659999998s	Energy Computation: 21.168474930000006 	                             Energy Communication: 14776.40056410001 	                             Total Energy: 14797.56903903001 	                             Number of communications: 9000
+ Loss: 0.00016605305224657059 	Accuracy: 0.9518 	Training time: 223.44501029999998s	Energy Computation: 22.344501315000006 	                             Energy Communication: 15597.31170655001 	                             Total Energy: 15619.65620786501 	                             Number of communications: 9500
+ Loss: 0.0001648466572165489 	Accuracy: 0.9512 	Training time: 235.20527399999997s	Energy Computation: 23.520527700000006 	                             Energy Communication: 16418.22284900001 	                             Total Energy: 16441.743376700008 	                             Number of communications: 10000
+ Loss: 0.000165951968729496 	Accuracy: 0.9519 	Training time: 246.96553769999997s	Energy Computation: 24.696554085000006 	                             Energy Communication: 17239.13399145001 	                             Total Energy: 17263.83054553501 	                             Number of communications: 10500
+ Loss: 0.00015366767346858978 	Accuracy: 0.9566 	Training time: 258.72580139999997s	Energy Computation: 25.872580470000006 	                             Energy Communication: 18060.04513390001 	                             Total Energy: 18085.91771437001 	                             Number of communications: 11000
+ Loss: 0.00015203121602535248 	Accuracy: 0.9565 	Training time: 270.48606509999996s	Energy Computation: 27.048606855000006 	                             Energy Communication: 18880.95627635001 	                             Total Energy: 18908.004883205012 	                             Number of communications: 11500
+ Loss: 0.00014250854849815367 	Accuracy: 0.9583 	Training time: 282.24632879999996s	Energy Computation: 28.224633240000006 	                             Energy Communication: 19701.86741880001 	                             Total Energy: 19730.09205204001 	                             Number of communications: 12000
+ Loss: 0.00013286929205060004 	Accuracy: 0.9606 	Training time: 294.00659249999995s	Energy Computation: 29.400659625000007 	                             Energy Communication: 20522.778561250012 	                             Total Energy: 20552.179220875012 	                             Number of communications: 12500
+ 
+
+SUMMARY Device STATISTICS-
+
+Device 0 -	 Battery Level: 99.8843946409% -	 Communications with base stations: 0 
+Device 1 -	 Battery Level: 99.8845241989% -	 Communications with base stations: 0 
+Device 2 -	 Battery Level: 99.8844714791% -	 Communications with base stations: 0 
+Device 3 -	 Battery Level: 99.8844824058% -	 Communications with base stations: 0 
+Device 4 -	 Battery Level: 99.8843741777% -	 Communications with base stations: 0 
+Device 5 -	 Battery Level: 99.8843867814% -	 Communications with base stations: 0 
+Device 6 -	 Battery Level: 99.8843413445% -	 Communications with base stations: 0 
+Device 7 -	 Battery Level: 99.8845111405% -	 Communications with base stations: 0 
+Device 8 -	 Battery Level: 99.8844405048% -	 Communications with base stations: 0 
+Device 9 -	 Battery Level: 99.8845231896% -	 Communications with base stations: 0 
+Device 10 -	 Battery Level: 99.88448337% -	 Communications with base stations: 0 
+Device 11 -	 Battery Level: 99.8844229117% -	 Communications with base stations: 0 
+Device 12 -	 Battery Level: 99.8845238773% -	 Communications with base stations: 0 
+Device 13 -	 Battery Level: 99.8844875451% -	 Communications with base stations: 0 
+Device 14 -	 Battery Level: 99.8843924357% -	 Communications with base stations: 0 
+Device 15 -	 Battery Level: 99.8844145644% -	 Communications with base stations: 0 
+Device 16 -	 Battery Level: 99.8844829898% -	 Communications with base stations: 0 
+Device 17 -	 Battery Level: 99.884405218% -	 Communications with base stations: 0 
+Device 18 -	 Battery Level: 99.8843587933% -	 Communications with base stations: 0 
+Device 19 -	 Battery Level: 99.8845281024% -	 Communications with base stations: 0 
+Device 20 -	 Battery Level: 99.8843595547% -	 Communications with base stations: 0 
+Device 21 -	 Battery Level: 99.8843822605% -	 Communications with base stations: 0 
+Device 22 -	 Battery Level: 99.8844577263% -	 Communications with base stations: 0 
+Device 23 -	 Battery Level: 99.8844966878% -	 Communications with base stations: 0 
+Device 24 -	 Battery Level: 99.8843276313% -	 Communications with base stations: 0 
+Device 25 -	 Battery Level: 99.8844584972% -	 Communications with base stations: 0 
+Device 26 -	 Battery Level: 99.884509916% -	 Communications with base stations: 0 
+Device 27 -	 Battery Level: 99.8845090788% -	 Communications with base stations: 0 
+Device 28 -	 Battery Level: 99.884350767% -	 Communications with base stations: 0 
+Device 29 -	 Battery Level: 99.8844021689% -	 Communications with base stations: 0 
+Device 30 -	 Battery Level: 99.8843592787% -	 Communications with base stations: 0 
+Device 31 -	 Battery Level: 99.8843755988% -	 Communications with base stations: 0 
+Device 32 -	 Battery Level: 99.8844164017% -	 Communications with base stations: 0 
+Device 33 -	 Battery Level: 99.884324278% -	 Communications with base stations: 0 
+Device 34 -	 Battery Level: 99.8844496536% -	 Communications with base stations: 0 
+Device 35 -	 Battery Level: 99.8844130674% -	 Communications with base stations: 0 
+Device 36 -	 Battery Level: 99.8843545814% -	 Communications with base stations: 0 
+Device 37 -	 Battery Level: 99.8843990494% -	 Communications with base stations: 0 
+Device 38 -	 Battery Level: 99.8843477701% -	 Communications with base stations: 0 
+Device 39 -	 Battery Level: 99.8844077302% -	 Communications with base stations: 0 
+Device 40 -	 Battery Level: 99.8843809042% -	 Communications with base stations: 0 
+Device 41 -	 Battery Level: 99.8845198101% -	 Communications with base stations: 0 
+Device 42 -	 Battery Level: 99.8844814173% -	 Communications with base stations: 0 
+Device 43 -	 Battery Level: 99.8844684514% -	 Communications with base stations: 0 
+Device 44 -	 Battery Level: 99.8845126475% -	 Communications with base stations: 0 
+Device 45 -	 Battery Level: 99.8844803856% -	 Communications with base stations: 0 
+Device 46 -	 Battery Level: 99.8845081752% -	 Communications with base stations: 0 
+Device 47 -	 Battery Level: 99.8844708582% -	 Communications with base stations: 0 
+Device 48 -	 Battery Level: 99.88439543% -	 Communications with base stations: 0 
+Device 49 -	 Battery Level: 99.8844525429% -	 Communications with base stations: 0 

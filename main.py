@@ -48,14 +48,14 @@ from utils import generate_random_sizes
 
 def main():
     args = {
-    'EXPERIMENT': 27,
+    'EXPERIMENT': 35,
     'SEED': 1,
     'DATASET': "mnist",
     'DATA_DISTRIBUTION': "NON-IID",
     'TYPE_DISTRIBUTION': "pathological-balanced",
     'NUM_CLIENTS': 50, # 30
-    'LOCAL_ITERATIONS': 5, #
-    'EDGE_AGGREGATIONS': 10, # k2 10
+    'LOCAL_ITERATIONS': 20, #
+    'EDGE_AGGREGATIONS': 20, # k2 10
     'GLOBAL_ROUNDS': 25,
     'TRAIN_PHASES': 5,
     #'NUM_EDGES_SERVERS': 5,
